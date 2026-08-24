@@ -1,277 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FIFISTORY — Stories, Places & Life</title>
-  <meta name="description" content="FIFISTORY — a personal journal by Fifi Waratthaya. Stories, travel, life and thoughts.">
+<title>FIFISTORY — Travel, Food, Photography & Life</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta name="description" content="FIFISTORY — A personal journal by Fifi Waratthaya. Travel, food, photography, life and everything worth remembering.">
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f6f2;
-      color: #171717;
-      line-height: 1.5;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f6f2;
+    color: #24262b;
+    line-height: 1.5;
+}
 
-    header {
-      padding: 28px 6%;
-      border-bottom: 1px solid #d9d8d3;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f7f6f2;
-    }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
+header {
+    width: 100%;
+    border-bottom: 1px solid #d8d7d2;
+    background: #f7f6f2;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav {
+    max-width: 1400px;
+    margin: auto;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    opacity: 0.5;
+}
+
+.hero {
+    max-width: 1400px;
+    margin: auto;
+    padding: 110px 5% 100px;
+}
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 12vw, 180px);
+    line-height: .82;
+    letter-spacing: -8px;
+    font-weight: 800;
+    max-width: 1000px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero-text {
+    max-width: 550px;
+    margin-top: 45px;
+    font-size: 18px;
+    color: #666;
+}
+
+.intro {
+    border-top: 1px solid #d8d7d2;
+    border-bottom: 1px solid #d8d7d2;
+    padding: 60px 5%;
+}
+
+.intro-inner {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+}
+
+.intro h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro p {
+    font-size: 30px;
+    line-height: 1.25;
+    max-width: 800px;
+}
+
+.categories {
+    max-width: 1400px;
+    margin: auto;
+    padding: 100px 5%;
+}
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 45px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #d8d7d2;
+    border-left: 1px solid #d8d7d2;
+}
+
+.card {
+    min-height: 300px;
+    padding: 35px;
+    border-right: 1px solid #d8d7d2;
+    border-bottom: 1px solid #d8d7d2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+.card:hover {
+    background: #e9e8e3;
+}
+
+.number {
+    font-size: 12px;
+    color: #888;
+}
+
+.card h3 {
+    font-size: 50px;
+    letter-spacing: -2px;
+}
+
+.card p {
+    color: #777;
+    max-width: 400px;
+}
+
+.card-link {
+    margin-top: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about {
+    background: #24262b;
+    color: white;
+    padding: 110px 5%;
+}
+
+.about-inner {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+}
+
+.about h2 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.about p {
+    font-size: 40px;
+    line-height: 1.2;
+    max-width: 850px;
+}
+
+footer {
+    padding: 35px 5%;
+    border-top: 1px solid #d8d7d2;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+}
+
+@media (max-width: 700px) {
+
+    .nav {
+        padding: 20px;
     }
 
     nav {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-    }
-
-    nav a {
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    nav a:hover {
-      opacity: 1;
+        gap: 12px;
+        font-size: 11px;
     }
 
     .hero {
-      min-height: 78vh;
-      padding: 10vh 6%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-bottom: 1px solid #d9d8d3;
+        padding: 80px 20px;
     }
 
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      opacity: 0.55;
-    }
-
-    h1 {
-      font-size: clamp(64px, 12vw, 170px);
-      line-height: 0.82;
-      letter-spacing: -8px;
-      font-weight: 700;
-      max-width: 1100px;
+    .hero h1 {
+        font-size: 75px;
+        letter-spacing: -4px;
     }
 
     .hero-text {
-      margin-top: 45px;
-      max-width: 520px;
-      font-size: 19px;
-      color: #555;
+        font-size: 16px;
     }
 
     .intro {
-      padding: 90px 6%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      border-bottom: 1px solid #d9d8d3;
+        padding: 60px 20px;
     }
 
-    .intro h2 {
-      font-size: 44px;
-      line-height: 1;
-      letter-spacing: -2px;
+    .intro-inner,
+    .about-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .intro p {
-      font-size: 18px;
-      color: #555;
-      max-width: 550px;
+        font-size: 25px;
     }
 
     .categories {
-      padding: 70px 6%;
+        padding: 70px 20px;
     }
 
-    .categories-title {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 35px;
+    .grid {
+        grid-template-columns: 1fr;
     }
 
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid #d9d8d3;
+    .card {
+        min-height: 250px;
     }
 
-    .category {
-      padding: 35px 20px 35px 0;
-      border-bottom: 1px solid #d9d8d3;
-      font-size: 27px;
-      transition: transform 0.2s;
+    .card h3 {
+        font-size: 40px;
     }
 
-    .category:hover {
-      transform: translateX(8px);
+    .about {
+        padding: 80px 20px;
+    }
+
+    .about p {
+        font-size: 28px;
     }
 
     footer {
-      padding: 40px 6%;
-      border-top: 1px solid #d9d8d3;
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: #666;
+        padding: 25px 20px;
     }
-
-    @media (max-width: 700px) {
-      header {
-        padding: 22px 5%;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        min-height: 70vh;
-        padding: 8vh 5%;
-      }
-
-      h1 {
-        font-size: 72px;
-        letter-spacing: -4px;
-      }
-
-      .hero-text {
-        font-size: 17px;
-      }
-
-      .intro {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding: 65px 5%;
-      }
-
-      .intro h2 {
-        font-size: 36px;
-      }
-
-      .categories {
-        padding: 60px 5%;
-      }
-
-      .category-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .category {
-        font-size: 22px;
-      }
-
-      footer {
-        padding: 30px 5%;
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <a href="/" class="logo">FIFISTORY</a>
+<header>
+    <div class="nav">
+        <a href="#" class="logo">FIFISTORY.</a>
 
-    <nav>
-      <a href="#stories">Stories</a>
-      <a href="#travel">Travel</a>
-      <a href="#life">Life</a>
-      <a href="#thoughts">Thoughts</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
+        <nav>
+            <a href="#travel">Travel</a>
+            <a href="#food">Food</a>
+            <a href="#photography">Photography</a>
+            <a href="#about">About</a>
+        </nav>
+    </div>
+</header>
 
-  <main>
+<main>
 
-    <section class="hero">
-      <div class="eyebrow">A personal journal by Fifi Waratthaya</div>
+<section class="hero">
+    <div class="small-title">
+        A personal journal by Fifi Waratthaya
+    </div>
 
-      <h1>FIFI<br>STORY</h1>
+    <h1>
+        <span>FIFI</span>
+        <span>STORY</span>
+    </h1>
 
-      <p class="hero-text">
-        Stories, places, thoughts and little things worth remembering.
-      </p>
-    </section>
+    <p class="hero-text">
+        Stories, places, food, photographs and little things worth remembering.
+        A personal journal of the life I choose to live.
+    </p>
+</section>
 
-    <section class="intro" id="about">
-      <div>
-        <h2>A little corner<br>of my world.</h2>
-      </div>
+<section class="intro">
+    <div class="intro-inner">
 
-      <div>
+        <h2>Welcome to FIFISTORY</h2>
+
         <p>
-          Welcome to FIFISTORY — my personal space on the internet.
-          A collection of stories, travels, everyday moments and thoughts
-          that I want to keep somewhere beyond my camera roll.
+            This is my little corner of the internet — where I keep
+            the places I go, the food I love, the photographs I take,
+            and the stories that become part of my life.
         </p>
-      </div>
-    </section>
 
-    <section class="categories">
+    </div>
+</section>
 
-      <div class="categories-title">Explore FIFISTORY</div>
+<section class="categories">
 
-      <div class="category-grid">
+    <div class="section-label">Explore my stories</div>
 
-        <a href="#" class="category" id="stories">
-          Stories ↗
+    <div class="grid">
+
+        <a href="#travel" class="card" id="travel">
+            <div class="number">01 / TRAVEL</div>
+
+            <div>
+                <h3>Travel</h3>
+                <p>
+                    Places I've been, places I want to go,
+                    travel stories and experiences along the way.
+                </p>
+            </div>
+
+            <div class="card-link">Explore →</div>
         </a>
 
-        <a href="#" class="category" id="travel">
-          Travel ↗
+        <a href="#food" class="card" id="food">
+            <div class="number">02 / FOOD</div>
+
+            <div>
+                <h3>Food</h3>
+                <p>
+                    Things I cook, things I eat and places
+                    that are worth coming back to.
+                </p>
+            </div>
+
+            <div class="card-link">Discover →</div>
         </a>
 
-        <a href="#" class="category" id="life">
-          Life ↗
+        <a href="#photography" class="card" id="photography">
+            <div class="number">03 / PHOTOGRAPHY</div>
+
+            <div>
+                <h3>Photography</h3>
+                <p>
+                    Moments I've captured, places I've seen
+                    and photographs that tell their own stories.
+                </p>
+            </div>
+
+            <div class="card-link">View photos →</div>
         </a>
 
-        <a href="#" class="category" id="thoughts">
-          Thoughts ↗
+        <a href="#about" class="card">
+            <div class="number">04 / LIFE</div>
+
+            <div>
+                <h3>Life</h3>
+                <p>
+                    Thoughts, everyday moments, experiences
+                    and everything in between.
+                </p>
+            </div>
+
+            <div class="card-link">Read more →</div>
         </a>
 
-      </div>
+    </div>
+</section>
 
-    </section>
+<section class="about" id="about">
 
-  </main>
+    <div class="about-inner">
 
-  <footer>
-    <span>© 2026 FIFISTORY</span>
+        <h2>About Fifi</h2>
+
+        <p>
+            I'm Fifi. I love travelling, discovering new places,
+            cooking good food, taking photographs and collecting
+            stories along the way.
+            <br><br>
+            FIFISTORY is where I put them all together.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <span>© 2026 FIFISTORY.</span>
     <span>Made by Fifi</span>
-  </footer>
+</footer>
 
 </body>
 </html>
