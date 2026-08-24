@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FIFISTORY — Stories, Places & Life</title>
+  <meta name="description" content="FIFISTORY — a personal journal by Fifi Waratthaya. Stories, travel, life and thoughts.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6f2;
+      color: #171717;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 28px 6%;
+      border-bottom: 1px solid #d9d8d3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f7f6f2;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    nav a {
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      min-height: 78vh;
+      padding: 10vh 6%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #d9d8d3;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0.55;
+    }
+
+    h1 {
+      font-size: clamp(64px, 12vw, 170px);
+      line-height: 0.82;
+      letter-spacing: -8px;
+      font-weight: 700;
+      max-width: 1100px;
+    }
+
+    .hero-text {
+      margin-top: 45px;
+      max-width: 520px;
+      font-size: 19px;
+      color: #555;
+    }
+
+    .intro {
+      padding: 90px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      border-bottom: 1px solid #d9d8d3;
+    }
+
+    .intro h2 {
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      color: #555;
+      max-width: 550px;
+    }
+
+    .categories {
+      padding: 70px 6%;
+    }
+
+    .categories-title {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 35px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #d9d8d3;
+    }
+
+    .category {
+      padding: 35px 20px 35px 0;
+      border-bottom: 1px solid #d9d8d3;
+      font-size: 27px;
+      transition: transform 0.2s;
+    }
+
+    .category:hover {
+      transform: translateX(8px);
+    }
+
+    footer {
+      padding: 40px 6%;
+      border-top: 1px solid #d9d8d3;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 22px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 70vh;
+        padding: 8vh 5%;
+      }
+
+      h1 {
+        font-size: 72px;
+        letter-spacing: -4px;
+      }
+
+      .hero-text {
+        font-size: 17px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 65px 5%;
+      }
+
+      .intro h2 {
+        font-size: 36px;
+      }
+
+      .categories {
+        padding: 60px 5%;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .category {
+        font-size: 22px;
+      }
+
+      footer {
+        padding: 30px 5%;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="/" class="logo">FIFISTORY</a>
+
+    <nav>
+      <a href="#stories">Stories</a>
+      <a href="#travel">Travel</a>
+      <a href="#life">Life</a>
+      <a href="#thoughts">Thoughts</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="eyebrow">A personal journal by Fifi Waratthaya</div>
+
+      <h1>FIFI<br>STORY</h1>
+
+      <p class="hero-text">
+        Stories, places, thoughts and little things worth remembering.
+      </p>
+    </section>
+
+    <section class="intro" id="about">
+      <div>
+        <h2>A little corner<br>of my world.</h2>
+      </div>
+
+      <div>
+        <p>
+          Welcome to FIFISTORY — my personal space on the internet.
+          A collection of stories, travels, everyday moments and thoughts
+          that I want to keep somewhere beyond my camera roll.
+        </p>
+      </div>
+    </section>
+
+    <section class="categories">
+
+      <div class="categories-title">Explore FIFISTORY</div>
+
+      <div class="category-grid">
+
+        <a href="#" class="category" id="stories">
+          Stories ↗
+        </a>
+
+        <a href="#" class="category" id="travel">
+          Travel ↗
+        </a>
+
+        <a href="#" class="category" id="life">
+          Life ↗
+        </a>
+
+        <a href="#" class="category" id="thoughts">
+          Thoughts ↗
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <span>© 2026 FIFISTORY</span>
+    <span>Made by Fifi</span>
+  </footer>
+
+</body>
+</html>
