@@ -4,922 +4,1050 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FIFISTORY. — Travel, Food, Photography & Life</title>
-
-<meta name="description" content="FIFISTORY. A personal journal by Fifi Waratthaya — travel, food, photography, places and little things worth remembering.">
+<title>FIFISTORY.</title>
+<meta name="description" content="FIFISTORY. — A personal journal of travel, food, photography and life by FIFI WARATTHAYA.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <style>
-
-:root {
-    --blue: #5F9EA0;
-    --sky: #8FD3E8;
-    --deep-blue: #174B67;
-    --yellow: #F6D365;
-    --soft-yellow: #FFF4C7;
-    --cream: #FFFDF5;
-    --white: #FFFFFF;
-    --pink: #F8DCE6;
-    --lavender: #E8DDF7;
-    --mint: #DDEFE7;
-    --peach: #FFE2D2;
-    --text: #173B55;
-    --muted: #6C7D88;
+:root{
+  --cream:#FBF8EF;
+  --paper:#FFFDF8;
+  --blue:#164D69;
+  --sea:#5BA7BD;
+  --yellow:#F4D35E;
+  --yellow-soft:#FFF5CE;
+  --ink:#24495D;
+  --muted:#6C7F87;
+  --line:#E3DED1;
+  --white:#FFFFFF;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+  box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-    font-family: "DM Sans", sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    line-height: 1.6;
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-img {
-    width: 100%;
-    display: block;
+img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1240px,calc(100% - 70px));
+  margin:auto;
+}
 
 /* =========================
-   NAVIGATION
+   HEADER
 ========================= */
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,253,245,0.94);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid #e8e2d5;
+header{
+  height:82px;
+  background:rgba(251,248,239,.97);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(12px);
 }
 
-.nav {
-    max-width: 1400px;
-    margin: auto;
-    padding: 22px 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-inner{
+  height:100%;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
 }
 
-.logo {
-    font-family: "Playfair Display", serif;
-    font-size: 31px;
-    font-weight: 700;
-    letter-spacing: -1px;
+.logo{
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:-1px;
 }
 
-.logo-fifi {
-    color: var(--blue);
+.logo-blue{
+  color:var(--blue);
 }
 
-.logo-story {
-    color: var(--yellow);
+.logo-yellow{
+  color:var(--yellow);
 }
 
-.logo-dot {
-    color: var(--deep-blue);
+nav{
+  display:flex;
+  gap:30px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 35px;
-    align-items: center;
+nav a{
+  position:relative;
+  padding:9px 0;
+  color:var(--blue);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.3px;
+  transition:.2s;
 }
 
-.nav-links a {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: .25s ease;
+nav a:hover{
+  color:var(--sea);
 }
 
-.nav-links a:hover {
-    color: var(--blue);
+nav a.active:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:2px;
+  background:var(--yellow);
 }
 
-.nav-sun {
-    font-size: 22px;
+.language{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:4px;
 }
 
+.lang-btn{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:7px 9px;
+  border-radius:20px;
+}
+
+.lang-btn.active{
+  background:var(--yellow-soft);
+  color:var(--blue);
+}
 
 /* =========================
    HERO
 ========================= */
 
-.hero {
-    position: relative;
-    min-height: 680px;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 80% 25%, rgba(246,211,101,.30), transparent 110px),
-        linear-gradient(180deg, #ffffff 0%, #fdfcf5 55%, #dff4fa 100%);
+.hero{
+  padding-top:60px;
+  background:var(--cream);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 5;
-    max-width: 1200px;
-    margin: auto;
-    padding: 75px 35px 180px;
-    text-align: center;
+.hero-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:65px;
+  align-items:center;
+  min-height:590px;
 }
 
-.eyebrow {
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
+.eyebrow{
+  color:var(--sea);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2.3px;
+  margin-bottom:15px;
 }
 
-.sparkle {
-    color: var(--yellow);
-    font-size: 23px;
-    margin-left: 8px;
+.hero-title{
+  margin:0;
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(90px,11vw,155px);
+  font-weight:700;
+  line-height:.76;
+  letter-spacing:-7px;
 }
 
-.hero-title {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(95px, 15vw, 190px);
-    line-height: .78;
-    letter-spacing: -8px;
-    margin-bottom: 15px;
+.hero-story{
+  display:block;
+  margin-top:15px;
+  color:var(--yellow);
+  font-family:"DM Serif Display",serif;
+  font-size:.62em;
+  line-height:1;
+  letter-spacing:-1px;
 }
 
-.hero-title .fifi {
-    color: var(--blue);
+.hero-rule{
+  width:100px;
+  height:20px;
+  margin:27px 0 20px;
 }
 
-.hero-title .story {
-    color: var(--yellow);
-    font-family: "Parisienne", cursive;
-    font-size: .82em;
-    letter-spacing: 0;
+.hero-rule path{
+  fill:none;
+  stroke-linecap:round;
 }
 
-.hero-title .dot {
-    color: var(--yellow);
+.hero-rule .blue{
+  stroke:var(--sea);
+  stroke-width:2.5;
 }
 
-.hero-photo {
-    width: 150px;
-    height: 150px;
-    margin: 20px auto 25px;
-    border-radius: 50%;
-    border: 7px solid rgba(255,255,255,.9);
-    background:
-        linear-gradient(135deg, #8FD3E8, #FFF4C7);
-    box-shadow: 0 15px 35px rgba(23,75,103,.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    overflow: hidden;
+.hero-rule .yellow{
+  stroke:var(--yellow);
+  stroke-width:2;
 }
 
-/*
-  FUTURE PHOTO:
-  เปลี่ยนด้านบนเป็นรูปของเธอได้ เช่น
-
-  <img src="images/fifi.jpg" alt="Fifi">
-
-*/
-
-.hero-description {
-    max-width: 610px;
-    margin: auto;
-    font-size: 17px;
-    color: var(--muted);
+.hero-copy{
+  max-width:490px;
+  margin:0;
+  color:var(--blue);
+  font-size:14px;
+  line-height:1.8;
 }
 
-.hero-button {
-    display: inline-block;
-    margin-top: 28px;
-    padding: 13px 27px;
-    border-radius: 50px;
-    background: var(--yellow);
-    color: var(--deep-blue);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    transition: .3s;
+.hero-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 21px;
+  border:1px solid var(--blue);
+  border-radius:999px;
+  color:var(--blue);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  transition:.25s;
 }
 
-.hero-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(246,211,101,.35);
+.hero-button:hover{
+  background:var(--blue);
+  color:white;
 }
 
+.hero-photo-wrap{
+  height:550px;
+  position:relative;
+}
+
+.hero-photo{
+  width:100%;
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      145deg,
+      #F7E7A6 0%,
+      #BFE0E5 42%,
+      #78B2C0 70%,
+      #4C8390 100%
+    );
+}
+
+.hero-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.76),
+      rgba(218,239,242,.78)
+    );
+  color:var(--blue);
+}
+
+.hero-placeholder strong{
+  display:block;
+  font-family:"Cormorant Garamond",serif;
+  font-size:35px;
+}
+
+.hero-placeholder span{
+  display:block;
+  margin-top:8px;
+  font-size:9px;
+  letter-spacing:1.4px;
+}
+
+.photo-label{
+  position:absolute;
+  left:-16px;
+  bottom:28px;
+  padding:11px 15px;
+  background:var(--yellow);
+  color:var(--blue);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.photo-corner{
+  position:absolute;
+  right:-10px;
+  top:-10px;
+  width:80px;
+  height:80px;
+  border-top:2px solid var(--yellow);
+  border-right:2px solid var(--yellow);
+}
+
+.wave{
+  height:75px;
+  overflow:hidden;
+}
+
+.wave svg{
+  width:100%;
+  height:100%;
+}
+
+.wave path{
+  fill:none;
+  stroke-linecap:round;
+}
+
+.wave-blue{
+  stroke:var(--sea);
+  stroke-width:3;
+}
+
+.wave-yellow{
+  stroke:var(--yellow);
+  stroke-width:2;
+}
 
 /* =========================
-   SUN
+   STORY
 ========================= */
 
-.sun-decoration {
-    position: absolute;
-    top: 80px;
-    right: 13%;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #F6D365;
-    box-shadow: 0 0 0 15px rgba(246,211,101,.08);
-    opacity: .9;
+.story-section{
+  padding:80px 0 90px;
 }
 
-.sun-decoration::before {
-    content: "✦";
-    position: absolute;
-    font-size: 150px;
-    color: rgba(246,211,101,.45);
-    top: -55px;
-    left: -30px;
+.story-grid{
+  display:grid;
+  grid-template-columns:.72fr 1.28fr;
+  gap:80px;
+  align-items:start;
 }
 
+.kicker,
+.section-kicker{
+  color:var(--sea);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.section-title{
+  margin:8px 0 17px;
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:55px;
+  font-weight:600;
+  line-height:.95;
+}
+
+.section-title .accent{
+  color:var(--yellow);
+}
+
+.story-intro{
+  margin:0;
+  color:var(--blue);
+  font-family:"DM Serif Display",serif;
+  font-size:25px;
+  line-height:1.4;
+}
+
+.story-text{
+  color:var(--ink);
+  font-size:14px;
+  line-height:1.9;
+}
+
+.story-text p{
+  margin:0 0 19px;
+}
+
+.pullquote{
+  margin:30px 0;
+  padding:24px 26px;
+  background:var(--paper);
+  border-left:3px solid var(--yellow);
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:27px;
+  line-height:1.25;
+}
+
+.story-signature{
+  color:var(--sea);
+  font-family:"DM Serif Display",serif;
+  font-size:21px;
+}
 
 /* =========================
-   WAVES
+   TRAVEL
 ========================= */
 
-.wave-container {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
+.travel-section{
+  padding:20px 0 90px;
 }
 
-.wave {
-    position: absolute;
-    bottom: -35px;
-    left: -5%;
-    width: 110%;
-    height: 100px;
-    background: white;
-    border-radius: 50% 50% 0 0 / 65% 65% 0 0;
+.region-nav{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border:1px solid var(--line);
+  background:var(--white);
 }
 
-.wave.one {
-    bottom: 0;
-    background: #8FD3E8;
-    height: 85px;
+.region-nav a{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border-right:1px solid var(--line);
+  color:var(--blue);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.1px;
+  transition:.2s;
 }
 
-.wave.two {
-    bottom: 18px;
-    background: white;
-    height: 75px;
+.region-nav a:last-child{
+  border-right:0;
 }
 
-.wave.three {
-    bottom: 38px;
-    background: rgba(143,211,232,.75);
-    height: 55px;
+.region-nav a:hover{
+  background:var(--yellow-soft);
 }
 
+.region-icon{
+  color:var(--sea);
+  font-size:18px;
+}
+
+.travel-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin:55px 0 22px;
+}
+
+.travel-head .section-title{
+  margin-bottom:0;
+}
+
+.travel-note{
+  max-width:360px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.7;
+  letter-spacing:.4px;
+}
+
+.destinations{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:13px;
+}
+
+.destination{
+  background:white;
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:.25s;
+}
+
+.destination:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(22,77,105,.08);
+}
+
+.dest-photo{
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#FFF5CE;
+  font-size:44px;
+}
+
+.destination:nth-child(2) .dest-photo{
+  background:#E0F1F3;
+}
+
+.destination:nth-child(3) .dest-photo{
+  background:#E7F0E8;
+}
+
+.destination:nth-child(4) .dest-photo{
+  background:#EDE8F5;
+}
+
+.destination:nth-child(5) .dest-photo{
+  background:#F8E6E2;
+}
+
+.dest-body{
+  padding:14px;
+}
+
+.dest-body h3{
+  margin:0;
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:23px;
+}
+
+.dest-body p{
+  margin:5px 0 10px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+}
+
+.tag{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:99px;
+  background:#E6F1F3;
+  color:var(--blue);
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:.8px;
+}
 
 /* =========================
-   GENERAL SECTIONS
+   FULL SECTIONS
 ========================= */
 
-.section {
-    max-width: 1400px;
-    margin: auto;
-    padding: 85px 45px;
+.full-sections{
+  border-top:1px solid var(--line);
 }
 
-.section-number {
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
+.full-section{
+  padding:90px 0;
 }
 
-.section-title {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(42px, 5vw, 65px);
-    line-height: 1;
-    margin-top: 10px;
-    color: var(--deep-blue);
+.full-section:nth-child(even){
+  background:var(--paper);
 }
 
-.section-title .script {
-    font-family: "Parisienne", cursive;
-    color: var(--yellow);
-    font-weight: 400;
+.section-lead{
+  max-width:650px;
+  margin:0 0 32px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+  letter-spacing:.7px;
 }
 
+.emoji{
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  vertical-align:middle;
+}
+
+/* FOOD */
+
+.editorial-grid{
+  display:grid;
+  grid-template-columns:1.45fr .75fr;
+  gap:25px;
+}
+
+.editorial-feature{
+  min-height:430px;
+}
+
+.editorial-photo{
+  min-height:430px;
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      145deg,
+      #EED47D,
+      #B7DDE1 48%,
+      #78AEB5
+    );
+}
+
+.editorial-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 45%,
+    rgba(10,39,52,.65)
+  );
+}
+
+.editorial-overlay{
+  position:absolute;
+  z-index:2;
+  left:28px;
+  bottom:25px;
+  color:white;
+}
+
+.editorial-overlay span{
+  display:block;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.editorial-overlay strong{
+  display:block;
+  margin-top:6px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:43px;
+}
+
+.editorial-copy{
+  padding:35px;
+  border:1px solid var(--line);
+  background:white;
+}
+
+.copy-number{
+  color:var(--sea);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.8px;
+}
+
+.editorial-copy h3{
+  margin:25px 0 15px;
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:36px;
+}
+
+.editorial-copy p{
+  margin:0 0 23px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.85;
+}
+
+/* PHOTOGRAPHY */
+
+.photography-section{
+  background:#FFFDF8;
+}
+
+.photo-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:245px;
+  gap:12px;
+}
+
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  background:#DCEEF1;
+}
+
+.gallery-item:nth-child(2){
+  background:#F0E0AE;
+}
+
+.gallery-item:nth-child(3){
+  background:#DCE8DF;
+}
+
+.gallery-item:nth-child(4){
+  background:#E8E0EE;
+}
+
+.gallery-item:nth-child(5){
+  background:#F2DFD9;
+}
+
+.gallery-item:nth-child(6){
+  background:#D9E6E7;
+}
+
+.gallery-large{
+  grid-column:span 2;
+  grid-row:span 2;
+}
+
+.gallery-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:rgba(22,77,105,.45);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.gallery-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:30px 17px 14px;
+  color:white;
+  background:linear-gradient(
+    transparent,
+    rgba(10,39,52,.75)
+  );
+}
+
+.gallery-caption strong{
+  display:block;
+  font-size:9px;
+  letter-spacing:1.4px;
+}
+
+.gallery-caption span{
+  display:block;
+  margin-top:4px;
+  font-size:10px;
+}
+
+.center-action{
+  margin-top:28px;
+  text-align:center;
+}
+
+/* DIARY */
+
+.diary-editorial{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:25px;
+}
+
+.diary-note{
+  min-height:340px;
+  padding:38px;
+  background:var(--yellow-soft);
+}
+
+.diary-date{
+  color:var(--sea);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.7px;
+}
+
+.diary-note h3{
+  margin:35px 0 15px;
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:39px;
+}
+
+.diary-note p{
+  max-width:400px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.85;
+}
+
+.signature-wave{
+  margin-top:25px;
+  color:var(--sea);
+  font-size:27px;
+}
+
+.diary-list{
+  border-top:1px solid var(--line);
+}
+
+.diary-list a{
+  min-height:85px;
+  display:grid;
+  grid-template-columns:45px 1fr 25px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  color:var(--blue);
+  transition:.2s;
+}
+
+.diary-list a:hover{
+  padding-left:10px;
+  background:white;
+}
+
+.diary-list span{
+  color:var(--sea);
+  font-size:9px;
+}
+
+.diary-list strong{
+  font-family:"Cormorant Garamond",serif;
+  font-size:23px;
+}
+
+.diary-list b{
+  color:var(--yellow);
+}
 
 /* =========================
-   TRAVEL REGION CARDS
+   QUOTE / FOOTER
 ========================= */
 
-.region-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-    margin-top: 45px;
+.quote{
+  padding:25px 0 75px;
+  text-align:center;
 }
 
-.region-card {
-    min-height: 220px;
-    border-radius: 25px;
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid rgba(23,75,103,.07);
-    transition: .3s ease;
+.quote-mark{
+  color:var(--yellow);
+  font-size:44px;
 }
 
-.region-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 35px rgba(23,75,103,.12);
+.quote p{
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:28px;
+  line-height:1.3;
 }
 
-.region-card:nth-child(1) {
-    background: #E3F4F8;
+.quote-wave{
+  color:var(--sea);
+  font-size:24px;
 }
 
-.region-card:nth-child(2) {
-    background: #FFF1C9;
+footer{
+  padding:32px;
+  background:white;
+  border-top:1px solid var(--line);
+  text-align:center;
 }
 
-.region-card:nth-child(3) {
-    background: #DFF1E8;
+.footer-logo{
+  color:var(--blue);
+  font-family:"Cormorant Garamond",serif;
+  font-size:27px;
+  font-weight:700;
 }
 
-.region-card:nth-child(4) {
-    background: #EAE0F7;
+.footer-logo span{
+  color:var(--yellow);
 }
 
-.region-card:nth-child(5) {
-    background: #F9E0E5;
+footer p{
+  margin:5px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.8px;
 }
-
-.region-icon {
-    font-size: 38px;
-}
-
-.region-card h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 25px;
-}
-
-.region-card p {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-
-/* =========================
-   DESTINATIONS
-========================= */
-
-.destination-header {
-    margin-top: 90px;
-}
-
-.destination-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-    margin-top: 35px;
-}
-
-.destination-card {
-    background: white;
-    border: 1px solid #e8e2d5;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: .3s ease;
-}
-
-.destination-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(23,75,103,.1);
-}
-
-.destination-image {
-    height: 175px;
-    background: linear-gradient(135deg,#8FD3E8,#FFF4C7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-}
-
-/*
-  FUTURE PHOTO:
-  Replace the destination-image with:
-
-  <img src="images/chiang-mai.jpg" alt="Chiang Mai">
-
-*/
-
-.destination-info {
-    padding: 17px;
-}
-
-.destination-info h4 {
-    font-family: "Playfair Display", serif;
-    font-size: 22px;
-}
-
-.destination-info p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 5px;
-}
-
-.tag {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 5px 10px;
-    border-radius: 30px;
-    background: #E5F4F7;
-    color: var(--blue);
-    font-size: 10px;
-    font-weight: 700;
-}
-
-
-/* =========================
-   REGION DETAILS
-========================= */
-
-.region-details {
-    margin-top: 90px;
-}
-
-.region-detail {
-    margin-bottom: 75px;
-    scroll-margin-top: 100px;
-}
-
-.detail-title {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    margin-bottom: 25px;
-}
-
-.detail-title span {
-    font-size: 34px;
-}
-
-.detail-title h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 38px;
-}
-
-.place-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.place {
-    padding: 10px 17px;
-    border-radius: 50px;
-    background: white;
-    border: 1px solid #e3ddd0;
-    font-size: 14px;
-    transition: .2s;
-}
-
-.place:hover {
-    background: var(--soft-yellow);
-    transform: translateY(-3px);
-}
-
-.upcoming {
-    border-color: var(--yellow);
-    background: #FFF9DD;
-}
-
-
-/* =========================
-   COLORFUL FEATURE CARDS
-========================= */
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.feature-card {
-    min-height: 220px;
-    padding: 28px;
-    border-radius: 25px;
-    position: relative;
-    overflow: hidden;
-    transition: .3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-6px);
-}
-
-.feature-card:nth-child(1) {
-    background: #FFF1C9;
-}
-
-.feature-card:nth-child(2) {
-    background: #F9DFE7;
-}
-
-.feature-card:nth-child(3) {
-    background: #DDF0E8;
-}
-
-.feature-card:nth-child(4) {
-    background: #E8DDF7;
-}
-
-.feature-number {
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: var(--deep-blue);
-}
-
-.feature-card h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 30px;
-    line-height: 1.1;
-    margin-top: 25px;
-}
-
-.feature-card p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 10px;
-}
-
-.feature-icon {
-    position: absolute;
-    right: 18px;
-    bottom: 12px;
-    font-size: 60px;
-    opacity: .85;
-}
-
-
-/* =========================
-   GALLERY
-========================= */
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 35px;
-}
-
-.gallery-card {
-    background: white;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid #e8e2d5;
-}
-
-.gallery-photo {
-    height: 280px;
-    background: linear-gradient(135deg,#8FD3E8,#FFF4C7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-}
-
-.gallery-caption {
-    padding: 20px;
-}
-
-.gallery-caption h4 {
-    font-family: "Playfair Display", serif;
-    font-size: 23px;
-}
-
-.gallery-caption p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-top: 6px;
-}
-
-.gallery-meta {
-    margin-top: 12px;
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 600;
-}
-
-
-/* =========================
-   FOOD
-========================= */
-
-.food-section {
-    background: var(--soft-yellow);
-    border-radius: 40px;
-    padding: 60px;
-    display: grid;
-    grid-template-columns: 1fr .7fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.food-section h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 48px;
-}
-
-.food-section p {
-    color: var(--muted);
-    margin-top: 15px;
-}
-
-.food-icons {
-    text-align: center;
-    font-size: 85px;
-    line-height: 1.4;
-}
-
-
-/* =========================
-   DIARY
-========================= */
-
-.diary {
-    background: #E4F3F5;
-    border-radius: 40px;
-    padding: 60px;
-    text-align: center;
-}
-
-.diary h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 48px;
-}
-
-.diary p {
-    max-width: 600px;
-    margin: 15px auto 0;
-    color: var(--muted);
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-photo {
-    height: 470px;
-    border-radius: 35px;
-    background: linear-gradient(135deg,#8FD3E8,#FFF4C7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 110px;
-    overflow: hidden;
-}
-
-.about-text h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 55px;
-}
-
-.about-text p {
-    color: var(--muted);
-    font-size: 17px;
-    margin-top: 18px;
-}
-
-
-/* =========================
-   QUOTE
-========================= */
-
-.quote {
-    text-align: center;
-    padding: 70px 25px;
-    position: relative;
-}
-
-.quote-mark {
-    font-size: 70px;
-    color: var(--yellow);
-    line-height: .5;
-}
-
-.quote p {
-    max-width: 650px;
-    margin: 20px auto;
-    font-family: "Playfair Display", serif;
-    font-size: 27px;
-    color: var(--deep-blue);
-}
-
-.quote-wave {
-    color: var(--blue);
-    font-size: 25px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #F3F9F9;
-    border-top: 1px solid #e3e8e4;
-    text-align: center;
-    padding: 55px 25px;
-}
-
-.footer-logo {
-    font-family: "Playfair Display", serif;
-    font-size: 28px;
-}
-
-.footer-logo span {
-    color: var(--blue);
-}
-
-.footer-logo .yellow {
-    color: var(--yellow);
-}
-
-footer p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 7px;
-}
-
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 1000px) {
+@media(max-width:1000px){
 
-    .region-grid {
-        grid-template-columns: repeat(3,1fr);
-    }
+  .container{
+    width:min(100% - 40px,1240px);
+  }
 
-    .destination-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
 
-    .feature-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+  .hero-photo-wrap{
+    height:470px;
+  }
 
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
+  .story-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .destinations{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .editorial-grid,
+  .diary-editorial{
+    grid-template-columns:1fr;
+  }
 }
 
-@media (max-width: 700px) {
+@media(max-width:680px){
 
-    .nav {
-        padding: 17px 20px;
-    }
+  .container{
+    width:calc(100% - 30px);
+  }
 
-    .logo {
-        font-size: 23px;
-    }
+  header{
+    height:72px;
+  }
 
-    .nav-links {
-        gap: 12px;
-    }
+  .header-inner{
+    grid-template-columns:auto 1fr auto;
+  }
 
-    .nav-links a {
-        font-size: 10px;
-    }
+  .logo{
+    font-size:25px;
+  }
 
-    .nav-sun {
-        display: none;
-    }
+  nav{
+    justify-content:center;
+    gap:12px;
+  }
 
-    .hero-content {
-        padding: 70px 20px 180px;
-    }
+  nav a{
+    font-size:8px;
+  }
 
-    .hero-title {
-        font-size: 88px;
-        letter-spacing: -5px;
-    }
+  nav a:nth-child(4),
+  nav a:nth-child(5){
+    display:none;
+  }
 
-    .sun-decoration {
-        right: 5%;
-        top: 120px;
-        transform: scale(.65);
-    }
+  .hero{
+    padding-top:40px;
+  }
 
-    .section {
-        padding: 70px 20px;
-    }
+  .hero-title{
+    font-size:84px;
+    letter-spacing:-4px;
+  }
 
-    .region-grid,
-    .destination-grid,
-    .gallery {
-        grid-template-columns: 1fr;
-    }
+  .hero-photo-wrap{
+    height:390px;
+  }
 
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
+  .region-nav{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .food-section {
-        grid-template-columns: 1fr;
-        padding: 35px 25px;
-    }
+  .region-nav a:nth-child(2){
+    border-right:0;
+  }
 
-    .food-section h2,
-    .diary h2 {
-        font-size: 38px;
-    }
+  .region-nav a:nth-child(3),
+  .region-nav a:nth-child(4),
+  .region-nav a:nth-child(5){
+    border-top:1px solid var(--line);
+  }
 
-    .about-text h2 {
-        font-size: 42px;
-    }
+  .region-nav a:nth-child(5){
+    grid-column:1/-1;
+    border-right:0;
+  }
 
-    .about-photo {
-        height: 330px;
-    }
+  .travel-head{
+    display:block;
+  }
 
-    .quote p {
-        font-size: 23px;
-    }
+  .travel-note{
+    margin-top:10px;
+  }
+
+  .destinations{
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+    font-size:44px;
+  }
+
+  .photo-gallery{
+    grid-template-columns:1fr 1fr;
+    grid-auto-rows:170px;
+  }
+
+  .gallery-large{
+    grid-column:span 2;
+    grid-row:span 1;
+  }
+
+  .editorial-feature,
+  .editorial-photo{
+    min-height:360px;
+  }
+
+  .editorial-copy{
+    padding:25px;
+  }
+
+  .diary-note{
+    min-height:280px;
+    padding:28px;
+  }
+
+  .diary-list strong{
+    font-size:18px;
+  }
+
+  .language{
+    font-size:9px;
+  }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
 <!-- =========================
-     NAVIGATION
+     HEADER
 ========================= -->
 
 <header>
+  <div class="container header-inner">
 
-<nav class="nav">
+    <a href="#home" class="logo">
+      <span class="logo-blue">FIFI</span>
+      <span class="logo-yellow">STORY.</span>
+    </a>
 
-<a href="#" class="logo">
-<span class="logo-fifi">FIFI</span>
-<span class="logo-story">STORY</span>
-<span class="logo-dot">.</span>
-</a>
+    <nav>
+      <a href="#home" class="active" data-i18n="navHome">HOME</a>
+      <a href="#travel" data-i18n="navTravel">TRAVEL</a>
+      <a href="#food" data-i18n="navFood">FOOD</a>
+      <a href="#photography" data-i18n="navPhotography">PHOTOGRAPHY</a>
+      <a href="#about" data-i18n="navAbout">ABOUT</a>
+    </nav>
 
-<div class="nav-links">
+    <div class="language">
+      <button class="lang-btn" data-lang="th">TH</button>
+      <span>|</span>
+      <button class="lang-btn active" data-lang="en">EN</button>
+    </div>
 
-<a href="#">HOME</a>
-<a href="#travel">TRAVEL</a>
-<a href="#food">FOOD</a>
-<a href="#photography">PHOTOGRAPHY</a>
-<a href="#about">ABOUT</a>
-
-<span class="nav-sun">☀️ 🌊</span>
-
-</div>
-
-</nav>
-
+  </div>
 </header>
 
 
@@ -927,52 +1055,206 @@ footer p {
      HERO
 ========================= -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<div class="sun-decoration"></div>
+  <div class="container">
 
-<div class="hero-content">
+    <div class="hero-grid">
 
-<div class="eyebrow">
-A PERSONAL JOURNAL BY FIFI WARATTHAYA
-<span class="sparkle">✦</span>
-</div>
+      <div>
 
-<h1 class="hero-title">
-<span class="fifi">FIFI</span><br>
-<span class="story">Story</span><span class="dot">.</span>
-</h1>
+        <div class="eyebrow" data-i18n="eyebrow">
+          A PERSONAL JOURNAL BY FIFI WARATTHAYA
+        </div>
 
+        <h1 class="hero-title">
+          FIFI
+          <span class="hero-story">STORY.</span>
+        </h1>
 
-<!--
-    รูปของ Fifi สามารถใส่ตรงนี้ในอนาคต
--->
+        <svg class="hero-rule" viewBox="0 0 100 20">
+          <path class="blue" d="M2 6 Q14 -1 26 6 T50 6 T74 6 T98 6"/>
+          <path class="yellow" d="M2 15 Q14 8 26 15 T50 15 T74 15 T98 15"/>
+        </svg>
 
-<div class="hero-photo">
-🌊
-</div>
+        <p class="hero-copy" data-i18n="heroCopy">
+          STORIES, PLACES, FOOD, PHOTOGRAPHS AND LITTLE THINGS WORTH
+          REMEMBERING. A PERSONAL JOURNAL OF THE LIFE I CHOOSE TO LIVE.
+        </p>
 
+        <a href="#story" class="hero-button" data-i18n="heroButton">
+          READ MY STORY →
+        </a>
 
-<p class="hero-description">
-Stories, places, food, photographs and little things worth remembering.
-<br>
-A personal journal of the life I choose to live.
-</p>
-
-<a href="#travel" class="hero-button">
-EXPLORE MY STORIES →
-</a>
-
-</div>
+      </div>
 
 
-<div class="wave-container">
+      <div class="hero-photo-wrap">
 
-<div class="wave one"></div>
-<div class="wave two"></div>
-<div class="wave three"></div>
+        <div class="hero-photo">
 
-</div>
+          <!--
+          ============================================
+          ใส่รูปจริงของ FIFI ตรงนี้ในอนาคต
+
+          ลบ div hero-placeholder แล้วใส่:
+
+          <img src="images/fifi-hero.jpg"
+               alt="FIFI STORY">
+
+          ============================================
+          -->
+
+          <div class="hero-placeholder">
+
+            <div>
+              <strong data-i18n="photoPlaceholderTitle">
+                YOUR PHOTO HERE
+              </strong>
+
+              <span data-i18n="photoPlaceholderText">
+                YOUR JOURNEY · YOUR LIFE · YOUR STORY
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="photo-label" data-i18n="photoLabel">
+          FIFISTORY. / PERSONAL JOURNAL
+        </div>
+
+        <div class="photo-corner"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="wave">
+
+      <svg viewBox="0 0 1400 75" preserveAspectRatio="none">
+
+        <path class="wave-blue"
+          d="M0 30 Q90 5 180 30 T360 30 T540 30 T720 30 T900 30 T1080 30 T1260 30 T1440 30"/>
+
+        <path class="wave-yellow"
+          d="M0 43 Q90 19 180 43 T360 43 T540 43 T720 43 T900 43 T1080 43 T1260 43 T1440 43"/>
+
+      </svg>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WHY FIFISTORY
+========================= -->
+
+<section class="story-section" id="story">
+
+  <div class="container story-grid">
+
+    <div>
+
+      <div class="kicker" data-i18n="storyKicker">
+        01 — WHY FIFISTORY.
+      </div>
+
+      <h2 class="section-title" data-i18n="storyTitle">
+        IF YOU WANT TO DO IT,
+        <span class="accent">JUST GO.</span> ✦
+      </h2>
+
+      <p class="story-intro" data-i18n="storyIntro">
+        A place for the things I love, the places I go,
+        and the life I choose to live.
+      </p>
+
+    </div>
+
+
+    <div class="story-text" id="about">
+
+      <div data-i18n="storyBody">
+
+        <p>
+          FIFISTORY. started with a simple thought:
+          if I want to do something, why keep waiting for the perfect time?
+        </p>
+
+        <p>
+          I love travelling. I love discovering new places,
+          trying good food, cooking, taking photographs,
+          and collecting little moments along the way.
+          One day, I thought — why not create a place
+          to keep all of these stories?
+        </p>
+
+        <p>
+          So, I did.
+        </p>
+
+        <p>
+          FIFISTORY. is my little corner of the internet
+          where I share the places I've been, the food I've eaten,
+          the things I've cooked, the photographs I've taken,
+          and the moments that made me stop and think,
+          “I'm glad I came here.”
+        </p>
+
+        <div class="pullquote">
+          THIS ISN'T JUST ABOUT WHERE I'VE BEEN.
+          <br>
+          IT'S ABOUT WHAT I SAW, WHAT I TASTED,
+          AND WHAT I FELT ALONG THE WAY.
+        </div>
+
+        <p>
+          This isn't just a travel website,
+          and it's not only about building a business.
+          It's about sharing experiences.
+        </p>
+
+        <p>
+          I want you to see the places the way I saw them,
+          taste the things I loved, discover the places I enjoyed,
+          and maybe find somewhere that makes you want
+          to pack your bag and go.
+        </p>
+
+        <p>
+          Because sometimes we spend too much time
+          waiting for the “right time” to do the things we want.
+        </p>
+
+        <p>
+          <strong>
+            So if you want to go, go.
+            If you want to try, try.
+            If you want to create something, create it.
+          </strong>
+        </p>
+
+        <p>
+          And if something I experience can inspire someone else
+          to create a story of their own,
+          then the journey becomes even more meaningful.
+        </p>
+
+        <p class="story-signature">
+          THIS IS FIFISTORY. — COME ALONG. 🌊
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -981,565 +1263,181 @@ EXPLORE MY STORIES →
      TRAVEL
 ========================= -->
 
-<section class="section" id="travel">
+<section class="travel-section" id="travel">
 
-<div class="section-number">
-01 — TRAVEL
-</div>
+  <div class="container">
 
-<h2 class="section-title">
-Places I've <span class="script">been.</span>
-</h2>
+    <div class="region-nav">
 
+      <a href="#bangkok">
+        <span class="region-icon">🏙</span>
+        <span data-i18n="bangkok">BANGKOK</span>
+      </a>
 
-<!-- =========================
-     REGIONS
-========================= -->
+      <a href="#central">
+        <span class="region-icon">🏛</span>
+        <span data-i18n="central">CENTRAL</span>
+      </a>
 
-<div class="region-grid">
+      <a href="#east">
+        <span class="region-icon">🌴</span>
+        <span data-i18n="east">EAST</span>
+      </a>
 
+      <a href="#north">
+        <span class="region-icon">🏔</span>
+        <span data-i18n="north">NORTH</span>
+      </a>
 
-<a href="#bangkok" class="region-card">
+      <a href="#south">
+        <span class="region-icon">🌊</span>
+        <span data-i18n="south">SOUTH</span>
+      </a>
 
-<div class="region-icon">🏙️</div>
+    </div>
 
-<div>
-<h3>Bangkok</h3>
-<p>My everyday city</p>
-</div>
 
-</a>
+    <div class="travel-head">
 
+      <div>
 
-<a href="#central" class="region-card">
+        <div class="kicker" data-i18n="travelKicker">
+          02 — TRAVEL
+        </div>
 
-<div class="region-icon">🏛️</div>
+        <h2 class="section-title" data-i18n="travelTitle">
+          MY TRAVEL DIARY 🌊
+        </h2>
 
-<div>
-<h3>Central</h3>
-<p>History, cities & weekend escapes</p>
-</div>
+      </div>
 
-</a>
+      <div class="travel-note" data-i18n="travelNote">
+        PLACES I HAVE BEEN, STORIES I WANT TO REMEMBER,
+        AND PLACES I STILL WANT TO DISCOVER.
+      </div>
 
+    </div>
 
-<a href="#east" class="region-card">
 
-<div class="region-icon">🏝️</div>
+    <div class="destinations">
 
-<div>
-<h3>East</h3>
-<p>Islands & tropical hideaways</p>
-</div>
+      <article class="destination" id="north">
 
-</a>
+        <div class="dest-photo">
+          🏔️
+        </div>
 
+        <div class="dest-body">
 
-<a href="#north" class="region-card">
+          <h3>CHIANG MAI</h3>
 
-<div class="region-icon">🏔️</div>
+          <p data-i18n="chiangMaiText">
+            MOUNTAINS, TEMPLES AND SLOW DAYS.
+          </p>
 
-<div>
-<h3>North</h3>
-<p>Mountains, coffee & slow mornings</p>
-</div>
+          <span class="tag">
+            NORTH · THAILAND
+          </span>
 
-</a>
+        </div>
 
+      </article>
 
-<a href="#south" class="region-card">
 
-<div class="region-icon">🌊</div>
+      <article class="destination" id="south">
 
-<div>
-<h3>South</h3>
-<p>Islands, beaches & blue water</p>
-</div>
+        <div class="dest-photo">
+          🌊
+        </div>
 
-</a>
+        <div class="dest-body">
 
+          <h3>KRABI</h3>
 
-</div>
+          <p data-i18n="krabiText">
+            SEA, CLIFFS AND TROPICAL DAYS.
+          </p>
 
+          <span class="tag">
+            SOUTH · THAILAND
+          </span>
 
-<!-- =========================
-     DESTINATIONS
-========================= -->
+        </div>
 
-<div class="destination-header">
+      </article>
 
-<div class="section-number">
-DESTINATIONS
-</div>
 
-<h2 class="section-title">
-Where I've <span class="script">been.</span>
-</h2>
+      <article class="destination" id="east">
 
-</div>
+        <div class="dest-photo">
+          🌴
+        </div>
 
+        <div class="dest-body">
 
-<div class="destination-grid">
+          <h3>KOH KOOD</h3>
 
+          <p data-i18n="koodText">
+            QUIET BEACHES AND BLUE WATER.
+          </p>
 
-<!-- Chiang Mai -->
+          <span class="tag">
+            EAST · THAILAND
+          </span>
 
-<div class="destination-card">
+        </div>
 
-<div class="destination-image">
-🏔️
-</div>
+      </article>
 
-<div class="destination-info">
 
-<h4>Chiang Mai</h4>
+      <article class="destination" id="central">
 
-<p>
-Mountains, temples and slow days.
-</p>
+        <div class="dest-photo">
+          🏛️
+        </div>
 
-<span class="tag">NORTH · THAILAND</span>
+        <div class="dest-body">
 
-</div>
+          <h3>AYUTTHAYA</h3>
 
-</div>
+          <p data-i18n="ayutthayaText">
+            HISTORY, TEMPLES AND OLD-WORLD CHARM.
+          </p>
 
+          <span class="tag">
+            CENTRAL · THAILAND
+          </span>
 
-<!-- Krabi -->
+        </div>
 
-<div class="destination-card">
+      </article>
 
-<div class="destination-image">
-🌊
-</div>
 
-<div class="destination-info">
+      <article class="destination" id="bangkok">
 
-<h4>Krabi</h4>
+        <div class="dest-photo">
+          🏙️
+        </div>
 
-<p>
-Sea, cliffs and tropical days.
-</p>
+        <div class="dest-body">
 
-<span class="tag">SOUTH · THAILAND</span>
+          <h3>BANGKOK</h3>
 
-</div>
+          <p data-i18n="bangkokText">
+            MY CITY — FOOD, CAFÉS, PEOPLE AND STORIES.
+          </p>
 
-</div>
+          <span class="tag">
+            BANGKOK · THAILAND
+          </span>
 
+        </div>
 
-<!-- Koh Kood -->
+      </article>
 
-<div class="destination-card">
+    </div>
 
-<div class="destination-image">
-🏝️
-</div>
-
-<div class="destination-info">
-
-<h4>Koh Kood</h4>
-
-<p>
-Quiet beaches and blue water.
-</p>
-
-<span class="tag">EAST · THAILAND</span>
-
-</div>
-
-</div>
-
-
-<!-- Ayutthaya -->
-
-<div class="destination-card">
-
-<div class="destination-image">
-🏛️
-</div>
-
-<div class="destination-info">
-
-<h4>Ayutthaya</h4>
-
-<p>
-History, temples and old-world charm.
-</p>
-
-<span class="tag">CENTRAL · THAILAND</span>
-
-</div>
-
-</div>
-
-
-<!-- Bangkok -->
-
-<div class="destination-card">
-
-<div class="destination-image">
-🏙️
-</div>
-
-<div class="destination-info">
-
-<h4>Bangkok</h4>
-
-<p>
-My city — food, cafés, people and stories.
-</p>
-
-<span class="tag">BANGKOK · THAILAND</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- =========================
-     ALL REGIONS
-========================= -->
-
-<div class="region-details">
-
-
-<!-- BANGKOK -->
-
-<div class="region-detail" id="bangkok">
-
-<div class="detail-title">
-<span>🏙️</span>
-<h3>Bangkok</h3>
-</div>
-
-<div class="place-list">
-
-<div class="place">
-Bangkok
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CENTRAL -->
-
-<div class="region-detail" id="central">
-
-<div class="detail-title">
-<span>🏛️</span>
-<h3>Central</h3>
-</div>
-
-<div class="place-list">
-
-<div class="place">
-Pattaya
-</div>
-
-<div class="place">
-Ayutthaya
-</div>
-
-</div>
-
-</div>
-
-
-<!-- EAST -->
-
-<div class="region-detail" id="east">
-
-<div class="detail-title">
-<span>🏝️</span>
-<h3>East</h3>
-</div>
-
-<div class="place-list">
-
-<div class="place">
-Koh Chang
-</div>
-
-<div class="place">
-Koh Kood
-</div>
-
-</div>
-
-</div>
-
-
-<!-- NORTH -->
-
-<div class="region-detail" id="north">
-
-<div class="detail-title">
-<span>🏔️</span>
-<h3>North</h3>
-</div>
-
-<div class="place-list">
-
-<div class="place">
-Chiang Mai
-</div>
-
-<div class="place upcoming">
-Nan · November
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SOUTH -->
-
-<div class="region-detail" id="south">
-
-<div class="detail-title">
-<span>🌊</span>
-<h3>South</h3>
-</div>
-
-<div class="place-list">
-
-<div class="place">
-Krabi
-</div>
-
-<div class="place">
-Phuket
-</div>
-
-<div class="place">
-Phang Nga
-</div>
-
-<div class="place">
-Koh Tao
-</div>
-
-<div class="place">
-Koh Samui
-</div>
-
-<div class="place upcoming">
-Koh Lanta · November
-</div>
-
-<div class="place upcoming">
-Koh Lipe · November
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FEATURE SECTIONS
-========================= -->
-
-<section class="section">
-
-<div class="feature-grid">
-
-
-<div class="feature-card" id="food">
-
-<div class="feature-number">
-02 — FOOD
-</div>
-
-<h3>
-Things I<br>
-love to eat.
-</h3>
-
-<p>
-Food, recipes and little discoveries.
-</p>
-
-<div class="feature-icon">
-🍋
-</div>
-
-</div>
-
-
-<div class="feature-card" id="photography">
-
-<div class="feature-number">
-03 — PHOTOGRAPHY
-</div>
-
-<h3>
-Life through<br>
-my camera.
-</h3>
-
-<p>
-Photographs from everywhere I go.
-</p>
-
-<div class="feature-icon">
-📷
-</div>
-
-</div>
-
-
-<div class="feature-card">
-
-<div class="feature-number">
-04 — DIARY
-</div>
-
-<h3>
-Little moments,<br>
-big memories.
-</h3>
-
-<p>
-Stories I want to remember.
-</p>
-
-<div class="feature-icon">
-📖
-</div>
-
-</div>
-
-
-<div class="feature-card" id="about">
-
-<div class="feature-number">
-05 — ABOUT
-</div>
-
-<h3>
-This is<br>
-my story.
-</h3>
-
-<p>
-A little more about me.
-</p>
-
-<div class="feature-icon">
-🌸
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PHOTOGRAPHY
-========================= -->
-
-<section class="section">
-
-<div class="section-number">
-PHOTOGRAPHY
-</div>
-
-<h2 class="section-title">
-Life through <span class="script">my camera.</span>
-</h2>
-
-
-<div class="gallery">
-
-
-<div class="gallery-card">
-
-<div class="gallery-photo">
-📷
-</div>
-
-<div class="gallery-caption">
-
-<h4>Your First Photo</h4>
-
-<p>
-Add your photograph and write
-the story behind this moment.
-</p>
-
-<div class="gallery-meta">
-📍 Place · 🏨 Hotel · 📅 Date
-</div>
-
-</div>
-
-</div>
-
-
-<div class="gallery-card">
-
-<div class="gallery-photo">
-🌊
-</div>
-
-<div class="gallery-caption">
-
-<h4>Blue Days</h4>
-
-<p>
-A little memory from somewhere
-by the sea.
-</p>
-
-<div class="gallery-meta">
-📍 Destination · 🏨 Hotel
-</div>
-
-</div>
-
-</div>
-
-
-<div class="gallery-card">
-
-<div class="gallery-photo">
-☀️
-</div>
-
-<div class="gallery-caption">
-
-<h4>Golden Moments</h4>
-
-<p>
-The places and little moments
-worth remembering.
-</p>
-
-<div class="gallery-meta">
-📍 Place · 📅 Date
-</div>
-
-</div>
-
-</div>
-
-
-</div>
+  </div>
 
 </section>
 
@@ -1548,112 +1446,347 @@ worth remembering.
      FOOD
 ========================= -->
 
-<section class="section">
+<section class="full-sections" id="food">
 
-<div class="food-section">
+<section class="full-section">
 
-<div>
+  <div class="container">
 
-<div class="section-number">
-02 — FOOD
-</div>
+    <div class="section-kicker">
+      03 —
+      <span data-i18n="foodLabel">FOOD</span>
+      <span class="emoji">🍋</span>
+    </div>
 
-<h2>
-Things I love to eat.
-</h2>
+    <h2 class="section-title" data-i18n="foodHeading">
+      FOOD IS PART OF THE STORY.
+    </h2>
 
-<p>
-Food is part of every journey.
-This space will be where I collect
-the dishes I love, places I eat,
-and things I cook myself.
-</p>
+    <p class="section-lead" data-i18n="foodLead">
+      THE THINGS I COOK, THE PLACES I EAT,
+      AND THE FLAVOURS I WANT TO REMEMBER.
+    </p>
 
-</div>
 
-<div class="food-icons">
-🍜 🥭<br>
-🍳 🥥
-</div>
+    <div class="editorial-grid">
 
-</div>
+      <article class="editorial-feature">
+
+        <div class="editorial-photo">
+
+          <!-- ใส่รูปอาหารจริงของ FIFI ภายหลังได้ -->
+
+          <div class="editorial-overlay">
+
+            <span>FOOD DIARY</span>
+
+            <strong data-i18n="foodFeatureTitle">
+              COOK · EAT · REMEMBER
+            </strong>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <div class="editorial-copy">
+
+        <div class="copy-number">
+          03 / FOOD
+        </div>
+
+        <h3 data-i18n="foodCopyTitle">
+          GOOD FOOD, GOOD MOOD.
+        </h3>
+
+        <p data-i18n="foodCopy">
+          From meals I make at home to restaurants and cafés
+          I discover along the way, this is where I keep the flavours,
+          recipes and little food moments that become part of my story.
+        </p>
+
+        <a href="#" class="hero-button" data-i18n="foodButton">
+          EXPLORE FOOD →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
 <!-- =========================
-     DIARY
+     PHOTOGRAPHY
 ========================= -->
 
-<section class="section">
+<section class="full-section photography-section" id="photography">
 
-<div class="diary">
+  <div class="container">
 
-<div class="section-number">
-04 — DIARY
-</div>
+    <div class="section-kicker">
 
-<h2>
-Little moments, big memories.
-</h2>
+      04 —
+      <span data-i18n="photoLabelSection">
+        PHOTOGRAPHY
+      </span>
 
-<p>
-A place for the stories that don't belong
-anywhere else — ordinary days, special days,
-thoughts, feelings and memories.
-</p>
+      <span class="emoji">📷</span>
 
-</div>
+    </div>
+
+
+    <h2 class="section-title" data-i18n="photoHeading">
+      LIFE THROUGH MY CAMERA.
+    </h2>
+
+
+    <p class="section-lead" data-i18n="photoLead">
+      PLACES, PEOPLE, DETAILS AND LITTLE MOMENTS I WANT TO KEEP.
+    </p>
+
+
+    <div class="photo-gallery">
+
+
+      <article class="gallery-item gallery-large">
+
+        <div class="gallery-placeholder">
+          PHOTO 01
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            TRAVEL MOMENTS
+          </strong>
+
+          <span data-i18n="gallery1">
+            A PLACE I WANT TO REMEMBER.
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="gallery-item">
+
+        <div class="gallery-placeholder">
+          PHOTO 02
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            DETAILS
+          </strong>
+
+          <span data-i18n="gallery2">
+            THE LITTLE THINGS THAT CAUGHT MY EYE.
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="gallery-item">
+
+        <div class="gallery-placeholder">
+          PHOTO 03
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            SEA & LIGHT
+          </strong>
+
+          <span data-i18n="gallery3">
+            COLOURS, LIGHT AND THE FEELING OF BEING THERE.
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="gallery-item">
+
+        <div class="gallery-placeholder">
+          PHOTO 04
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            PEOPLE
+          </strong>
+
+          <span data-i18n="gallery4">
+            MOMENTS THAT FEEL HUMAN.
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="gallery-item">
+
+        <div class="gallery-placeholder">
+          PHOTO 05
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            FOOD
+          </strong>
+
+          <span data-i18n="gallery5">
+            A MEMORY CAN START WITH A PLATE.
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <article class="gallery-item">
+
+        <div class="gallery-placeholder">
+          PHOTO 06
+        </div>
+
+        <div class="gallery-caption">
+
+          <strong>
+            ON THE ROAD
+          </strong>
+
+          <span data-i18n="gallery6">
+            ANOTHER DAY, ANOTHER STORY.
+          </span>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+    <div class="center-action">
+
+      <a href="#" class="hero-button" data-i18n="photoButton">
+        VIEW ALL PHOTOGRAPHY →
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
 
 <!-- =========================
-     ABOUT
+     LIFE & DIARY
 ========================= -->
 
-<section class="section">
+<section class="full-section" id="diary">
 
-<div class="section-number">
-05 — ABOUT
-</div>
+  <div class="container">
 
-<h2 class="section-title">
-This is <span class="script">my story.</span>
-</h2>
+    <div class="section-kicker">
+
+      05 —
+      <span data-i18n="diaryLabel">
+        LIFE & DIARY
+      </span>
+
+      <span class="emoji">☀️</span>
+
+    </div>
 
 
-<div class="about-grid">
+    <h2 class="section-title" data-i18n="diaryHeading">
+      THE LITTLE THINGS MATTER.
+    </h2>
 
-<div class="about-photo">
-🌊
-</div>
 
-<div class="about-text">
+    <div class="diary-editorial">
 
-<h2>Hi, I'm Fifi.</h2>
 
-<p>
-FIFISTORY is my personal space to collect
-the places I visit, food I love, photographs I take,
-and stories I want to remember.
-</p>
+      <div class="diary-note">
 
-<p>
-I love travelling, discovering new places,
-being close to the sea, taking photographs,
-and enjoying the little things in life.
-</p>
+        <span class="diary-date">
+          01 / 2026
+        </span>
 
-<p>
-This website is more than a diary.
-It is the beginning of something I want to
-grow into my future in travel.
-</p>
+        <h3 data-i18n="diaryTitle">
+          A LIFE IN PROGRESS.
+        </h3>
 
-</div>
+        <p data-i18n="diaryCopy">
+          The ordinary days matter too.
+          The work, the ideas, the meals, the photographs,
+          the plans I make and the things I am still learning.
+        </p>
 
-</div>
+        <div class="signature-wave">
+          〰〰〰
+        </div>
+
+      </div>
+
+
+      <div class="diary-list">
+
+        <a href="#">
+          <span>01</span>
+          <strong data-i18n="diaryItem1">
+            WHAT I'M WORKING ON
+          </strong>
+          <b>→</b>
+        </a>
+
+        <a href="#">
+          <span>02</span>
+          <strong data-i18n="diaryItem2">
+            PLACES I WANT TO GO
+          </strong>
+          <b>→</b>
+        </a>
+
+        <a href="#">
+          <span>03</span>
+          <strong data-i18n="diaryItem3">
+            THINGS I'M LEARNING
+          </strong>
+          <b>→</b>
+        </a>
+
+        <a href="#">
+          <span>04</span>
+          <strong data-i18n="diaryItem4">
+            LITTLE MOMENTS
+          </strong>
+          <b>→</b>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 </section>
 
@@ -1662,22 +1795,27 @@ grow into my future in travel.
      QUOTE
 ========================= -->
 
-<div class="quote">
+<section class="quote">
 
-<div class="quote-mark">
-“
-</div>
+  <div class="container">
 
-<p>
-Collect moments, not things.<br>
-Stories are the best souvenirs.
-</p>
+    <div class="quote-mark">
+      “
+    </div>
 
-<div class="quote-wave">
-〰️ ♡ 〰️
-</div>
+    <p data-i18n="quote">
+      COLLECT MOMENTS, NOT THINGS.
+      <br>
+      STORIES ARE THE BEST SOUVENIRS.
+    </p>
 
-</div>
+    <div class="quote-wave">
+      〰 ♡ 〰
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================
@@ -1686,20 +1824,528 @@ Stories are the best souvenirs.
 
 <footer>
 
-<div class="footer-logo">
-<span>FIFI</span><span class="yellow">STORY</span>.
-</div>
+  <div class="footer-logo">
+    FIFI <span>STORY.</span>
+  </div>
 
-<p>
-Travel · Food · Photography · Diary · Life
-</p>
+  <p data-i18n="footerLine">
+    TRAVEL · FOOD · PHOTOGRAPHY · DIARY · LIFE
+  </p>
 
-<p>
-© 2026 FIFISTORY. Made by Fifi.
-</p>
+  <p>
+    © 2026 FIFISTORY. MADE BY FIFI.
+  </p>
 
 </footer>
 
+
+<!-- =========================
+     LANGUAGE SYSTEM
+========================= -->
+
+<script>
+
+const translations = {
+
+en:{
+
+navHome:"HOME",
+navTravel:"TRAVEL",
+navFood:"FOOD",
+navPhotography:"PHOTOGRAPHY",
+navAbout:"ABOUT",
+
+eyebrow:
+"A PERSONAL JOURNAL BY FIFI WARATTHAYA",
+
+heroCopy:
+"STORIES, PLACES, FOOD, PHOTOGRAPHS AND LITTLE THINGS WORTH REMEMBERING. A PERSONAL JOURNAL OF THE LIFE I CHOOSE TO LIVE.",
+
+heroButton:
+"READ MY STORY →",
+
+photoPlaceholderTitle:
+"YOUR PHOTO HERE",
+
+photoPlaceholderText:
+"YOUR JOURNEY · YOUR LIFE · YOUR STORY",
+
+photoLabel:
+"FIFISTORY. / PERSONAL JOURNAL",
+
+storyKicker:
+"01 — WHY FIFISTORY.",
+
+storyTitle:
+'IF YOU WANT TO DO IT, <span class="accent">JUST GO.</span> ✦',
+
+storyIntro:
+"A place for the things I love, the places I go, and the life I choose to live.",
+
+storyBody:
+`
+<p>
+FIFISTORY. started with a simple thought:
+if I want to do something, why keep waiting for the perfect time?
+</p>
+
+<p>
+I love travelling. I love discovering new places,
+trying good food, cooking, taking photographs,
+and collecting little moments along the way.
+One day, I thought — why not create a place to keep all of these stories?
+</p>
+
+<p>
+So, I did.
+</p>
+
+<p>
+FIFISTORY. is my little corner of the internet
+where I share the places I've been, the food I've eaten,
+the things I've cooked, the photographs I've taken,
+and the moments that made me stop and think,
+“I'm glad I came here.”
+</p>
+
+<div class="pullquote">
+THIS ISN'T JUST ABOUT WHERE I'VE BEEN.
+<br>
+IT'S ABOUT WHAT I SAW, WHAT I TASTED,
+AND WHAT I FELT ALONG THE WAY.
+</div>
+
+<p>
+This isn't just a travel website,
+and it's not only about building a business.
+It's about sharing experiences.
+</p>
+
+<p>
+I want you to see the places the way I saw them,
+taste the things I loved, discover the places I enjoyed,
+and maybe find somewhere that makes you want to pack your bag and go.
+</p>
+
+<p>
+Because sometimes we spend too much time waiting
+for the “right time” to do the things we want.
+</p>
+
+<p>
+<strong>
+So if you want to go, go.
+If you want to try, try.
+If you want to create something, create it.
+</strong>
+</p>
+
+<p>
+And if something I experience can inspire someone else
+to create a story of their own,
+then the journey becomes even more meaningful.
+</p>
+
+<p class="story-signature">
+THIS IS FIFISTORY. — COME ALONG. 🌊
+</p>
+`,
+
+bangkok:"BANGKOK",
+central:"CENTRAL",
+east:"EAST",
+north:"NORTH",
+south:"SOUTH",
+
+travelKicker:
+"02 — TRAVEL",
+
+travelTitle:
+"MY TRAVEL DIARY 🌊",
+
+travelNote:
+"PLACES I HAVE BEEN, STORIES I WANT TO REMEMBER, AND PLACES I STILL WANT TO DISCOVER.",
+
+chiangMaiText:
+"MOUNTAINS, TEMPLES AND SLOW DAYS.",
+
+krabiText:
+"SEA, CLIFFS AND TROPICAL DAYS.",
+
+koodText:
+"QUIET BEACHES AND BLUE WATER.",
+
+ayutthayaText:
+"HISTORY, TEMPLES AND OLD-WORLD CHARM.",
+
+bangkokText:
+"MY CITY — FOOD, CAFÉS, PEOPLE AND STORIES.",
+
+foodLabel:
+"FOOD",
+
+foodHeading:
+"FOOD IS PART OF THE STORY.",
+
+foodLead:
+"THE THINGS I COOK, THE PLACES I EAT, AND THE FLAVOURS I WANT TO REMEMBER.",
+
+foodFeatureTitle:
+"COOK · EAT · REMEMBER",
+
+foodCopyTitle:
+"GOOD FOOD, GOOD MOOD.",
+
+foodCopy:
+"From meals I make at home to restaurants and cafés I discover along the way, this is where I keep the flavours, recipes and little food moments that become part of my story.",
+
+foodButton:
+"EXPLORE FOOD →",
+
+photoLabelSection:
+"PHOTOGRAPHY",
+
+photoHeading:
+"LIFE THROUGH MY CAMERA.",
+
+photoLead:
+"PLACES, PEOPLE, DETAILS AND LITTLE MOMENTS I WANT TO KEEP.",
+
+gallery1:
+"A PLACE I WANT TO REMEMBER.",
+
+gallery2:
+"THE LITTLE THINGS THAT CAUGHT MY EYE.",
+
+gallery3:
+"COLOURS, LIGHT AND THE FEELING OF BEING THERE.",
+
+gallery4:
+"MOMENTS THAT FEEL HUMAN.",
+
+gallery5:
+"A MEMORY CAN START WITH A PLATE.",
+
+gallery6:
+"ANOTHER DAY, ANOTHER STORY.",
+
+photoButton:
+"VIEW ALL PHOTOGRAPHY →",
+
+diaryLabel:
+"LIFE & DIARY",
+
+diaryHeading:
+"THE LITTLE THINGS MATTER.",
+
+diaryTitle:
+"A LIFE IN PROGRESS.",
+
+diaryCopy:
+"The ordinary days matter too. The work, the ideas, the meals, the photographs, the plans I make and the things I am still learning.",
+
+diaryItem1:
+"WHAT I'M WORKING ON",
+
+diaryItem2:
+"PLACES I WANT TO GO",
+
+diaryItem3:
+"THINGS I'M LEARNING",
+
+diaryItem4:
+"LITTLE MOMENTS",
+
+quote:
+"COLLECT MOMENTS, NOT THINGS.<br>STORIES ARE THE BEST SOUVENIRS.",
+
+footerLine:
+"TRAVEL · FOOD · PHOTOGRAPHY · DIARY · LIFE"
+
+},
+
+
+th:{
+
+navHome:"หน้าแรก",
+navTravel:"ท่องเที่ยว",
+navFood:"อาหาร",
+navPhotography:"ภาพถ่าย",
+navAbout:"เกี่ยวกับ",
+
+eyebrow:
+"บันทึกเรื่องราวของ FIFI WARATTHAYA",
+
+heroCopy:
+"เรื่องราว สถานที่ อาหาร ภาพถ่าย และเรื่องเล็ก ๆ ที่ฉันอยากเก็บไว้ในความทรงจำ บันทึกของชีวิตที่ฉันเลือกจะใช้ในแบบของตัวเอง",
+
+heroButton:
+"อ่านเรื่องราวของฉัน →",
+
+photoPlaceholderTitle:
+"ใส่รูปของ FIFI ตรงนี้",
+
+photoPlaceholderText:
+"การเดินทาง · ชีวิต · เรื่องราวของฉัน",
+
+photoLabel:
+"FIFISTORY. / บันทึกส่วนตัว",
+
+storyKicker:
+"01 — ทำไมถึงมี FIFISTORY.",
+
+storyTitle:
+'ถ้าอยากทำ <span class="accent">ก็ทำเลย</span> ✦',
+
+storyIntro:
+"พื้นที่เล็ก ๆ สำหรับสิ่งที่ฉันรัก สถานที่ที่ฉันไป และชีวิตที่ฉันเลือกจะใช้",
+
+storyBody:
+`
+<p>
+FIFISTORY. เริ่มต้นจากความคิดง่าย ๆ ว่า
+ถ้าเราอยากทำอะไรสักอย่าง แล้วทำไมเราต้องรอให้ถึงเวลาที่สมบูรณ์แบบก่อน?
+</p>
+
+<p>
+ฉันชอบเดินทาง ชอบค้นหาสถานที่ใหม่ ๆ ชอบกิน ชอบทำอาหาร
+ชอบถ่ายรูป และชอบเก็บเรื่องราวเล็ก ๆ ระหว่างทาง
+วันหนึ่งฉันเลยคิดว่า แล้วทำไมฉันถึงไม่สร้างพื้นที่ของตัวเองไว้เก็บเรื่องราวเหล่านี้ล่ะ?
+</p>
+
+<p>
+แล้วฉันก็ลงมือทำ
+</p>
+
+<p>
+FIFISTORY. คือมุมเล็ก ๆ บนโลกออนไลน์
+ที่ฉันอยากแบ่งปันสถานที่ที่เคยไป อาหารที่เคยกิน สิ่งที่เคยทำ
+รูปที่เคยถ่าย และช่วงเวลาที่ทำให้ฉันหยุดคิดว่า
+“ดีจังที่ได้มาที่นี่”
+</p>
+
+<div class="pullquote">
+มันไม่ใช่แค่เรื่องว่าฉันเคยไปที่ไหน
+<br>
+แต่คือสิ่งที่ฉันได้เห็น ได้ชิม และได้รู้สึกระหว่างทาง
+</div>
+
+<p>
+เว็บไซต์นี้ไม่ได้เกิดขึ้นเพราะฉันอยากสร้างธุรกิจเพียงอย่างเดียว
+แต่มันเกิดขึ้นเพราะฉันอยากแบ่งปันประสบการณ์
+</p>
+
+<p>
+ฉันอยากให้คุณได้เห็นสถานที่ในแบบที่ฉันเห็น
+ได้ลองชิมสิ่งที่ฉันชอบ ได้รู้จักสถานที่ที่ฉันประทับใจ
+และบางทีอาจมีสักที่ที่ทำให้คุณอยากเก็บกระเป๋า
+แล้วออกเดินทางไปด้วยตัวเอง
+</p>
+
+<p>
+เพราะบางครั้งเรามัวแต่รอ “เวลาที่เหมาะสม”
+จนลืมไปว่าเราไม่จำเป็นต้องรอเสมอไป
+</p>
+
+<p>
+<strong>
+ถ้าอยากไป ก็ไป
+ถ้าอยากลอง ก็ลอง
+ถ้าอยากสร้างอะไร ก็ลงมือสร้างมันขึ้นมา
+</strong>
+</p>
+
+<p>
+และถ้าเรื่องราวที่ฉันได้สัมผัส
+สามารถทำให้ใครสักคนอยากออกไปสร้างเรื่องราวของตัวเองบ้าง
+สำหรับฉัน นั่นก็เพียงพอแล้ว
+</p>
+
+<p class="story-signature">
+นี่คือ FIFISTORY. — มาสร้างเรื่องราวไปด้วยกัน 🌊
+</p>
+`,
+
+bangkok:"กรุงเทพฯ",
+central:"ภาคกลาง",
+east:"ภาคตะวันออก",
+north:"ภาคเหนือ",
+south:"ภาคใต้",
+
+travelKicker:
+"02 — การเดินทาง",
+
+travelTitle:
+"บันทึกการเดินทางของฉัน 🌊",
+
+travelNote:
+"สถานที่ที่ฉันเคยไป เรื่องราวที่อยากจดจำ และสถานที่ที่ยังอยากออกไปค้นพบ",
+
+chiangMaiText:
+"ภูเขา วัด คาเฟ่ และช่วงเวลาที่ได้ใช้ชีวิตช้าลง",
+
+krabiText:
+"ทะเล หน้าผา และวันพักผ่อนริมทะเล",
+
+koodText:
+"หาดเงียบ ๆ น้ำทะเลสีฟ้า และช่วงเวลาที่ได้พักจริง ๆ",
+
+ayutthayaText:
+"ประวัติศาสตร์ วัดเก่า และเสน่ห์ของเมืองเก่า",
+
+bangkokText:
+"เมืองที่ฉันใช้ชีวิต — อาหาร คาเฟ่ ผู้คน และเรื่องราว",
+
+foodLabel:
+"อาหาร",
+
+foodHeading:
+"อาหารก็เป็นส่วนหนึ่งของเรื่องราว",
+
+foodLead:
+"สิ่งที่ฉันทำ สิ่งที่ฉันกิน และรสชาติที่ฉันอยากจดจำ",
+
+foodFeatureTitle:
+"ทำ · กิน · จดจำ",
+
+foodCopyTitle:
+"กินของอร่อย ชีวิตก็ดีขึ้น",
+
+foodCopy:
+"ตั้งแต่อาหารที่ฉันทำกินเอง ไปจนถึงร้านอาหารและคาเฟ่ที่ได้ค้นพบระหว่างทาง ที่นี่คือพื้นที่สำหรับเก็บรสชาติ สูตรอาหาร และช่วงเวลาเล็ก ๆ ที่กลายเป็นส่วนหนึ่งของเรื่องราวของฉัน",
+
+foodButton:
+"ดูเรื่องอาหาร →",
+
+photoLabelSection:
+"ภาพถ่าย",
+
+photoHeading:
+"ชีวิตผ่านเลนส์ของฉัน",
+
+photoLead:
+"สถานที่ ผู้คน รายละเอียดเล็ก ๆ และช่วงเวลาที่ฉันอยากเก็บไว้",
+
+gallery1:
+"สถานที่ที่ฉันอยากจดจำ",
+
+gallery2:
+"รายละเอียดเล็ก ๆ ที่สะดุดตา",
+
+gallery3:
+"สี แสง และความรู้สึกของการได้อยู่ตรงนั้น",
+
+gallery4:
+"ช่วงเวลาที่มีความหมาย",
+
+gallery5:
+"บางความทรงจำเริ่มต้นจากอาหารหนึ่งจาน",
+
+gallery6:
+"อีกหนึ่งวัน อีกหนึ่งเรื่องราว",
+
+photoButton:
+"ดูภาพถ่ายทั้งหมด →",
+
+diaryLabel:
+"ชีวิตและบันทึก",
+
+diaryHeading:
+"เรื่องเล็ก ๆ ก็มีความหมาย",
+
+diaryTitle:
+"ชีวิตที่กำลังดำเนินต่อไป",
+
+diaryCopy:
+"วันธรรมดาก็มีความหมาย ทั้งงาน ความคิด อาหาร ภาพถ่าย แผนที่กำลังวาง และสิ่งต่าง ๆ ที่ฉันกำลังเรียนรู้",
+
+diaryItem1:
+"สิ่งที่กำลังทำอยู่",
+
+diaryItem2:
+"สถานที่ที่อยากไป",
+
+diaryItem3:
+"สิ่งที่กำลังเรียนรู้",
+
+diaryItem4:
+"ช่วงเวลาเล็ก ๆ ที่อยากจดจำ",
+
+quote:
+"เก็บช่วงเวลา ไม่ใช่แค่สิ่งของ<br>เพราะเรื่องราวคือของฝากที่ดีที่สุดจากชีวิต",
+
+footerLine:
+"การเดินทาง · อาหาร · ภาพถ่าย · บันทึก · ชีวิต"
+
+}
+
+};
+
+
+function setLanguage(lang){
+
+  document.documentElement.lang =
+    lang === "th" ? "th" : "en";
+
+  document.querySelectorAll("[data-i18n]").forEach(element=>{
+
+    const key = element.dataset.i18n;
+
+    if(translations[lang][key] !== undefined){
+
+      element.innerHTML =
+        translations[lang][key];
+
+    }
+
+  });
+
+
+  document.querySelectorAll(".lang-btn").forEach(button=>{
+
+    button.classList.toggle(
+      "active",
+      button.dataset.lang === lang
+    );
+
+  });
+
+
+  localStorage.setItem(
+    "fifistory-language",
+    lang
+  );
+
+}
+
+
+document.querySelectorAll(".lang-btn").forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    setLanguage(
+      button.dataset.lang
+    );
+
+  });
+
+});
+
+
+const savedLanguage =
+  localStorage.getItem("fifistory-language");
+
+const browserThai =
+  navigator.language &&
+  navigator.language.toLowerCase().startsWith("th");
+
+
+setLanguage(
+  savedLanguage ||
+  (browserThai ? "th" : "en")
+);
+
+</script>
 
 </body>
 </html>
