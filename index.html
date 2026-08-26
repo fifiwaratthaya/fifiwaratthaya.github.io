@@ -7,6 +7,7 @@
 <title>FIFI STORY.</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,7 +37,9 @@ header {
     min-height: 120px;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo {
     display: flex;
@@ -50,58 +53,86 @@ header {
     display: block;
 }
 
-/* LANGUAGE - FAR RIGHT */
+/* =========================
+   LANGUAGE
+   FAR RIGHT
+========================= */
 
 .language {
     position: absolute;
     top: 28px;
     right: 5%;
+
     display: flex;
-    gap: 12px;
+    gap: 10px;
+
+    z-index: 20;
 }
 
 .language a {
     text-decoration: none;
     color: #173b56;
-    font-weight: 700;
-    border: 2px solid #d6e0df;
+    font-weight: 800;
+
+    border: 2px solid #69c4df;
     border-radius: 50px;
+
     padding: 9px 18px;
+
     background: #fffdf7;
+
     transition: 0.25s ease;
 }
 
 .language a:hover {
-    background: #69c4df;
-    border-color: #69c4df;
-    color: white;
+    background: #ffda55;
+    border-color: #ffda55;
+    color: #173b56;
 }
 
-/* NAVIGATION */
+/* =========================
+   MAIN NAVIGATION
+========================= */
 
 nav {
     margin-top: 25px;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     flex-wrap: wrap;
     gap: 12px;
+
+    /*
+      เว้นพื้นที่ด้านขวาไว้สำหรับ ENG / TH
+      เพื่อไม่ให้เมนูซ้อนกับภาษา
+    */
+    padding-right: 170px;
 }
 
 nav a {
     text-decoration: none;
+
     color: #173b56;
+
     font-weight: 800;
     letter-spacing: 1px;
+
     padding: 9px 16px;
+
     border: 2px solid #69c4df;
-    border-radius: 12px;
+    border-radius: 50px;
+
     background: #ffffff;
+
     transition: 0.25s ease;
 }
 
 nav a:hover {
     background: #69c4df;
     color: white;
+
     transform: translateY(-2px);
 }
 
@@ -111,58 +142,103 @@ nav a:hover {
 
 .hero {
     padding: 90px 6% 100px;
+
     max-width: 1200px;
     margin: auto;
 }
 
 .eyebrow {
     color: #3998bd;
+
     font-weight: 800;
     letter-spacing: 5px;
+
     font-size: 15px;
+
     margin-bottom: 35px;
 }
 
+/* =========================
+   FIFI STORY TITLE
+========================= */
+
 .hero h1 {
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(70px, 12vw, 150px);
+
     line-height: 0.85;
+
     color: #173b56;
+
     margin-bottom: 15px;
+
+    letter-spacing: -3px;
 }
 
 .hero h1 span {
     display: block;
+
     color: #f5cf4d;
+
     font-style: italic;
+
     margin-left: 55px;
+
+    letter-spacing: -2px;
 }
+
+/* =========================
+   HERO TEXT
+========================= */
 
 .hero-text {
     font-size: clamp(20px, 3vw, 30px);
+
     max-width: 850px;
+
     margin-top: 50px;
+
     color: #173b56;
+
+    line-height: 1.6;
 }
+
+/* =========================
+   HERO BUTTON
+========================= */
 
 .hero-button {
     display: inline-block;
+
     margin-top: 45px;
+
     background: #ffda55;
+
     color: #173b56;
+
     text-decoration: none;
+
     padding: 17px 32px;
+
     border-radius: 50px;
+
     font-weight: 800;
+
     letter-spacing: 1px;
+
     border: 2px solid #ffda55;
+
     transition: 0.25s ease;
 }
 
 .hero-button:hover {
     background: #69c4df;
+
     border-color: #69c4df;
+
     color: white;
+
     transform: translateY(-3px);
 }
 
@@ -172,29 +248,41 @@ nav a:hover {
 
 section {
     padding: 80px 6%;
+
     max-width: 1200px;
+
     margin: auto;
 }
 
 .section-title {
     display: inline-block;
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(38px, 6vw, 65px);
+
     color: #173b56;
+
     padding: 10px 22px;
+
     border: 3px solid #69c4df;
+
     border-radius: 18px;
+
     background: #fffdf7;
+
     margin-bottom: 35px;
 }
 
 .section-title span {
     font-size: 0.7em;
+
     margin-right: 10px;
 }
 
 .section-text {
     font-size: 20px;
+
     max-width: 850px;
 }
 
@@ -204,29 +292,42 @@ section {
 
 .cards {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
+
     margin-top: 35px;
 }
 
 .card {
     background: #fffdf7;
+
     border: 2px solid #69c4df;
+
     border-radius: 20px;
+
     padding: 30px;
+
     min-height: 180px;
+
     transition: 0.25s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(23, 59, 86, 0.10);
+
+    box-shadow:
+        0 12px 30px rgba(23, 59, 86, 0.10);
 }
 
 .card h3 {
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 28px;
+
     margin-bottom: 12px;
+
     color: #173b56;
 }
 
@@ -240,21 +341,83 @@ section {
 
 .about-box {
     background: #eaf8fb;
+
     border: 3px solid #69c4df;
+
     border-radius: 25px;
+
     padding: 45px;
+
     margin-top: 30px;
 }
 
+/* =========================
+   NEW DREAM TITLE
+========================= */
+
 .about-box h3 {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 35px;
-    margin-bottom: 20px;
+
+    font-size: clamp(32px, 5vw, 55px);
+
+    line-height: 1.15;
+
+    margin-bottom: 28px;
+
     color: #173b56;
+}
+
+/* สีเหลืองสำหรับ YOU BRING THE DREAM */
+
+.dream-yellow {
+    color: #f4c842;
+
+    display: block;
+
+    position: relative;
+}
+
+/* สีฟ้าสำหรับ I'LL HELP PLAN THE JOURNEY */
+
+.dream-blue {
+    color: #168fbd;
+
+    display: block;
+
+    margin-top: 8px;
+
+    position: relative;
+}
+
+/* ลูกเล่นเล็ก ๆ */
+
+.dream-yellow::after {
+    content: "✦";
+
+    color: #ffda55;
+
+    font-size: 25px;
+
+    margin-left: 10px;
+
+    vertical-align: middle;
+}
+
+.dream-blue::after {
+    content: "✈";
+
+    color: #69c4df;
+
+    font-size: 28px;
+
+    margin-left: 10px;
+
+    vertical-align: middle;
 }
 
 .about-box p {
     font-size: 19px;
+
     margin-bottom: 18px;
 }
 
@@ -264,40 +427,55 @@ section {
 
 footer {
     margin-top: 80px;
+
     background: #173b56;
+
     color: white;
+
     padding: 60px 6% 30px;
 }
 
 .footer-inner {
     max-width: 1200px;
+
     margin: auto;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     gap: 30px;
+
     flex-wrap: wrap;
 }
 
 .footer-logo {
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 30px;
 }
 
 .footer-nav {
     display: flex;
+
     gap: 20px;
+
     flex-wrap: wrap;
 }
 
 .footer-nav a {
     color: white;
+
     text-decoration: none;
 }
 
 .copyright {
     text-align: center;
+
     margin-top: 45px;
+
     opacity: 0.7;
 }
 
@@ -309,31 +487,45 @@ footer {
 
     header {
         padding: 22px 5%;
-        min-height: 155px;
+
+        min-height: 180px;
     }
 
     .logo img {
         width: 155px;
     }
 
+    /* ภาษาอยู่มุมขวาบน */
+
     .language {
         top: 22px;
+
         right: 5%;
+
+        gap: 7px;
     }
 
     .language a {
         padding: 7px 13px;
+
         font-size: 13px;
     }
 
+    /* เมนูอยู่คนละตำแหน่งกับภาษา */
+
     nav {
-        margin-top: 30px;
-        justify-content: flex-start;
+        margin-top: 65px;
+
+        justify-content: center;
+
         gap: 7px;
+
+        padding-right: 0;
     }
 
     nav a {
         padding: 7px 10px;
+
         font-size: 12px;
     }
 
@@ -355,6 +547,7 @@ footer {
 
     section {
         padding-top: 60px;
+
         padding-bottom: 60px;
     }
 
@@ -365,9 +558,69 @@ footer {
     .about-box {
         padding: 28px;
     }
+
+    .about-box h3 {
+        font-size: 38px;
+
+        line-height: 1.2;
+    }
+
 }
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 430px) {
+
+    header {
+        min-height: 195px;
+    }
+
+    .logo img {
+        width: 145px;
+    }
+
+    .language {
+        top: 20px;
+        right: 5%;
+    }
+
+    .language a {
+        padding: 6px 11px;
+        font-size: 12px;
+    }
+
+    nav {
+        margin-top: 72px;
+
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 11px;
+
+        padding: 6px 9px;
+    }
+
+    .hero h1 {
+        font-size: 68px;
+    }
+
+    .hero h1 span {
+        margin-left: 18px;
+    }
+
+    .dream-yellow,
+    .dream-blue {
+        display: block;
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -378,28 +631,71 @@ footer {
 <header>
 
     <!-- LOGO -->
+
     <div class="logo">
+
         <a href="#home">
-            <img src="logo.png" alt="FIFI STORY.">
+
+            <img
+                src="logo.png"
+                alt="FIFI STORY."
+            >
+
         </a>
+
     </div>
 
-    <!-- LANGUAGE
-         อยู่มุมขวาบน
-         ไม่ติดกับ HOME
-    -->
+
+    <!-- =========================
+         LANGUAGE
+         FAR RIGHT
+    ========================= -->
+
     <div class="language">
-        <a href="#" onclick="setLanguage('en'); return false;">EN</a>
-        <a href="#" onclick="setLanguage('th'); return false;">TH</a>
+
+        <a
+            href="#"
+            onclick="setLanguage('en'); return false;"
+        >
+            EN
+        </a>
+
+        <a
+            href="#"
+            onclick="setLanguage('th'); return false;"
+        >
+            TH
+        </a>
+
     </div>
 
-    <!-- MAIN NAVIGATION -->
+
+    <!-- =========================
+         MAIN NAVIGATION
+    ========================= -->
+
     <nav>
-        <a href="#home">🏠 HOME</a>
-        <a href="#travel">✈️ TRAVEL</a>
-        <a href="#food">🍴 FOOD</a>
-        <a href="#photography">📷 PHOTOGRAPHY</a>
-        <a href="#about">💛 ABOUT</a>
+
+        <a href="#home">
+            🏠 HOME
+        </a>
+
+        <a href="#travel">
+            ✈️ TRAVEL
+        </a>
+
+        <a href="#food">
+            🍴 FOOD
+        </a>
+
+        <a href="#photography">
+            📷 PHOTOGRAPHY
+        </a>
+
+        <a href="#about">
+            💛 ABOUT FIFI
+        </a>
+
     </nav>
 
 </header>
@@ -414,21 +710,43 @@ footer {
 <section id="home" class="hero">
 
     <div class="eyebrow">
+
         A PERSONAL JOURNAL BY FIFI WARATTHAYA
+
     </div>
 
+
     <h1>
+
         FIFI
-        <span>Story.</span>
+
+        <span>
+            Story.
+        </span>
+
     </h1>
 
+
     <p class="hero-text">
-        Places I've been. Food I love. Moments I've captured.
+
+        Places I've been.
+        Food I love.
+        Moments I've captured.
+
+        <br>
+
         A collection of the things that bring me joy.
+
     </p>
 
-    <a href="#travel" class="hero-button">
+
+    <a
+        href="#travel"
+        class="hero-button"
+    >
+
         EXPLORE MY STORY →
+
     </a>
 
 </section>
@@ -441,39 +759,75 @@ footer {
 <section id="travel">
 
     <h2 class="section-title">
-        <span>✈️</span> TRAVEL
+
+        <span>
+            ✈️
+        </span>
+
+        TRAVEL
+
     </h2>
 
+
     <p class="section-text">
-        The places I've visited, the views I've loved,
-        the little discoveries along the way, and the memories
-        I want to keep.
+
+        The places I've visited,
+        the views I've loved,
+        the little discoveries along the way,
+        and the memories I want to keep.
+
     </p>
+
 
     <div class="cards">
 
         <div class="card">
-            <h3>🌊 Places I've Been</h3>
+
+            <h3>
+                🌊 Places I've Been
+            </h3>
+
             <p>
-                Stories, views and moments from the places
-                I've had the chance to explore.
+
+                Stories, views and moments
+                from the places I've had
+                the chance to explore.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🧳 Places I Love</h3>
+
+            <h3>
+                🧳 Places I Love
+            </h3>
+
             <p>
-                Places that made me stop, look around,
+
+                Places that made me stop,
+                look around,
                 and simply enjoy being there.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>📍 Places to Remember</h3>
+
+            <h3>
+                📍 Places to Remember
+            </h3>
+
             <p>
-                Personal recommendations and experiences
-                worth remembering.
+
+                Personal recommendations
+                and experiences worth remembering.
+
             </p>
+
         </div>
 
     </div>
@@ -488,38 +842,76 @@ footer {
 <section id="food">
 
     <h2 class="section-title">
-        <span>🍴</span> FOOD
+
+        <span>
+            🍴
+        </span>
+
+        FOOD
+
     </h2>
 
+
     <p class="section-text">
-        Food I make at home, restaurants I've visited,
-        dishes I've loved, and little moments around a table.
+
+        Food I make at home,
+        restaurants I've visited,
+        dishes I've loved,
+        and little moments around a table.
+
     </p>
+
 
     <div class="cards">
 
         <div class="card">
-            <h3>🍳 What I Cook</h3>
+
+            <h3>
+                🍳 What I Cook
+            </h3>
+
             <p>
-                Simple meals, recipes and food I enjoy making
-                for myself.
+
+                Simple meals,
+                recipes and food I enjoy
+                making for myself.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🍽️ Restaurants</h3>
+
+            <h3>
+                🍽️ Restaurants
+            </h3>
+
             <p>
-                Places I've eaten and dishes that made
+
+                Places I've eaten
+                and dishes that made
                 an impression on me.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>☕ Little Food Moments</h3>
+
+            <h3>
+                ☕ Little Food Moments
+            </h3>
+
             <p>
-                Because sometimes the smallest meal
-                becomes a beautiful memory.
+
+                Because sometimes
+                the smallest meal becomes
+                a beautiful memory.
+
             </p>
+
         </div>
 
     </div>
@@ -534,37 +926,76 @@ footer {
 <section id="photography">
 
     <h2 class="section-title">
-        <span>📷</span> PHOTOGRAPHY
+
+        <span>
+            📷
+        </span>
+
+        PHOTOGRAPHY
+
     </h2>
 
+
     <p class="section-text">
-        Photographs are the way I keep memories.
-        These are the moments, places and little details
+
+        Photographs are the way
+        I keep memories.
+
+        These are the moments,
+        places and little details
         that caught my eye.
+
     </p>
+
 
     <div class="cards">
 
         <div class="card">
-            <h3>🌅 Places</h3>
+
+            <h3>
+                🌅 Places
+            </h3>
+
             <p>
-                Views and landscapes that I wanted to remember.
+
+                Views and landscapes
+                that I wanted to remember.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>✨ Moments</h3>
+
+            <h3>
+                ✨ Moments
+            </h3>
+
             <p>
-                Everyday moments that felt special enough
+
+                Everyday moments
+                that felt special enough
                 to capture.
+
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>💙 My View</h3>
+
+            <h3>
+                💙 My View
+            </h3>
+
             <p>
-                The world as I saw it through my camera.
+
+                The world as I saw it
+                through my camera.
+
             </p>
+
         </div>
 
     </div>
@@ -579,39 +1010,97 @@ footer {
 <section id="about">
 
     <h2 class="section-title">
-        <span>💛</span> ABOUT FIFI
+
+        <span>
+            💛
+        </span>
+
+        ABOUT FIFI
+
     </h2>
+
 
     <div class="about-box">
 
+
+        <!-- =========================
+             DREAM MESSAGE
+        ========================= -->
+
         <h3>
-            More than a website. A collection of things I love.
+
+            <span class="dream-yellow">
+                YOU BRING THE DREAM.
+            </span>
+
+            <span class="dream-blue">
+                I'LL HELP PLAN THE JOURNEY.
+            </span>
+
         </h3>
 
-        <p>
-            FIFI STORY. is my personal space to share the places
-            I've been, the food I love, the restaurants I discover,
-            the meals I make, and the photographs I take along the way.
-        </p>
 
         <p>
+
+            This is FIFI STORY. —
+            my world, my experiences,
+            and eventually,
+            a way to help you create yours.
+
+        </p>
+
+
+        <p>
+
+            FIFI STORY. is my personal space
+            to share the places I've been,
+            the food I love,
+            the restaurants I discover,
+            the meals I make,
+            and the photographs I take
+            along the way.
+
+        </p>
+
+
+        <p>
+
             These are the things that make me happy.
-            I want to share them with you and let you enjoy
+
+            I want to share them with you
+            and let you enjoy
             these little moments with me.
+
         </p>
 
-        <p>
-            And someday, I hope FIFI STORY. can become more than
-            a personal journal — a place where I can help people
-            who don't have the time to plan their own trips.
-        </p>
 
         <p>
-            From choosing the right destination and hotel,
-            to finding flights, restaurants and places worth visiting,
-            I want to take care of the details so you can simply
-            enjoy the journey.
+
+            And someday,
+            I hope FIFI STORY. can become
+            more than a personal journal —
+
+            a place where I can help people
+            who don't have the time
+            to plan their own trips.
+
         </p>
+
+
+        <p>
+
+            From choosing the right destination
+            and hotel,
+
+            to finding flights,
+            restaurants
+            and places worth visiting,
+
+            I want to take care of the details
+            so you can simply enjoy the journey.
+
+        </p>
+
 
     </div>
 
@@ -628,22 +1117,45 @@ footer {
 
     <div class="footer-inner">
 
+
         <div class="footer-logo">
+
             FIFI STORY.
+
         </div>
 
+
         <div class="footer-nav">
-            <a href="#home">HOME</a>
-            <a href="#travel">TRAVEL</a>
-            <a href="#food">FOOD</a>
-            <a href="#photography">PHOTOGRAPHY</a>
-            <a href="#about">ABOUT FIFI</a>
+
+            <a href="#home">
+                HOME
+            </a>
+
+            <a href="#travel">
+                TRAVEL
+            </a>
+
+            <a href="#food">
+                FOOD
+            </a>
+
+            <a href="#photography">
+                PHOTOGRAPHY
+            </a>
+
+            <a href="#about">
+                ABOUT FIFI
+            </a>
+
         </div>
 
     </div>
 
+
     <div class="copyright">
+
         © 2026 FIFI STORY. — Made by FIFI.
+
     </div>
 
 </footer>
@@ -654,16 +1166,25 @@ footer {
 function setLanguage(language) {
 
     if (language === "th") {
-        alert("ภาษาไทยจะเปิดใช้งานในเวอร์ชันถัดไป 💛");
+
+        alert(
+            "ภาษาไทยจะเปิดใช้งานในเวอร์ชันถัดไป 💛"
+        );
+
     }
 
     if (language === "en") {
-        alert("English version 💙");
+
+        alert(
+            "English version 💙"
+        );
+
     }
 
 }
 
 </script>
+
 
 </body>
 </html>
