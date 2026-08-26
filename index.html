@@ -1505,327 +1505,979 @@ footer {
 }
 
 
-/* ===== FIFI STORY — ONLY REQUESTED POSITION/COLOR FIXES ===== */
+/* ===== TRAVEL ZONES ===== */
+.travel-tab { cursor: pointer; }
+.travel-tab.active { background: var(--blue); color: white; }
+.destination-card.is-hidden { display: none; }
+.coming-badge {
+    display: inline-block;
+    margin-bottom: 9px;
+    padding: 5px 9px;
+    border: 1px solid #D9C98F;
+    border-radius: 999px;
+    background: #FFF7D6;
+    color: #7A6A35;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+@media (max-width: 900px) {
+    .destination-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .travel-tabs { grid-template-columns: repeat(5, minmax(105px,1fr)); overflow-x: auto; }
+    .destination-grid { grid-template-columns: 1fr; }
+}
 
-/* HOME / TRAVEL / FOOD / PHOTOGRAPHY / ABOUT stay as one centered group */
+/* ===== FINAL NAV + BRAND TITLE FIX ===== */
 .navbar {
-    position: relative;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    column-gap: 22px !important;
 }
 
 .top-category-links {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
+    grid-column: 2 !important;
     justify-content: center !important;
-    gap: 7px !important;
-    white-space: nowrap !important;
+    margin: 0 !important;
 }
 
-/* ENG / THAI are a completely separate group at the far right */
 .nav-right {
-    margin-left: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 7px !important;
+    grid-column: 3 !important;
+    margin-left: 0 !important;
+    justify-content: flex-end !important;
 }
 
-/* Keep the "A COLLECTION..." heading readable */
-.my-world .section-title {
-    letter-spacing: 0.2px !important;
-    word-spacing: 5px !important;
-    line-height: 1.15 !important;
-}
-
-/* YOU BRING THE DREAM = yellow; second line = dark ocean blue */
-.tagline {
-    line-height: 1.15 !important;
-    letter-spacing: 0.2px !important;
-}
-
-.tagline span {
-    color: #FFD84D !important;
-}
-
-.tagline span::after {
-    content: none !important;
-}
-
-@media (max-width: 1100px) {
-    .top-category-links {
-        gap: 4px !important;
-    }
-
-    .top-category-links a {
-        padding-left: 7px !important;
-        padding-right: 7px !important;
-    }
-}
-
-/* On smaller screens, keep the two groups separate without overlap */
-@media (max-width: 950px) {
-    .navbar {
-        flex-wrap: wrap !important;
-        height: auto !important;
-        min-height: 82px !important;
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-    }
-
-    .top-category-links {
-        position: static !important;
-        transform: none !important;
-        order: 3 !important;
-        width: 100% !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        margin-top: 8px !important;
-    }
-
-    .nav-right {
-        margin-left: auto !important;
-    }
-}
-
-
-/* ===== FiF! STORY — CHANGE ONLY THE HERO TITLE ===== */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Serif+Display:ital@0;1&display=swap');
-
-.hero h1 {
-    font-family: "Playfair Display", Georgia, serif !important;
-    font-weight: 700 !important;
-    font-size: clamp(5.5rem, 11vw, 10.5rem) !important;
-    line-height: .82 !important;
-    letter-spacing: -4px !important;
-    color: #0A5275 !important;
-    text-shadow: none !important;
-}
-
-.hero .hero-script {
-    font-family: "DM Serif Display", Georgia, serif !important;
-    font-style: italic !important;
-    font-weight: 400 !important;
-    font-size: clamp(3rem, 6vw, 6rem) !important;
-    line-height: .9 !important;
-    letter-spacing: -2px !important;
-    color: #F2B705 !important;
-    text-shadow: 2px 3px 0 rgba(10,82,117,.12) !important;
-}
-
-@media (max-width:700px) {
-    .hero h1 {
-        font-size: clamp(4.2rem, 19vw, 7rem) !important;
-        letter-spacing: -2px !important;
-    }
-
-    .hero .hero-script {
-        font-size: clamp(2.5rem, 12vw, 4rem) !important;
-    }
-}
-
-
-/* ===== FINAL NAV COLORS ONLY ===== */
-/* ENG / THAI are intentionally different from the main navigation buttons.
-   HOME / TRAVEL / FOOD / PHOTO / ABOUT each get their own bright color. */
-
-.top-category-links a {
-    color: #123E59 !important;
-    border-width: 2px !important;
-}
-
-/* HOME */
-.top-category-links a:nth-child(1) {
-    background: #BDEFFF !important;
-    border-color: #38BDE8 !important;
-}
-
-/* TRAVEL */
-.top-category-links a:nth-child(2) {
-    background: #FFE89A !important;
-    border-color: #F4C542 !important;
-}
-
-/* FOOD */
-.top-category-links a:nth-child(3) {
-    background: #FFD1B8 !important;
-    border-color: #F39A62 !important;
-}
-
-/* PHOTO */
-.top-category-links a:nth-child(4) {
-    background: #D7D0FF !important;
-    border-color: #8E82E8 !important;
-}
-
-/* ABOUT */
-.top-category-links a:nth-child(5) {
-    background: #CFF2D5 !important;
-    border-color: #72C982 !important;
-}
-
-/* ENG / THAI — separate, elegant dark-blue treatment */
+/* ENG / THAI: national flag colors + visible frames */
 .nav-right .lang-btn {
-    background: #123E59 !important;
-    color: #FFFFFF !important;
-    border-color: #123E59 !important;
-}
-
-.nav-right .lang-btn:hover,
-.nav-right .lang-btn.active {
-    background: #D9A514 !important;
-    color: #FFFFFF !important;
-    border-color: #D9A514 !important;
-}
-
-
-/* ===== SOFT PASTEL NAV PALETTE ONLY ===== */
-
-.top-category-links a {
-    color: #24465A !important;
-    border-width: 2px !important;
-}
-
-/* HOME — pastel sky */
-.top-category-links a:nth-child(1) {
-    background: #D8F3FA !important;
-    border-color: #A8DDEA !important;
-}
-
-/* TRAVEL — pastel butter */
-.top-category-links a:nth-child(2) {
-    background: #FFF4C7 !important;
-    border-color: #EFD98A !important;
-}
-
-/* FOOD — pastel peach */
-.top-category-links a:nth-child(3) {
-    background: #FFE3D6 !important;
-    border-color: #E8B9A2 !important;
-}
-
-/* PHOTO — pastel lavender */
-.top-category-links a:nth-child(4) {
-    background: #E8E3FA !important;
-    border-color: #C7BDE6 !important;
-}
-
-/* ABOUT — pastel sage */
-.top-category-links a:nth-child(5) {
-    background: #DFF1E2 !important;
-    border-color: #B2D5B8 !important;
-}
-
-/* ENG / THAI — soft pastel blue, clearly different from the menu */
-.nav-right .lang-btn {
-    background: #E3EEF5 !important;
-    color: #24465A !important;
-    border-color: #AFC9D8 !important;
-}
-
-.nav-right .lang-btn:hover,
-.nav-right .lang-btn.active {
-    background: #D9C98F !important;
-    color: #24465A !important;
-    border-color: #D9C98F !important;
-}
-
-
-/* ===== ENG / THAI: COUNTRY TEXT COLORS ONLY ===== */
-
-.nav-right .lang-btn {
-    background: transparent !important;
-    border-color: transparent !important;
-    font-weight: 800 !important;
-}
-
-/* ENG = Thailand/English-inspired soft blue */
-.nav-right .lang-btn:first-child {
-    color: #5B9FBE !important;
-}
-
-/* THAI = soft pastel red/pink */
-.nav-right .lang-btn:last-child {
-    color: #D58A91 !important;
-}
-
-.nav-right .lang-btn:hover,
-.nav-right .lang-btn.active {
-    background: #F7F1E3 !important;
-    border-color: #D8CDB8 !important;
-    color: #24465A !important;
-}
-
-
-/* ===== ENG / THAI — NATIONAL FLAG COLORS ===== */
-
-/* ENG — UK flag colors: blue + red */
-.nav-right .lang-btn:first-child {
-    color: #012169 !important;
-    font-weight: 800 !important;
-}
-
-/* THAI — Thai flag colors: red + blue */
-.nav-right .lang-btn:last-child {
-    color: #A51931 !important;
-    font-weight: 800 !important;
-}
-
-/* Keep them as text, not colored buttons */
-.nav-right .lang-btn {
-    background: transparent !important;
-    border-color: transparent !important;
-}
-
-.nav-right .lang-btn:hover,
-.nav-right .lang-btn.active {
-    background: transparent !important;
-    border-color: transparent !important;
-    text-decoration: underline !important;
-}
-
-
-/* ===== ENG / THAI — FLAG COLORS + BORDER ===== */
-
-.nav-right .lang-btn {
-    background: #FFFDF7 !important;
-    font-weight: 800 !important;
+    background: #FFFDF8 !important;
     border: 2px solid !important;
-    border-radius: 50px !important;
-    padding: 8px 14px !important;
+    border-radius: 999px !important;
+    font-weight: 800 !important;
+    padding: 8px 13px !important;
+    transform: none !important;
 }
 
-/* ENG — UK flag blue border/text */
 .nav-right .lang-btn:first-child {
     color: #012169 !important;
     border-color: #012169 !important;
 }
 
-/* THAI — Thai flag red border/text */
 .nav-right .lang-btn:last-child {
     color: #A51931 !important;
     border-color: #A51931 !important;
 }
 
-.nav-right .lang-btn:hover,
-.nav-right .lang-btn.active {
-    background: #FFFDF7 !important;
-    text-decoration: none !important;
-}
-
-/* Keep the flag identity when hovered */
 .nav-right .lang-btn:first-child:hover,
 .nav-right .lang-btn:first-child.active {
+    background: #EEF3FA !important;
     color: #012169 !important;
     border-color: #012169 !important;
 }
 
 .nav-right .lang-btn:last-child:hover,
 .nav-right .lang-btn:last-child.active {
+    background: #FBECEE !important;
     color: #A51931 !important;
     border-color: #A51931 !important;
+}
+
+/* Hero brand title */
+.hero h1 {
+    font-family: "Playfair Display", Georgia, serif !important;
+    font-weight: 700 !important;
+    color: #0A5275 !important;
+    letter-spacing: -3px !important;
+}
+
+.hero .hero-script {
+    font-family: "DM Serif Display", Georgia, serif !important;
+    font-style: italic !important;
+    color: #F2B705 !important;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        grid-template-columns: auto 1fr auto !important;
+        column-gap: 8px !important;
+    }
+    .top-category-links {
+        grid-column: 1 / -1 !important;
+        grid-row: 2 !important;
+    }
+    .nav-right {
+        grid-column: 3 !important;
+        grid-row: 1 !important;
+    }
+}
+
+/* ===== FiF! STORY — playful, bright hero typography ===== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
+.hero h1 {
+    font-family: "Baloo 2", sans-serif !important;
+    font-weight: 800 !important;
+    font-size: clamp(5.2rem, 11vw, 10rem) !important;
+    line-height: .78 !important;
+    letter-spacing: -3px !important;
+    color: #159BC4 !important;
+    text-shadow: 5px 5px 0 #FFE27A !important;
+}
+
+.hero .hero-script {
+    font-family: "DM Serif Display", Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    font-size: clamp(3rem, 6.5vw, 6rem) !important;
+    line-height: .9 !important;
+    letter-spacing: -1px !important;
+    color: #F4B942 !important;
+    text-shadow: 2px 3px 0 rgba(21,155,196,.18) !important;
+    transform: rotate(-2deg) !important;
+}
+
+@media (max-width:700px) {
+    .hero h1 {
+        font-size: clamp(4rem, 19vw, 7rem) !important;
+        letter-spacing: -2px !important;
+    }
+    .hero .hero-script {
+        font-size: clamp(2.5rem, 12vw, 4.2rem) !important;
+    }
+}
+
+/* ===== A COLLECTION<br>OF WHAT I LOVE — readable line breaks ===== */
+.hero .hero-subtitle,
+.hero .collection-title {
+    line-height: 1.35 !important;
+    letter-spacing: 1.5px !important;
+    word-spacing: 4px !important;
+}
+
+/* If the existing subtitle contains the phrase, make it clearly separated. */
+
+
+/* ===== FiF! STORY — elegant standout typography ONLY ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800&display=swap');
+
+.hero h1 {
+    font-family: "Bodoni Moda", Georgia, serif !important;
+    font-weight: 800 !important;
+    font-size: clamp(5.2rem, 11vw, 10rem) !important;
+    line-height: .78 !important;
+    letter-spacing: -4px !important;
+    color: #159BC4 !important;
+    text-shadow: 4px 5px 0 #FFE27A !important;
+}
+
+.hero .hero-script {
+    font-family: "Playfair Display", Georgia, serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    font-size: clamp(3.2rem, 6.5vw, 6.2rem) !important;
+    line-height: .88 !important;
+    letter-spacing: -2px !important;
+    color: #F4B942 !important;
+    text-shadow: 2px 3px 0 rgba(21,155,196,.18) !important;
+    transform: rotate(-3deg) !important;
+}
+
+@media (max-width:700px) {
+    .hero h1 {
+        font-size: clamp(4rem, 19vw, 7rem) !important;
+        letter-spacing: -2px !important;
+    }
+    .hero .hero-script {
+        font-size: clamp(2.5rem, 12vw, 4.2rem) !important;
+    }
+}
+
+
+/* ===== FiF! STORY — BRAND SEA WAVE ONLY ===== */
+
+.hero .hero-script {
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: 42px !important;
+    color: #FFD33D !important;
+}
+
+/* flowing ocean-wave lines inspired by the brand's soft curves */
+.hero .hero-script::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 245px;
+    height: 34px;
+    transform: translateX(-50%);
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 38'%3E%3Cpath d='M4 16 C35 2 58 31 88 17 S140 2 171 17 S220 30 256 12' fill='none' stroke='%2317A8D5' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M18 27 C45 16 66 38 94 25 S145 13 174 26 S221 38 245 23' fill='none' stroke='%2377D9EC' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M82 35 C103 27 121 39 140 32' fill='none' stroke='%23FFD33D' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+        center / contain no-repeat;
+    pointer-events: none;
+}
+
+@media (max-width:700px) {
+    .hero .hero-script {
+        padding-bottom: 31px !important;
+    }
+
+    .hero .hero-script::after {
+        width: 175px;
+        height: 28px;
+    }
+}
+
+
+/* ===== FINAL PASTEL PALETTE + WAVE CLEANUP ===== */
+
+/* Remove the yellow lower wave; keep only the blue sea-wave accents. */
+.hero .hero-script::after {
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 38'%3E%3Cpath d='M4 16 C35 2 58 31 88 17 S140 2 171 17 S220 30 256 12' fill='none' stroke='%2317A8D5' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M18 27 C45 16 66 38 94 25 S145 13 174 26 S221 38 245 23' fill='none' stroke='%2377D9EC' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E")
+        center / contain no-repeat !important;
+}
+
+/* ===== Main section headings: coordinated soft pastel colors ===== */
+
+.section-label {
+    color: #6A8FA3 !important;
+}
+
+/* TRAVEL */
+#travel .section-title {
+    color: #4D93AD !important;
+}
+
+/* FOOD */
+#food .section-title {
+    color: #D69A8B !important;
+}
+
+/* PHOTOGRAPHY */
+#photography .section-title {
+    color: #8D87B8 !important;
+}
+
+/* ABOUT */
+#about .section-title {
+    color: #7FA58A !important;
+}
+
+/* Keep section accents soft and coordinated */
+#travel .section-label { color: #75AFC2 !important; }
+#food .section-label { color: #D9A18F !important; }
+#photography .section-label { color: #9B95C2 !important; }
+#about .section-label { color: #8CAF94 !important; }
+
+
+/* ===== TRUE SOFT-PASTEL SECTION COLORS ===== */
+
+/* TRAVEL — pastel ocean blue */
+#travel .section-title,
+#travel .section-label {
+    color: #63AFC4 !important;
+}
+
+/* FOOD — pastel coral/peach */
+#food .section-title,
+#food .section-label {
+    color: #D99A8C !important;
+}
+
+/* PHOTOGRAPHY — pastel lavender */
+#photography .section-title,
+#photography .section-label {
+    color: #9B91C8 !important;
+}
+
+/* ABOUT — pastel sage */
+#about .section-title,
+#about .section-label {
+    color: #82A98C !important;
+}
+
+/* Make the large headings visibly pastel, not darkened by inherited rules */
+#travel h2.section-title,
+#food h2.section-title,
+#photography h2.section-title,
+#about h2.section-title {
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Pastel category/tab colors */
+.travel-tab:nth-child(1) {
+    background: #DDF3F8 !important;
+    border-color: #B7DDE7 !important;
+}
+.travel-tab:nth-child(2) {
+    background: #FFF0D9 !important;
+    border-color: #E8CDA5 !important;
+}
+.travel-tab:nth-child(3) {
+    background: #FCE4DD !important;
+    border-color: #E9BEB2 !important;
+}
+.travel-tab:nth-child(4) {
+    background: #EAE5F7 !important;
+    border-color: #C9BFE5 !important;
+}
+.travel-tab:nth-child(5) {
+    background: #E3F1E5 !important;
+    border-color: #BDD7C1 !important;
+}
+
+/* ===== Keep only blue sea waves under STORY ===== */
+.hero .hero-script::after {
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 38'%3E%3Cpath d='M4 16 C35 2 58 31 88 17 S140 2 171 17 S220 30 256 12' fill='none' stroke='%2317A8D5' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M18 27 C45 16 66 38 94 25 S145 13 174 26 S221 38 245 23' fill='none' stroke='%2377D9EC' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E")
+        center / contain no-repeat !important;
+}
+
+
+
+/* ===== TOP NAVIGATION COLORS ONLY ===== */
+/* Do not change section headings or other website text. */
+
+.top-category-links a:nth-child(1) {
+    background: #FFF1B8 !important;   /* HOME — pastel yellow */
+    border-color: #E7CD72 !important;
+    color: #6F5A20 !important;
+}
+
+.top-category-links a:nth-child(2) {
+    background: #DCEEDB !important;   /* TRAVEL — pastel green */
+    border-color: #A9C9A6 !important;
+    color: #4E7254 !important;
+}
+
+.top-category-links a:nth-child(3) {
+    background: #F7DCE3 !important;   /* FOOD — pastel pink */
+    border-color: #DDAEBC !important;
+    color: #824F60 !important;
+}
+
+.top-category-links a:nth-child(4) {
+    background: #F8DFC9 !important;   /* PHOTO — pastel orange */
+    border-color: #E5B894 !important;
+    color: #8A5C3D !important;
+}
+
+.top-category-links a:nth-child(5) {
+    background: #DCEFF5 !important;   /* ABOUT FIFI — pastel blue */
+    border-color: #A9D1DE !important;
+    color: #426F7F !important;
+}
+
+
+/* ===== REST OF WEBSITE — DARK TEXT ONLY ===== */
+/* Top navigation colors above are intentionally untouched. */
+
+/* Main section labels / headings */
+.section-label,
+.section-title,
+.section-heading,
+.region-title,
+.zone-title,
+.travel-region-title {
+    color: #173F5F !important;
+}
+
+/* Travel zone names such as BANGKOK / CENTRAL / EAST / NORTH / SOUTH */
+.travel-tab,
+.travel-tab a,
+.region-tab,
+.region-tab a,
+.zone-tab,
+.zone-tab a,
+.travel-zone,
+.travel-zone a {
+    color: #173F5F !important;
+}
+
+/* General headings and body copy — keep the original dark editorial look */
+main h1:not(.hero h1),
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
+main p,
+main li {
+    color: #173F5F;
+}
+
+/* Keep links readable/dark unless they are the five top navigation buttons */
+main a:not(.top-category-links a) {
+    color: #173F5F;
+}
+
+/* Do not override the hero's special FiF! STORY colors */
+.hero h1,
+.hero .hero-script,
+.hero .hero-subtitle,
+.hero .hero-kicker {
+    color: revert-layer;
+}
+
+
+/* ===== SPECIFIC HEADINGS — KEEP ORIGINAL DARK NAVY ===== */
+.places-title,
+.collection-title,
+.food-title,
+#food .section-title,
+#food h2,
+#food h3 {
+    color: #173F5F !important;
+}
+
+
+/* =========================================================
+   FINAL TEXT CONTRAST FIX
+   ONLY the TOP NAV buttons stay pastel.
+   All other headings / zone names / section text = dark navy.
+   FiF! STORY keeps its special blue + yellow styling.
+========================================================= */
+
+:root {
+    --text-dark-final: #173F5F;
+}
+
+/* ----- TRAVEL: exact headings + region names ----- */
+#travel .section-label,
+#travel .section-title,
+#travel .section-intro,
+#travel .travel-tab,
+#travel .travel-tab *,
+#travel .region-title,
+#travel .zone-title {
+    color: var(--text-dark-final) !important;
+}
+
+/* ----- FOOD: exact headings ----- */
+#food .section-label,
+#food .section-title,
+#food .section-intro,
+#food h2,
+#food h3 {
+    color: var(--text-dark-final) !important;
+}
+
+/* ----- MY WORLD: exact heading ----- */
+#my-world .section-label,
+#my-world .section-title,
+#my-world .world-item h3,
+#my-world .world-item p {
+    color: var(--text-dark-final) !important;
+}
+
+/* ----- ABOUT: headings and normal copy ----- */
+#about .section-label,
+#about .section-title,
+#about .about-text,
+#about .about-text p,
+#about .about-text h2,
+#about .about-text h3 {
+    color: var(--text-dark-final) !important;
+}
+
+/* ----- General normal website text ----- */
+.section-intro,
+.travel-tab,
+.travel-tab *,
+.food-grid h3,
+.food-grid p,
+.photo-grid h3,
+.photo-grid p {
+    color: var(--text-dark-final) !important;
+}
+
+/* ----- Preserve FiF! STORY's special colors ----- */
+.hero h1 {
+    color: #19A9D6 !important;
+    text-shadow: 4px 5px 0 #FFE36E !important;
+}
+
+.hero .hero-script {
+    color: #FFD23F !important;
+}
+
+/* ----- Preserve the five pastel TOP NAV buttons exactly ----- */
+.top-category-links a:nth-child(1) {
+    background: #FFF1B8 !important;
+    border-color: #E7CD72 !important;
+    color: #6F5A20 !important;
+}
+
+.top-category-links a:nth-child(2) {
+    background: #DCEEDB !important;
+    border-color: #A9C9A6 !important;
+    color: #4E7254 !important;
+}
+
+.top-category-links a:nth-child(3) {
+    background: #F7DCE3 !important;
+    border-color: #DDAEBC !important;
+    color: #824F60 !important;
+}
+
+.top-category-links a:nth-child(4) {
+    background: #F8DFC9 !important;
+    border-color: #E5B894 !important;
+    color: #8A5C3D !important;
+}
+
+.top-category-links a:nth-child(5) {
+    background: #DCEFF5 !important;
+    border-color: #A9D1DE !important;
+    color: #426F7F !important;
+}
+
+
+/* =========================================================
+   READABLE TEXT — DARK NAVY
+   Only the 5 TOP NAV buttons keep their pastel colors.
+   All normal website text is made dark and high-contrast.
+========================================================= */
+
+body {
+    color: #173F5F !important;
+}
+
+/* All normal text elements */
+body p,
+body li,
+body span,
+body div,
+body small,
+body label,
+body strong,
+body em,
+body blockquote,
+main p,
+main li,
+main span,
+main small {
+    color: #173F5F !important;
+}
+
+/* Headings throughout the website */
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+    color: #173F5F !important;
+}
+
+/* Keep the hero title as its intentional brand colors */
+.hero h1 {
+    color: #19A9D6 !important;
+    text-shadow: 4px 5px 0 #FFE36E !important;
+}
+
+.hero .hero-script {
+    color: #FFD23F !important;
+}
+
+/* Keep the five top navigation buttons pastel */
+.top-category-links a:nth-child(1) {
+    background: #FFF1B8 !important;
+    border-color: #E7CD72 !important;
+    color: #5F4C16 !important;
+}
+
+.top-category-links a:nth-child(2) {
+    background: #DCEEDB !important;
+    border-color: #A9C9A6 !important;
+    color: #3F6045 !important;
+}
+
+.top-category-links a:nth-child(3) {
+    background: #F7DCE3 !important;
+    border-color: #DDAEBC !important;
+    color: #743F51 !important;
+}
+
+.top-category-links a:nth-child(4) {
+    background: #F8DFC9 !important;
+    border-color: #E5B894 !important;
+    color: #7D4E2E !important;
+}
+
+.top-category-links a:nth-child(5) {
+    background: #DCEFF5 !important;
+    border-color: #A9D1DE !important;
+    color: #365E6D !important;
+}
+
+/* Language buttons: keep their flag-inspired colors and borders */
+.nav-right .lang-btn:first-child {
+    color: #012169 !important;
+    border-color: #012169 !important;
+}
+
+.nav-right .lang-btn:last-child {
+    color: #A51931 !important;
+    border-color: #A51931 !important;
+}
+
+/* Travel zone tabs: dark text for readability */
+.travel-tab,
+.travel-tab a,
+.region-tab,
+.region-tab a,
+.zone-tab,
+.zone-tab a {
+    color: #173F5F !important;
+}
+
+/* Links outside the top navigation remain dark */
+main a:not(.top-category-links a):not(.lang-btn) {
+    color: #173F5F !important;
+}
+
+
+/* =========================================================
+   FINAL VISIBILITY / BRAND PALETTE
+   Dark navy + cream/beige + sunshine yellow + ocean blue.
+   Only colors/contrast are changed — layout stays untouched.
+========================================================= */
+
+:root {
+    --final-navy: #123E59;
+    --final-blue: #1E6F96;
+    --final-sky: #6BB9D4;
+    --final-yellow: #F4C542;
+    --final-cream: #FFF9ED;
+    --final-beige: #F2E6D2;
+    --final-white: #FFFFFF;
+}
+
+/* ---------- LIGHT BACKGROUNDS: dark, crisp text ---------- */
+body,
+section,
+.about,
+.destination-card,
+.food-card,
+footer {
+    color: var(--final-navy) !important;
+}
+
+.section-title,
+.section-intro,
+.section-label,
+.destination-info h3,
+.destination-info p,
+.food-card h3,
+.food-card p,
+.photo-caption,
+.about-side h2,
+.about-text,
+.about-text p,
+.future-box h3,
+.tagline,
+.footer-copy {
+    color: var(--final-navy) !important;
+}
+
+/* Travel zone names: BANGKOK / CENTRAL / EAST / NORTH / SOUTH */
+.travel-tab,
+.travel-tab a {
+    color: var(--final-navy) !important;
+    font-weight: 800 !important;
+}
+
+/* ---------- DARK BLUE FOOD SECTION: WHITE + YELLOW ---------- */
+.food-section {
+    background: var(--final-navy) !important;
+}
+
+.food-section .section-label {
+    color: var(--final-yellow) !important;
+}
+
+.food-section .section-title {
+    color: var(--final-white) !important;
+    text-shadow: none !important;
+}
+
+.food-section .section-intro {
+    color: rgba(255,255,255,.92) !important;
+}
+
+.food-overlay,
+.food-overlay h3,
+.food-overlay p {
+    color: var(--final-white) !important;
+}
+
+.food-overlay h3 {
+    text-shadow: 0 2px 10px rgba(0,0,0,.22) !important;
+}
+
+/* ---------- DARK BLUE MY WORLD: WHITE + YELLOW ---------- */
+.my-world {
+    background: var(--final-navy) !important;
+}
+
+.my-world .section-label,
+.my-world .world-item span {
+    color: var(--final-yellow) !important;
+}
+
+.my-world .section-title,
+.my-world .world-item h3 {
+    color: var(--final-white) !important;
+}
+
+.my-world .world-item p {
+    color: rgba(255,255,255,.88) !important;
+}
+
+/* ---------- PHOTOGRAPHY: cream background + navy title ---------- */
+#photography,
+.photo-grid {
+    color: var(--final-navy) !important;
+}
+
+#photography .section-label {
+    color: var(--final-blue) !important;
+}
+
+#photography .section-title {
+    color: var(--final-navy) !important;
+    text-shadow: none !important;
+}
+
+#photography .section-intro {
+    color: var(--final-navy) !important;
+}
+
+/* ---------- ABOUT: navy + yellow accents ---------- */
+.about-side h2,
+.about-text,
+.about-text p,
+.future-box h3,
+.tagline {
+    color: var(--final-navy) !important;
+}
+
+.signature,
+.tagline span {
+    color: var(--final-yellow) !important;
+}
+
+/* ---------- HERO: keep brand colors ---------- */
+.hero h1 {
+    color: #159BC4 !important;
+    text-shadow: 5px 5px 0 #FFE27A !important;
+}
+
+.hero .hero-script {
+    color: #F4B942 !important;
+}
+
+.hero-description {
+    color: var(--final-navy) !important;
+}
+
+/* ---------- TOP NAV: pastel buttons only ---------- */
+.top-category-links a:nth-child(1) {
+    background: #FFF1B8 !important;
+    border-color: #E7CD72 !important;
+    color: #5F4C16 !important;
+}
+
+.top-category-links a:nth-child(2) {
+    background: #DCEEDB !important;
+    border-color: #A9C9A6 !important;
+    color: #3F6045 !important;
+}
+
+.top-category-links a:nth-child(3) {
+    background: #F7DCE3 !important;
+    border-color: #DDAEBC !important;
+    color: #743F51 !important;
+}
+
+.top-category-links a:nth-child(4) {
+    background: #F8DFC9 !important;
+    border-color: #E5B894 !important;
+    color: #7D4E2E !important;
+}
+
+.top-category-links a:nth-child(5) {
+    background: #DCEFF5 !important;
+    border-color: #A9D1DE !important;
+    color: #365E6D !important;
+}
+
+/* ---------- LANGUAGE BUTTONS ---------- */
+.nav-right .lang-btn {
+    background: #FFFDF8 !important;
+    font-weight: 800 !important;
+}
+
+.nav-right .lang-btn:first-child {
+    color: #012169 !important;
+    border-color: #012169 !important;
+}
+
+.nav-right .lang-btn:last-child {
+    color: #A51931 !important;
+    border-color: #A51931 !important;
+}
+
+/* Make small text and captions readable too */
+.coming-badge {
+    color: #6B5A22 !important;
+    background: #FFF7D6 !important;
+    border-color: #D9C98F !important;
+}
+
+
+/* =========================================================
+   FINAL CHECK + CONTRAST FIX
+   This block has the highest-priority rules for the actual
+   section IDs, so older pastel rules cannot wash out text.
+========================================================= */
+
+/* HOME — cream background: strong navy */
+#home .section-label,
+#home .section-title,
+#home .section-intro,
+#home p,
+#home h1,
+#home h2,
+#home h3 {
+    color: #123E59 !important;
+}
+
+/* TRAVEL — cream background: strong navy */
+#travel .section-label,
+#travel .section-title,
+#travel .section-intro,
+#travel p,
+#travel h2,
+#travel h3 {
+    color: #123E59 !important;
+}
+
+#travel .travel-tab,
+#travel .travel-tab a {
+    color: #123E59 !important;
+}
+
+/* FOOD — navy background: white + yellow */
+#food .section-label {
+    color: #FFD84D !important;
+}
+
+#food .section-title {
+    color: #FFFFFF !important;
+    text-shadow: none !important;
+}
+
+#food .section-intro {
+    color: #FFFFFF !important;
+    opacity: .94 !important;
+}
+
+#food .food-overlay h3,
+#food .food-overlay p {
+    color: #FFFFFF !important;
+}
+
+/* FOOD cards — readable navy text on light cards */
+#food .food-card-content h3,
+#food .food-card-content p {
+    color: #123E59 !important;
+}
+
+/* PHOTOGRAPHY — cream background: strong navy */
+#photography .section-label {
+    color: #1E6F96 !important;
+}
+
+#photography .section-title {
+    color: #123E59 !important;
+    text-shadow: none !important;
+}
+
+#photography .section-intro,
+#photography .photo-caption {
+    color: #123E59 !important;
+}
+
+/* MY WORLD — navy background: white + yellow */
+#my-world .section-label,
+#my-world .world-item span {
+    color: #FFD84D !important;
+}
+
+#my-world .section-title,
+#my-world .world-item h3 {
+    color: #FFFFFF !important;
+}
+
+#my-world .world-item p {
+    color: rgba(255,255,255,.90) !important;
+}
+
+/* ABOUT — cream background: strong navy */
+#about .section-label {
+    color: #1E6F96 !important;
+}
+
+#about .about-side h2,
+#about .about-text,
+#about .about-text p {
+    color: #123E59 !important;
+}
+
+#about .signature {
+    color: #FFD84D !important;
+}
+
+/* HERO BRAND TITLE — intentionally blue + yellow */
+.hero h1 {
+    color: #159BC4 !important;
+    text-shadow: 5px 5px 0 #FFE27A !important;
+}
+
+.hero .hero-script {
+    color: #F4B942 !important;
+}
+
+/* TOP NAV — pastel buttons only */
+.top-category-links a:nth-child(1) {
+    background: #FFF1B8 !important;
+    border-color: #E7CD72 !important;
+    color: #5F4C16 !important;
+}
+.top-category-links a:nth-child(2) {
+    background: #DCEEDB !important;
+    border-color: #A9C9A6 !important;
+    color: #3F6045 !important;
+}
+.top-category-links a:nth-child(3) {
+    background: #F7DCE3 !important;
+    border-color: #DDAEBC !important;
+    color: #743F51 !important;
+}
+.top-category-links a:nth-child(4) {
+    background: #F8DFC9 !important;
+    border-color: #E5B894 !important;
+    color: #7D4E2E !important;
+}
+.top-category-links a:nth-child(5) {
+    background: #DCEFF5 !important;
+    border-color: #A9D1DE !important;
+    color: #365E6D !important;
 }
 
 </style>
@@ -1905,7 +2557,7 @@ A PERSONAL JOURNAL BY FIFI WARATTHAYA
 
 
 <div class="hero-script">
-Story.
+Story
 </div>
 
 
@@ -2016,126 +2668,133 @@ Places I've visited, memories I've collected, and destinations that have become 
 
 <div class="travel-tabs">
 
-<div class="travel-tab">
-BANGKOK
-</div>
-
-<div class="travel-tab">
-CENTRAL
-</div>
-
-<div class="travel-tab">
-EAST
-</div>
-
-<div class="travel-tab">
-NORTH
-</div>
-
-<div class="travel-tab">
-SOUTH
-</div>
+<div class="travel-tab active" data-region="bangkok">BANGKOK</div>
+<div class="travel-tab" data-region="central">CENTRAL</div>
+<div class="travel-tab" data-region="east">EAST</div>
+<div class="travel-tab" data-region="north">NORTH</div>
+<div class="travel-tab" data-region="south">SOUTH</div>
 
 </div>
-
-
 
 <div class="destination-grid">
 
-
-<article class="destination-card">
-
-<img src="images/bangkok.jpg"
-     alt="Bangkok">
-
+<article class="destination-card" data-region="bangkok">
+<img src="images/bangkok.jpg" alt="Bangkok">
 <div class="destination-info">
-
 <h3>BANGKOK</h3>
-
-<p
-data-en="My everyday city — food, cafés, people and stories."
-data-th="เมืองที่ฉันใช้ชีวิต — อาหาร คาเฟ่ ผู้คน และเรื่องราว">
-
-My everyday city — food, cafés, people and stories.
-
-</p>
-
+<p data-en="A city I know, love and keep coming back to." data-th="เมืองที่ฉันรู้จัก รัก และยังคงกลับไปเสมอ">A city I know, love and keep coming back to.</p>
 </div>
-
 </article>
 
-
-
-<article class="destination-card">
-
-<img src="images/north.jpg"
-     alt="North Thailand">
-
+<article class="destination-card" data-region="central">
+<img src="images/north.jpg" alt="Ayutthaya">
 <div class="destination-info">
-
-<h3>NORTH</h3>
-
-<p
-data-en="Mountains, coffee and slow mornings."
-data-th="ภูเขา กาแฟ และเช้าที่ค่อย ๆ ผ่านไป">
-
-Mountains, coffee and slow mornings.
-
-</p>
-
+<h3>AYUTTHAYA</h3>
+<p data-en="History, old temples and slow moments." data-th="ประวัติศาสตร์ วัดเก่า และช่วงเวลาที่ค่อย ๆ ผ่านไป">History, old temples and slow moments.</p>
 </div>
-
 </article>
 
-
-
-<article class="destination-card">
-
-<img src="images/east.jpg"
-     alt="East Thailand">
-
+<article class="destination-card" data-region="central">
+<img src="images/east.jpg" alt="Pattaya">
 <div class="destination-info">
-
-<h3>EAST</h3>
-
-<p
-data-en="Quiet beaches, islands and tropical days."
-data-th="ทะเลเงียบ ๆ เกาะ และวันธรรมดาใต้แสงแดด">
-
-Quiet beaches, islands and tropical days.
-
-</p>
-
+<h3>PATTAYA</h3>
+<p data-en="A seaside escape not far from Bangkok." data-th="เมืองทะเลที่เดินทางไม่ไกลจากกรุงเทพฯ">A seaside escape not far from Bangkok.</p>
 </div>
-
 </article>
 
-
-
-<article class="destination-card">
-
-<img src="images/south.jpg"
-     alt="South Thailand">
-
+<article class="destination-card" data-region="east">
+<img src="images/east.jpg" alt="Koh Chang">
 <div class="destination-info">
-
-<h3>SOUTH</h3>
-
-<p
-data-en="Islands, beaches and blue water."
-data-th="เกาะ ชายหาด และทะเลสีฟ้า">
-
-Islands, beaches and blue water.
-
-</p>
-
+<h3>KOH CHANG</h3>
+<p data-en="Island days, beaches and tropical views." data-th="วันพักผ่อนบนเกาะ ชายหาด และวิวทะเล">Island days, beaches and tropical views.</p>
 </div>
-
 </article>
 
+<article class="destination-card" data-region="east">
+<img src="images/east.jpg" alt="Koh Kood">
+<div class="destination-info">
+<h3>KOH KOOD</h3>
+<p data-en="Quiet island days and clear blue water." data-th="เกาะเงียบ ๆ และน้ำทะเลสีฟ้าใส">Quiet island days and clear blue water.</p>
+</div>
+</article>
+
+<article class="destination-card coming-soon" data-region="north">
+<img src="images/north.jpg" alt="Chiang Mai">
+<div class="destination-info">
+<span class="coming-badge">COMING SOON · NOVEMBER</span>
+<h3>CHIANG MAI</h3>
+<p data-en="Mountains, cafés and slow northern mornings." data-th="ภูเขา คาเฟ่ และเช้าที่แสนช้าในภาคเหนือ">Mountains, cafés and slow northern mornings.</p>
+</div>
+</article>
+
+<article class="destination-card coming-soon" data-region="north">
+<img src="images/north.jpg" alt="Nan">
+<div class="destination-info">
+<span class="coming-badge">COMING SOON · NOVEMBER</span>
+<h3>NAN</h3>
+<p data-en="Quiet roads, mountains and a slower kind of journey." data-th="ถนนเงียบ ๆ ภูเขา และการเดินทางที่ค่อย ๆ เป็นค่อย ๆ ไป">Quiet roads, mountains and a slower kind of journey.</p>
+</div>
+</article>
+
+<article class="destination-card" data-region="south">
+<img src="images/south.jpg" alt="Phang Nga">
+<div class="destination-info">
+<h3>PHANG NGA</h3>
+<p data-en="Dramatic landscapes, sea and nature." data-th="ธรรมชาติ ทะเล และภูมิประเทศที่สวยโดดเด่น">Dramatic landscapes, sea and nature.</p>
+</div>
+</article>
+
+<article class="destination-card" data-region="south">
+<img src="images/south.jpg" alt="Phuket">
+<div class="destination-info">
+<h3>PHUKET</h3>
+<p data-en="Beaches, food and island life." data-th="ชายหาด อาหาร และชีวิตริมทะเล">Beaches, food and island life.</p>
+</div>
+</article>
+
+<article class="destination-card" data-region="south">
+<img src="images/south.jpg" alt="Krabi">
+<div class="destination-info">
+<h3>KRABI</h3>
+<p data-en="Cliffs, beaches and beautiful blue water." data-th="หน้าผา ชายหาด และน้ำทะเลสีฟ้า">Cliffs, beaches and beautiful blue water.</p>
+</div>
+</article>
+
+<article class="destination-card" data-region="south">
+<img src="images/south.jpg" alt="Koh Tao">
+<div class="destination-info">
+<h3>KOH TAO</h3>
+<p data-en="Island life, sea and tropical days." data-th="ชีวิตบนเกาะ ทะเล และวันพักผ่อนใต้แสงแดด">Island life, sea and tropical days.</p>
+</div>
+</article>
+
+<article class="destination-card" data-region="south">
+<img src="images/south.jpg" alt="Koh Samui">
+<div class="destination-info">
+<h3>KOH SAMUI</h3>
+<p data-en="A tropical island escape." data-th="การพักผ่อนบนเกาะเขตร้อน">A tropical island escape.</p>
+</div>
+</article>
+
+<article class="destination-card coming-soon" data-region="south">
+<img src="images/south.jpg" alt="Koh Lanta">
+<div class="destination-info">
+<span class="coming-badge">COMING SOON · NOVEMBER</span>
+<h3>KOH LANTA</h3>
+<p data-en="A slower island escape coming soon." data-th="การเดินทางไปเกาะที่กำลังจะมาถึง">A slower island escape coming soon.</p>
+</div>
+</article>
+
+<article class="destination-card coming-soon" data-region="south">
+<img src="images/south.jpg" alt="Koh Lipe">
+<div class="destination-info">
+<span class="coming-badge">COMING SOON · NOVEMBER</span>
+<h3>KOH LIPE</h3>
+<p data-en="Clear water and a new island story to come." data-th="น้ำทะเลใสและเรื่องราวบทใหม่บนเกาะที่กำลังจะมาถึง">Clear water and a new island story to come.</p>
+</div>
+</article>
 
 </div>
-
 </section>
 
 
@@ -2407,10 +3066,10 @@ LIFE
 
 
 <h2 class="section-title"
-    data-en="A COLLECTION OF WHAT I LOVE."
+    data-en="A COLLECTION<br>OF WHAT I LOVE."
     data-th="เรื่องราวจากสิ่งที่ฉันรัก">
 
-A COLLECTION OF WHAT I LOVE.
+A COLLECTION<br>OF WHAT I LOVE.
 
 </h2>
 
@@ -2819,6 +3478,35 @@ window.addEventListener(
     }
 );
 
+
+
+/* =========================================================
+   TRAVEL ZONE FILTER
+========================================================= */
+document.querySelectorAll(".travel-tab").forEach(function(tab) {
+    tab.addEventListener("click", function() {
+        const region = tab.getAttribute("data-region");
+
+        document.querySelectorAll(".travel-tab").forEach(function(item) {
+            item.classList.remove("active");
+        });
+        tab.classList.add("active");
+
+        document.querySelectorAll(".destination-card").forEach(function(card) {
+            card.classList.toggle(
+                "is-hidden",
+                card.getAttribute("data-region") !== region
+            );
+        });
+    });
+});
+
+/* Show Bangkok when the page first opens. */
+document.querySelectorAll(".destination-card").forEach(function(card) {
+    if (card.getAttribute("data-region") !== "bangkok") {
+        card.classList.add("is-hidden");
+    }
+});
 </script>
 
 
