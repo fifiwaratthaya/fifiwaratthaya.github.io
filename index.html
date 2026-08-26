@@ -2691,6 +2691,54 @@ footer {
     max-width: 900px !important;
     line-height: 0.98 !important;
 }
+
+/* =========================================================
+   LOGO SIZE ONLY
+   Make the existing FIFI logo larger and more prominent.
+   No other layout/content/color changes.
+========================================================= */
+
+.navbar .logo img,
+header .logo img,
+.site-logo img,
+.logo img {
+    width: 230px !important;
+    max-width: 230px !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Give the logo a little more visual presence without changing its design */
+.navbar .logo,
+header .logo,
+.site-logo,
+.logo {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Desktop */
+@media (min-width: 701px) {
+    .navbar .logo img,
+    header .logo img,
+    .site-logo img,
+    .logo img {
+        width: 250px !important;
+        max-width: 250px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .navbar .logo img,
+    header .logo img,
+    .site-logo img,
+    .logo img {
+        width: 170px !important;
+        max-width: 170px !important;
+    }
+}
+
 </style>
 </head>
 
