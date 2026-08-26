@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FIFI STORY.</title>
 
-<meta name="description" content="FIFI STORY. — Places I've been, food I love, moments I've captured.">
+<meta name="description"
+content="FIFI STORY. — Places I've been. Food I love. Moments I've captured.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@500;600&display=swap" rel="stylesheet">
+
 
 <style>
 
 /* =========================================================
    FIFI STORY.
-   MAIN STYLE
+   VISUAL IDENTITY
+   CREAM / OCEAN BLUE / SUNSHINE YELLOW
 ========================================================= */
 
 :root {
-    --cream: #f8f5ee;
-    --cream-dark: #eee8dc;
-    --white: #fffdf9;
 
-    --blue: #174b68;
-    --blue-light: #4d91ae;
-    --blue-soft: #dcecf2;
+    --cream: #FFF9ED;
+    --cream-dark: #F3E8D3;
 
-    --gold: #f2c95c;
-    --gold-light: #f8dc83;
+    --white: #FFFFFF;
 
-    --text: #18384b;
-    --muted: #667b85;
+    --blue: #123E59;
+    --blue-bright: #168FBA;
+    --blue-light: #4FB7D4;
+    --blue-soft: #DDF3F8;
 
-    --line: rgba(23, 75, 104, 0.16);
+    --yellow: #FFD83D;
+    --yellow-light: #FFE98A;
 
-    --serif: "DM Serif Display", Georgia, serif;
+    --text: #123E59;
+    --muted: #526C78;
+
+    --line: rgba(18,62,89,.15);
+
+    --serif: "Lora", Georgia, serif;
     --body: "Manrope", Arial, sans-serif;
     --script: "Playfair Display", Georgia, serif;
 }
+
 
 * {
     margin: 0;
@@ -48,378 +56,521 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+
     background: var(--cream);
+
     color: var(--text);
+
     font-family: var(--body);
+
     line-height: 1.7;
+
+    overflow-x: hidden;
 }
 
+
 img {
-    max-width: 100%;
+
+    width: 100%;
+
     display: block;
 }
 
+
 a {
+
     color: inherit;
+
     text-decoration: none;
 }
 
+
 button {
+
     font-family: inherit;
 }
+
 
 /* =========================================================
    HEADER
 ========================================================= */
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 
-    background: rgba(248,245,238,0.94);
-    backdrop-filter: blur(15px);
+    position: sticky;
+
+    top: 0;
+
+    z-index: 999;
+
+    background: rgba(255,249,237,.94);
+
+    backdrop-filter: blur(16px);
 
     border-bottom: 1px solid var(--line);
 }
 
+
 .navbar {
-    max-width: 1380px;
-    margin: auto;
+
+    max-width: 1400px;
 
     height: 82px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: auto;
 
     padding: 0 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 }
+
 
 .logo {
+
     font-family: var(--serif);
+
     font-size: 29px;
-    letter-spacing: -0.5px;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
 
     color: var(--blue);
+
+    white-space: nowrap;
 }
+
 
 .logo span {
-    color: var(--gold);
+
+    color: var(--blue-bright);
 }
+
 
 .nav-links {
+
     display: flex;
-    gap: 36px;
+
     align-items: center;
+
+    gap: 34px;
 }
+
 
 .nav-links a {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-
-    color: var(--text);
 
     position: relative;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--blue);
+
+    transition: .25s;
 }
 
+
 .nav-links a::after {
+
     content: "";
+
     position: absolute;
 
     left: 0;
-    bottom: -9px;
+
+    bottom: -10px;
 
     width: 0;
-    height: 2px;
 
-    background: var(--gold);
+    height: 3px;
 
-    transition: width .3s ease;
+    background: var(--yellow);
+
+    border-radius: 5px;
+
+    transition: width .25s ease;
 }
+
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
+
     width: 100%;
 }
 
-.nav-right {
+
+.language-switcher {
+
     display: flex;
-    align-items: center;
-    gap: 12px;
+
+    gap: 6px;
 }
 
+
 .lang-btn {
+
     border: 1px solid var(--line);
 
     background: transparent;
 
-    padding: 7px 11px;
+    color: var(--blue);
 
     border-radius: 30px;
 
-    font-size: 11px;
-    font-weight: 700;
+    padding: 7px 11px;
 
-    color: var(--blue);
+    font-size: 10px;
+
+    font-weight: 800;
 
     cursor: pointer;
 
     transition: .25s;
 }
 
+
 .lang-btn:hover {
-    background: var(--blue);
-    color: white;
+
+    background: var(--yellow);
+
+    border-color: var(--yellow);
+
 }
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero {
-    min-height: 780px;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
 
-    max-width: 1380px;
+    min-height: 760px;
+
     margin: auto;
 
-    padding: 42px 34px 70px;
+    padding: 55px 34px 80px;
 
-    gap: 60px;
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 70px;
 
     align-items: center;
 }
 
+
 .hero-copy {
-    padding-left: 30px;
+
+    padding-left: 25px;
 }
+
 
 .eyebrow {
-    color: var(--blue-light);
 
-    font-size: 12px;
-    font-weight: 700;
+    color: var(--blue-bright);
 
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
+    font-size: 11px;
 
-    margin-bottom: 22px;
+    font-weight: 800;
+
+    letter-spacing: 2.2px;
+
+    margin-bottom: 25px;
 }
 
+
 .hero h1 {
+
     font-family: var(--serif);
 
-    font-size: clamp(75px, 10vw, 155px);
+    font-size: clamp(85px, 11vw, 155px);
+
+    font-weight: 700;
 
     line-height: .82;
 
-    letter-spacing: -4px;
+    letter-spacing: -5px;
 
     color: var(--blue);
 }
 
+
 .hero-script {
+
     font-family: var(--script);
 
     font-style: italic;
 
-    font-size: clamp(52px, 6vw, 86px);
+    font-size: clamp(55px, 6vw, 88px);
 
-    color: var(--gold);
+    line-height: 1;
 
-    margin-left: 55px;
+    color: var(--yellow);
 
-    margin-top: 12px;
+    margin-left: 58px;
+
+    margin-top: 15px;
 }
 
+
 .hero-description {
-    max-width: 560px;
+
+    max-width: 530px;
 
     margin-top: 38px;
 
-    font-size: 17px;
+    font-size: 16px;
 
-    color: var(--muted);
+    font-weight: 500;
+
+    color: var(--text);
+
+    line-height: 1.9;
 }
 
-.hero-description strong {
-    color: var(--blue);
-}
 
 .hero-button {
+
     display: inline-flex;
 
-    margin-top: 32px;
+    align-items: center;
 
-    padding: 14px 25px;
+    justify-content: center;
+
+    margin-top: 30px;
+
+    padding: 15px 27px;
 
     border-radius: 40px;
 
-    background: var(--gold);
+    background: var(--yellow);
 
     color: var(--blue);
 
-    font-size: 12px;
+    font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 1px;
 
-    transition: transform .25s, background .25s;
+    transition: .25s;
 }
+
 
 .hero-button:hover {
+
+    background: var(--yellow-light);
+
     transform: translateY(-3px);
-    background: var(--gold-light);
 }
+
 
 .hero-image {
+
     position: relative;
 
-    min-height: 650px;
+    min-height: 620px;
 }
 
+
 .hero-image::before {
+
     content: "";
 
     position: absolute;
 
-    inset: 25px -20px -25px 25px;
+    top: 20px;
 
-    border: 1px solid var(--gold);
+    right: -20px;
 
-    border-radius: 50% 50% 12px 12px;
+    bottom: -20px;
 
-    z-index: 0;
+    left: 25px;
+
+    border: 2px solid var(--blue-light);
+
+    border-radius: 180px 180px 20px 20px;
+
 }
 
+
 .hero-image img {
+
+    position: relative;
+
+    z-index: 2;
+
     width: 100%;
-    height: 650px;
+
+    height: 620px;
 
     object-fit: cover;
 
-    border-radius: 4px;
-
-    position: relative;
-    z-index: 1;
+    border-radius: 180px 180px 18px 18px;
 }
 
+
 .hero-note {
+
     position: absolute;
 
-    bottom: 28px;
+    z-index: 4;
+
     left: -25px;
 
-    z-index: 3;
+    bottom: 35px;
 
-    background: var(--cream);
+    max-width: 240px;
 
-    padding: 18px 24px;
+    padding: 18px 23px;
 
-    border-left: 3px solid var(--gold);
+    background: var(--white);
+
+    border-left: 4px solid var(--yellow);
+
+    box-shadow: 0 15px 40px rgba(18,62,89,.12);
 
     font-family: var(--script);
 
     font-size: 17px;
 
-    max-width: 230px;
+    color: var(--blue);
 }
 
+
 /* =========================================================
-   WAVE DIVIDER
+   WAVE
 ========================================================= */
 
 .wave {
+
     width: 100%;
+
     overflow: hidden;
+
     line-height: 0;
+
+    margin-top: -20px;
 }
 
+
 .wave svg {
+
     width: 100%;
+
     height: 90px;
+
     display: block;
 }
 
+
 /* =========================================================
-   SECTION
+   SECTIONS
 ========================================================= */
 
 section {
-    max-width: 1380px;
+
+    max-width: 1400px;
+
     margin: auto;
 
     padding: 110px 34px;
 }
 
+
 .section-label {
+
+    color: var(--blue-bright);
+
     font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    color: var(--blue-light);
-
-    text-transform: uppercase;
-
-    margin-bottom: 14px;
+    margin-bottom: 15px;
 }
 
+
 .section-title {
+
     font-family: var(--serif);
 
-    font-size: clamp(44px, 6vw, 78px);
-
-    line-height: 1;
-
     color: var(--blue);
+
+    font-size: clamp(45px, 6vw, 78px);
+
+    font-weight: 700;
+
+    line-height: 1.02;
+
+    letter-spacing: -1.5px;
 
     margin-bottom: 25px;
 }
 
+
 .section-intro {
-    max-width: 620px;
 
-    color: var(--muted);
+    max-width: 650px;
 
-    font-size: 16px;
+    color: var(--text);
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.9;
 }
+
 
 /* =========================================================
    TRAVEL
 ========================================================= */
 
 .travel-tabs {
+
     margin-top: 55px;
 
     display: grid;
+
     grid-template-columns: repeat(5,1fr);
 
     border: 1px solid var(--line);
 
-    background: rgba(255,255,255,.35);
+    background: var(--white);
 
     border-radius: 60px;
 
     overflow: hidden;
 }
 
+
 .travel-tab {
+
     padding: 22px 10px;
 
     text-align: center;
 
-    font-size: 12px;
+    font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 1.3px;
@@ -431,25 +582,35 @@ section {
     transition: .25s;
 }
 
+
 .travel-tab:last-child {
+
     border-right: none;
 }
 
+
 .travel-tab:hover {
+
     background: var(--blue);
+
     color: white;
 }
 
+
 .destination-grid {
+
     margin-top: 45px;
 
     display: grid;
+
     grid-template-columns: repeat(4,1fr);
 
-    gap: 18px;
+    gap: 20px;
 }
 
+
 .destination-card {
+
     background: var(--white);
 
     border: 1px solid var(--line);
@@ -458,113 +619,148 @@ section {
 
     overflow: hidden;
 
-    transition: transform .3s, box-shadow .3s;
+    transition: .3s;
 }
+
 
 .destination-card:hover {
-    transform: translateY(-6px);
 
-    box-shadow: 0 18px 40px rgba(23,75,104,.12);
+    transform: translateY(-7px);
+
+    box-shadow: 0 20px 45px rgba(18,62,89,.13);
 }
 
+
 .destination-card img {
-    width: 100%;
+
     height: 230px;
 
     object-fit: cover;
 }
 
+
 .destination-info {
+
     padding: 20px;
 }
 
-.destination-info h3 {
-    font-family: var(--serif);
 
-    font-size: 26px;
+.destination-info h3 {
+
+    font-family: var(--serif);
 
     color: var(--blue);
 
-    margin-bottom: 5px;
+    font-size: 25px;
+
+    font-weight: 700;
 }
+
 
 .destination-info p {
-    color: var(--muted);
+
+    margin-top: 5px;
+
+    color: var(--text);
 
     font-size: 13px;
+
+    font-weight: 500;
 }
+
 
 /* =========================================================
    FOOD
 ========================================================= */
 
 .food-section {
-    background: var(--white);
 
     max-width: none;
 
-    padding-left: max(34px, calc((100vw - 1312px)/2));
-    padding-right: max(34px, calc((100vw - 1312px)/2));
+    background: var(--blue-soft);
+
+    padding-left: max(34px, calc((100vw - 1332px)/2));
+
+    padding-right: max(34px, calc((100vw - 1332px)/2));
 }
 
+
 .food-grid {
+
+    margin-top: 55px;
+
     display: grid;
 
     grid-template-columns: 1.1fr .9fr;
 
-    gap: 30px;
-
-    margin-top: 55px;
+    gap: 25px;
 }
 
+
 .food-feature {
+
     position: relative;
 
     min-height: 520px;
 
-    overflow: hidden;
+    border-radius: 22px;
 
-    border-radius: 20px;
+    overflow: hidden;
 }
 
+
 .food-feature img {
-    width: 100%;
+
     height: 100%;
 
     object-fit: cover;
 }
 
+
 .food-overlay {
+
     position: absolute;
 
-    inset: auto 0 0 0;
+    left: 0;
 
-    padding: 40px;
+    right: 0;
+
+    bottom: 0;
+
+    padding: 42px;
+
+    color: white;
 
     background: linear-gradient(
         transparent,
-        rgba(13,48,65,.85)
+        rgba(18,62,89,.9)
     );
-
-    color: white;
 }
 
+
 .food-overlay h3 {
+
     font-family: var(--serif);
 
     font-size: 42px;
+
+    font-weight: 700;
 }
 
+
 .food-side {
+
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 20px;
+    gap: 18px;
 }
 
+
 .food-card {
-    background: var(--cream);
+
+    background: var(--white);
 
     border-radius: 18px;
 
@@ -573,39 +769,49 @@ section {
     border: 1px solid var(--line);
 }
 
-.food-card img {
-    height: 190px;
 
-    width: 100%;
+.food-card img {
+
+    height: 190px;
 
     object-fit: cover;
 }
 
+
 .food-card-content {
+
     padding: 20px;
 }
 
+
 .food-card h3 {
+
     font-family: var(--serif);
 
     color: var(--blue);
 
-    font-size: 24px;
+    font-size: 23px;
+
+    font-weight: 700;
 }
+
 
 .food-card p {
-    color: var(--muted);
+
+    margin-top: 5px;
+
+    color: var(--text);
 
     font-size: 13px;
-
-    margin-top: 6px;
 }
+
 
 /* =========================================================
    PHOTOGRAPHY
 ========================================================= */
 
 .photo-grid {
+
     margin-top: 55px;
 
     display: grid;
@@ -615,18 +821,23 @@ section {
     gap: 18px;
 }
 
-.photo-grid figure {
-    overflow: hidden;
 
-    border-radius: 16px;
+.photo-grid figure {
 
     position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
 
     background: var(--cream-dark);
 }
 
+
 .photo-grid img {
+
     width: 100%;
+
     height: 360px;
 
     object-fit: cover;
@@ -634,73 +845,97 @@ section {
     transition: transform .5s ease;
 }
 
+
 .photo-grid figure:hover img {
-    transform: scale(1.04);
+
+    transform: scale(1.045);
 }
 
+
 .photo-caption {
+
     position: absolute;
 
-    left: 15px;
-    bottom: 15px;
+    left: 16px;
 
-    background: rgba(248,245,238,.92);
+    bottom: 16px;
 
     padding: 8px 14px;
 
     border-radius: 30px;
 
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: .8px;
+    background: rgba(255,255,255,.94);
 
     color: var(--blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
 }
+
 
 /* =========================================================
    MY WORLD
 ========================================================= */
 
 .my-world {
+
+    max-width: none;
+
     background: var(--blue);
 
     color: white;
 
-    max-width: none;
+    padding-left: max(34px, calc((100vw - 1332px)/2));
 
-    padding-left: max(34px, calc((100vw - 1312px)/2));
-    padding-right: max(34px, calc((100vw - 1312px)/2));
+    padding-right: max(34px, calc((100vw - 1332px)/2));
 
     position: relative;
 
     overflow: hidden;
 }
 
-.my-world::after {
-    content: "✦";
+
+.my-world::before {
+
+    content: "";
 
     position: absolute;
 
-    right: 8%;
-    top: 15%;
+    width: 400px;
 
-    font-size: 100px;
+    height: 400px;
 
-    color: rgba(242,201,92,.25);
+    right: -180px;
+
+    top: -180px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,216,61,.35);
 }
+
 
 .my-world .section-label {
-    color: var(--gold-light);
+
+    color: var(--yellow);
 }
+
 
 .my-world .section-title {
+
     color: white;
 
-    max-width: 800px;
+    max-width: 850px;
 }
 
+
 .world-line {
+
+    width: 100%;
+
     height: 1px;
 
     background: rgba(255,255,255,.2);
@@ -708,7 +943,9 @@ section {
     margin: 45px 0;
 }
 
+
 .world-items {
+
     display: grid;
 
     grid-template-columns: repeat(4,1fr);
@@ -716,38 +953,53 @@ section {
     gap: 30px;
 }
 
+
 .world-item span {
+
+    color: var(--yellow);
+
     font-size: 11px;
 
-    color: var(--gold-light);
+    font-weight: 800;
 
     letter-spacing: 1.5px;
 }
 
-.world-item h3 {
-    font-family: var(--serif);
 
-    font-size: 28px;
+.world-item h3 {
 
     margin: 12px 0 8px;
+
+    font-family: var(--serif);
+
+    font-size: 27px;
+
+    font-weight: 700;
 }
 
+
 .world-item p {
-    color: rgba(255,255,255,.7);
+
+    color: rgba(255,255,255,.75);
 
     font-size: 13px;
 }
 
+
 /* =========================================================
-   ABOUT
+   ABOUT FIFI
 ========================================================= */
 
 .about {
+
     padding-top: 130px;
+
     padding-bottom: 130px;
 }
 
+
 .about-layout {
+
     display: grid;
 
     grid-template-columns: .75fr 1.25fr;
@@ -757,47 +1009,69 @@ section {
     align-items: start;
 }
 
+
 .about-side {
+
     position: sticky;
 
     top: 120px;
 }
 
+
 .about-side h2 {
+
     font-family: var(--serif);
+
+    color: var(--blue);
 
     font-size: clamp(50px,6vw,82px);
 
-    color: var(--blue);
+    font-weight: 700;
 
-    line-height: .95;
+    line-height: 1;
 }
 
-.about-side .signature {
-    font-family: var(--script);
 
-    font-size: 28px;
-
-    color: var(--gold);
+.signature {
 
     margin-top: 25px;
+
+    font-family: var(--script);
+
+    font-size: 29px;
+
+    font-style: italic;
+
+    color: var(--blue-bright);
 }
+
 
 .about-text {
-    font-size: 17px;
 
-    color: var(--muted);
+    color: var(--text);
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    line-height: 1.95;
 }
+
 
 .about-text p {
-    margin-bottom: 25px;
+
+    margin-bottom: 26px;
 }
 
+
 .about-text strong {
+
     color: var(--blue);
 }
 
+
 .future-box {
+
     margin-top: 50px;
 
     padding: 42px;
@@ -806,26 +1080,30 @@ section {
 
     border: 1px solid var(--line);
 
-    border-left: 4px solid var(--gold);
+    border-left: 5px solid var(--yellow);
 
-    border-radius: 4px;
+    border-radius: 5px;
+
+    box-shadow: 0 12px 35px rgba(18,62,89,.06);
 }
 
+
 .future-box h3 {
+
+    margin-bottom: 18px;
+
     font-family: var(--serif);
 
     color: var(--blue);
 
-    font-size: 32px;
+    font-size: 31px;
 
-    margin-bottom: 18px;
+    font-weight: 700;
 }
 
-.future-box p {
-    margin-bottom: 0;
-}
 
 .tagline {
+
     margin-top: 45px;
 
     padding-top: 35px;
@@ -834,22 +1112,28 @@ section {
 
     font-family: var(--serif);
 
-    font-size: clamp(35px,4vw,56px);
+    font-size: clamp(35px,4vw,57px);
 
-    line-height: 1.05;
+    font-weight: 700;
+
+    line-height: 1.08;
 
     color: var(--blue);
 }
 
+
 .tagline span {
-    color: var(--gold);
+
+    color: var(--blue-bright);
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer {
+
     background: var(--cream-dark);
 
     border-top: 1px solid var(--line);
@@ -857,46 +1141,62 @@ footer {
     padding: 55px 34px 35px;
 }
 
+
 .footer-inner {
-    max-width: 1312px;
+
+    max-width: 1332px;
 
     margin: auto;
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
+
+    justify-content: space-between;
 
     gap: 30px;
 }
 
+
 .footer-logo {
+
     font-family: var(--serif);
 
-    font-size: 27px;
+    color: var(--blue);
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+.footer-logo span {
+
+    color: var(--blue-bright);
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 24px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
 
     color: var(--blue);
 }
 
-.footer-logo span {
-    color: var(--gold);
-}
-
-.footer-links {
-    display: flex;
-
-    gap: 22px;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-}
 
 .footer-copy {
-    max-width: 1312px;
+
+    max-width: 1332px;
 
     margin: 35px auto 0;
 
@@ -904,150 +1204,227 @@ footer {
 
     border-top: 1px solid var(--line);
 
-    font-size: 11px;
+    text-align: center;
 
     color: var(--muted);
 
-    text-align: center;
+    font-size: 10px;
 }
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width: 950px) {
-
-    .navbar {
-        padding: 0 20px;
-    }
+@media (max-width: 1000px) {
 
     .nav-links {
-        display: none;
+
+        gap: 18px;
     }
+
 
     .hero {
+
         grid-template-columns: 1fr;
 
-        padding: 70px 22px;
-
-        gap: 55px;
+        padding-top: 70px;
     }
 
+
     .hero-copy {
+
         padding-left: 0;
     }
 
+
     .hero-image {
-        min-height: 500px;
+
+        min-height: 520px;
     }
+
 
     .hero-image img {
-        height: 500px;
+
+        height: 520px;
     }
 
+
     .destination-grid {
+
         grid-template-columns: repeat(2,1fr);
     }
 
+
     .food-grid {
+
         grid-template-columns: 1fr;
     }
 
-    .world-items {
-        grid-template-columns: repeat(2,1fr);
-    }
 
     .about-layout {
+
         grid-template-columns: 1fr;
 
         gap: 45px;
     }
 
+
     .about-side {
+
         position: static;
     }
 }
 
-@media(max-width: 600px) {
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        height: auto;
+
+        min-height: 75px;
+
+        padding: 15px 18px;
+
+        gap: 15px;
+    }
+
+
+    .nav-links {
+
+        display: none;
+    }
+
 
     .logo {
+
         font-size: 23px;
     }
 
+
     .hero {
-        padding-top: 55px;
+
+        padding: 55px 20px 70px;
+
+        gap: 50px;
     }
+
 
     .hero h1 {
-        font-size: 76px;
 
-        letter-spacing: -2px;
+        font-size: 82px;
+
+        letter-spacing: -3px;
     }
+
 
     .hero-script {
-        margin-left: 30px;
+
+        margin-left: 28px;
     }
 
+
+    .hero-image {
+
+        min-height: 450px;
+    }
+
+
+    .hero-image img {
+
+        height: 450px;
+
+        border-radius: 120px 120px 15px 15px;
+    }
+
+
     section {
+
         padding: 80px 20px;
     }
 
+
     .travel-tabs {
+
         grid-template-columns: 1fr;
 
         border-radius: 18px;
     }
 
+
     .travel-tab {
+
         border-right: none;
+
         border-bottom: 1px solid var(--line);
     }
 
+
     .travel-tab:last-child {
+
         border-bottom: none;
     }
 
+
     .destination-grid {
+
         grid-template-columns: 1fr;
     }
+
 
     .food-side {
+
         grid-template-columns: 1fr;
     }
+
 
     .photo-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .photo-grid img {
+
         height: 330px;
     }
 
+
     .world-items {
+
         grid-template-columns: 1fr;
     }
 
+
     .future-box {
+
         padding: 28px;
     }
 
+
     .footer-inner {
+
         flex-direction: column;
 
         text-align: center;
     }
 
+
     .footer-links {
-        flex-wrap: wrap;
 
         justify-content: center;
     }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -1057,32 +1434,62 @@ footer {
 
 <nav class="navbar">
 
+
 <a href="#home" class="logo">
-    FIFI <span>STORY.</span>
+FIFI <span>STORY.</span>
 </a>
+
 
 <div class="nav-links">
 
-<a href="#home" class="active" data-en="HOME" data-th="หน้าแรก">HOME</a>
+<a href="#home"
+   class="active"
+   data-en="HOME"
+   data-th="หน้าแรก">
+HOME
+</a>
 
-<a href="#travel" data-en="TRAVEL" data-th="ท่องเที่ยว">TRAVEL</a>
 
-<a href="#food" data-en="FOOD" data-th="อาหาร">FOOD</a>
+<a href="#travel"
+   data-en="TRAVEL"
+   data-th="ท่องเที่ยว">
+TRAVEL
+</a>
 
-<a href="#photography" data-en="PHOTOGRAPHY" data-th="ภาพถ่าย">PHOTOGRAPHY</a>
 
-<a href="#about" data-en="ABOUT" data-th="เกี่ยวกับ FIFI">ABOUT</a>
+<a href="#food"
+   data-en="FOOD"
+   data-th="อาหาร">
+FOOD
+</a>
+
+
+<a href="#photography"
+   data-en="PHOTOGRAPHY"
+   data-th="ภาพถ่าย">
+PHOTOGRAPHY
+</a>
+
+
+<a href="#about"
+   data-en="ABOUT"
+   data-th="เกี่ยวกับ FIFI">
+ABOUT
+</a>
 
 </div>
 
-<div class="nav-right">
 
-<button class="lang-btn" onclick="setLanguage('en')">
-    EN
+<div class="language-switcher">
+
+<button class="lang-btn"
+        onclick="setLanguage('en')">
+EN
 </button>
 
-<button class="lang-btn" onclick="setLanguage('th')">
-    TH
+<button class="lang-btn"
+        onclick="setLanguage('th')">
+TH
 </button>
 
 </div>
@@ -1092,78 +1499,123 @@ footer {
 </header>
 
 
+
+<main>
+
+
 <!-- =========================================================
      HOME
 ========================================================= -->
 
-<main>
-
 <section class="hero" id="home">
 
+
 <div class="hero-copy">
+
 
 <div class="eyebrow"
      data-en="A PERSONAL JOURNAL BY FIFI WARATTHAYA"
      data-th="บันทึกเรื่องราวโดย FIFI WARATTHAYA">
+
 A PERSONAL JOURNAL BY FIFI WARATTHAYA
+
 </div>
 
-<h1>FIFI</h1>
+
+<h1>
+FIFI
+</h1>
+
 
 <div class="hero-script">
-    Story.
+Story.
 </div>
+
 
 <p class="hero-description"
    data-en="Places I've been. Food I love. Moments I've captured. A collection of the things that bring me joy."
    data-th="สถานที่ที่ฉันเคยไป อาหารที่ฉันรัก และช่วงเวลาที่ฉันบันทึกไว้ เรื่องราวเล็ก ๆ จากสิ่งที่ทำให้ฉันมีความสุข">
 
-Places I've been. Food I love. Moments I've captured.
+Places I've been.
+Food I love.
+Moments I've captured.
 A collection of the things that bring me joy.
 
 </p>
 
-<a href="#travel" class="hero-button"
+
+<a href="#travel"
+   class="hero-button"
    data-en="EXPLORE MY STORY →"
    data-th="ออกไปค้นพบเรื่องราวของฉัน →">
+
 EXPLORE MY STORY →
+
 </a>
+
 
 </div>
 
 
 <div class="hero-image">
 
-<!-- เปลี่ยนรูป Hero ตรงนี้ -->
+
+<!--
+=========================================================
+ใส่รูป Hero ของ FIFI ที่นี่
+
+ชื่อไฟล์:
+images/hero.jpg
+
+=========================================================
+-->
+
 <img src="images/hero.jpg"
-     alt="FIFI travel story">
+     alt="FIFI STORY travel">
+
 
 <div class="hero-note"
      data-en="Collect moments, not things."
      data-th="เก็บช่วงเวลา ไม่ใช่แค่สิ่งของ">
+
 Collect moments, not things.
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- WAVE -->
+
+<!-- =========================================================
+     WAVE
+========================================================= -->
 
 <div class="wave">
 
-<svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+<svg viewBox="0 0 1440 100"
+     preserveAspectRatio="none">
 
 <path
-d="M0,40 C180,100 300,0 480,45 C660,90 760,10 950,45 C1130,80 1260,15 1440,45 L1440,100 L0,100 Z"
-fill="#dcecf2">
+d="M0 40
+C180 100 300 0 480 45
+C660 90 760 10 950 45
+C1130 80 1260 15 1440 45
+L1440 100
+L0 100 Z"
+fill="#DDF3F8">
 </path>
 
+
 <path
-d="M0,60 C180,110 300,20 480,65 C660,110 760,30 950,65 C1130,100 1260,30 1440,60"
+d="M0 60
+C180 110 300 20 480 65
+C660 110 760 30 950 65
+C1130 100 1260 30 1440 60"
 fill="none"
-stroke="#4d91ae"
+stroke="#4FB7D4"
 stroke-width="2">
 </path>
 
@@ -1172,55 +1624,86 @@ stroke-width="2">
 </div>
 
 
+
 <!-- =========================================================
      TRAVEL
 ========================================================= -->
 
 <section id="travel">
 
+
 <div class="section-label"
      data-en="01 — TRAVEL"
      data-th="01 — การเดินทาง">
+
 01 — TRAVEL
+
 </div>
+
 
 <h2 class="section-title"
     data-en="PLACES I'VE BEEN."
     data-th="สถานที่ที่ฉันเคยไป">
+
 PLACES I'VE BEEN.
+
 </h2>
+
 
 <p class="section-intro"
    data-en="Places I've visited, memories I've collected, and destinations that have become part of my story."
    data-th="สถานที่ที่ฉันเคยไป ความทรงจำที่ฉันเก็บไว้ และจุดหมายที่กลายมาเป็นส่วนหนึ่งของเรื่องราวของฉัน">
+
 Places I've visited, memories I've collected, and destinations that have become part of my story.
+
 </p>
 
 
 <div class="travel-tabs">
 
-<div class="travel-tab">BANGKOK</div>
-<div class="travel-tab">CENTRAL</div>
-<div class="travel-tab">EAST</div>
-<div class="travel-tab">NORTH</div>
-<div class="travel-tab">SOUTH</div>
+<div class="travel-tab">
+BANGKOK
+</div>
+
+<div class="travel-tab">
+CENTRAL
+</div>
+
+<div class="travel-tab">
+EAST
+</div>
+
+<div class="travel-tab">
+NORTH
+</div>
+
+<div class="travel-tab">
+SOUTH
+</div>
 
 </div>
 
 
 <div class="destination-grid">
 
+
 <article class="destination-card">
 
-<img src="images/bangkok.jpg" alt="Bangkok">
+<img src="images/bangkok.jpg"
+     alt="Bangkok">
 
 <div class="destination-info">
 
-<h3>BANGKOK</h3>
+<h3>
+BANGKOK
+</h3>
 
-<p data-en="My everyday city — food, cafés, people and stories."
-   data-th="เมืองที่ฉันใช้ชีวิต — อาหาร คาเฟ่ ผู้คน และเรื่องราว">
+<p
+data-en="My everyday city — food, cafés, people and stories."
+data-th="เมืองที่ฉันใช้ชีวิต — อาหาร คาเฟ่ ผู้คน และเรื่องราว">
+
 My everyday city — food, cafés, people and stories.
+
 </p>
 
 </div>
@@ -1228,17 +1711,24 @@ My everyday city — food, cafés, people and stories.
 </article>
 
 
+
 <article class="destination-card">
 
-<img src="images/north.jpg" alt="North Thailand">
+<img src="images/north.jpg"
+     alt="North Thailand">
 
 <div class="destination-info">
 
-<h3>NORTH</h3>
+<h3>
+NORTH
+</h3>
 
-<p data-en="Mountains, coffee and slow mornings."
-   data-th="ภูเขา กาแฟ และเช้าที่ค่อย ๆ ผ่านไป">
+<p
+data-en="Mountains, coffee and slow mornings."
+data-th="ภูเขา กาแฟ และเช้าที่ค่อย ๆ ผ่านไป">
+
 Mountains, coffee and slow mornings.
+
 </p>
 
 </div>
@@ -1246,142 +1736,201 @@ Mountains, coffee and slow mornings.
 </article>
 
 
+
 <article class="destination-card">
 
-<img src="images/east.jpg" alt="East Thailand">
+<img src="images/east.jpg"
+     alt="East Thailand">
 
 <div class="destination-info">
 
-<h3>EAST</h3>
+<h3>
+EAST
+</h3>
 
-<p data-en="Quiet beaches, islands and tropical days."
-   data-th="ทะเลเงียบ ๆ เกาะ และวันธรรมดาใต้แสงแดด">
+<p
+data-en="Quiet beaches, islands and tropical days."
+data-th="ทะเลเงียบ ๆ เกาะ และวันธรรมดาใต้แสงแดด">
+
 Quiet beaches, islands and tropical days.
+
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="destination-card">
 
-<img src="images/south.jpg" alt="South Thailand">
+<img src="images/south.jpg"
+     alt="South Thailand">
 
 <div class="destination-info">
 
-<h3>SOUTH</h3>
+<h3>
+SOUTH
+</h3>
 
-<p data-en="Islands, beaches and blue water."
-   data-th="เกาะ ชายหาด และทะเลสีฟ้า">
+<p
+data-en="Islands, beaches and blue water."
+data-th="เกาะ ชายหาด และทะเลสีฟ้า">
+
 Islands, beaches and blue water.
+
 </p>
 
 </div>
 
 </article>
+
 
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
      FOOD
 ========================================================= -->
 
-<section id="food" class="food-section">
+<section id="food"
+         class="food-section">
+
 
 <div class="section-label"
      data-en="02 — FOOD"
      data-th="02 — อาหาร">
+
 02 — FOOD
+
 </div>
+
 
 <h2 class="section-title"
     data-en="FOOD I LOVE."
     data-th="อาหารที่ฉันรัก">
+
 FOOD I LOVE.
+
 </h2>
+
 
 <p class="section-intro"
    data-en="Things I cook, things I eat, restaurants I discover, and the little food moments that make me happy."
    data-th="อาหารที่ฉันทำ อาหารที่ฉันกิน ร้านอาหารที่ฉันค้นพบ และช่วงเวลาเล็ก ๆ ที่เกี่ยวกับอาหารซึ่งทำให้ฉันมีความสุข">
+
 Things I cook, things I eat, restaurants I discover, and the little food moments that make me happy.
+
 </p>
 
 
 <div class="food-grid">
 
+
 <div class="food-feature">
 
-<img src="images/food-main.jpg" alt="Food">
+<img src="images/food-main.jpg"
+     alt="Food">
+
 
 <div class="food-overlay">
 
-<h3 data-en="Good food, good mood."
-    data-th="อาหารอร่อย อารมณ์ก็ดี">
-Good food, good mood.
+<h3
+data-en="GOOD FOOD, GOOD MOOD."
+data-th="อาหารอร่อย อารมณ์ก็ดี">
+
+GOOD FOOD, GOOD MOOD.
+
 </h3>
 
-<p data-en="Let's eat around the world."
-   data-th="มาทำความรู้จักโลกผ่านอาหารไปด้วยกัน">
+
+<p
+data-en="Let's eat around the world."
+data-th="มาทำความรู้จักโลกผ่านอาหารไปด้วยกัน">
+
 Let's eat around the world.
+
 </p>
 
 </div>
 
 </div>
+
 
 
 <div class="food-side">
 
+
 <article class="food-card">
 
-<img src="images/food-1.jpg" alt="Food I cook">
+<img src="images/food-1.jpg"
+     alt="Food I cook">
+
 
 <div class="food-card-content">
 
-<h3 data-en="WHAT I COOK"
-    data-th="อาหารที่ฉันทำ">
+<h3
+data-en="WHAT I COOK"
+data-th="อาหารที่ฉันทำ">
+
 WHAT I COOK
+
 </h3>
 
-<p data-en="Simple meals made with love."
-   data-th="อาหารง่าย ๆ ที่ทำด้วยความรัก">
+
+<p
+data-en="Simple meals made with love."
+data-th="อาหารง่าย ๆ ที่ทำด้วยความรัก">
+
 Simple meals made with love.
+
 </p>
 
 </div>
 
 </article>
+
 
 
 <article class="food-card">
 
-<img src="images/restaurant.jpg" alt="Restaurant">
+<img src="images/restaurant.jpg"
+     alt="Restaurant">
+
 
 <div class="food-card-content">
 
-<h3 data-en="WHERE I EAT"
-    data-th="ร้านที่ฉันไป">
+<h3
+data-en="WHERE I EAT"
+data-th="ร้านที่ฉันไป">
+
 WHERE I EAT
+
 </h3>
 
-<p data-en="Restaurants and places worth discovering."
-   data-th="ร้านอาหารและสถานที่ที่ฉันอยากบอกต่อ">
+
+<p
+data-en="Restaurants and places worth discovering."
+data-th="ร้านอาหารและสถานที่ที่ฉันอยากบอกต่อ">
+
 Restaurants and places worth discovering.
+
 </p>
 
 </div>
 
 </article>
+
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1390,30 +1939,41 @@ Restaurants and places worth discovering.
 
 <section id="photography">
 
+
 <div class="section-label"
      data-en="03 — PHOTOGRAPHY"
      data-th="03 — ภาพถ่าย">
+
 03 — PHOTOGRAPHY
+
 </div>
+
 
 <h2 class="section-title"
     data-en="THROUGH MY CAMERA."
     data-th="โลกผ่านกล้องของฉัน">
+
 THROUGH MY CAMERA.
+
 </h2>
+
 
 <p class="section-intro"
    data-en="Photographs of places, people, food and little moments I want to remember."
    data-th="ภาพถ่ายของสถานที่ ผู้คน อาหาร และช่วงเวลาเล็ก ๆ ที่ฉันอยากเก็บไว้">
+
 Photographs of places, people, food and little moments I want to remember.
+
 </p>
 
 
 <div class="photo-grid">
 
+
 <figure>
 
-<img src="images/photo-1.jpg" alt="Photography">
+<img src="images/photo-1.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 TRAVEL
@@ -1422,9 +1982,11 @@ TRAVEL
 </figure>
 
 
+
 <figure>
 
-<img src="images/photo-2.jpg" alt="Photography">
+<img src="images/photo-2.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 MOMENTS
@@ -1433,9 +1995,11 @@ MOMENTS
 </figure>
 
 
+
 <figure>
 
-<img src="images/photo-3.jpg" alt="Photography">
+<img src="images/photo-3.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 PLACES
@@ -1444,9 +2008,11 @@ PLACES
 </figure>
 
 
+
 <figure>
 
-<img src="images/photo-4.jpg" alt="Photography">
+<img src="images/photo-4.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 SEA
@@ -1455,9 +2021,11 @@ SEA
 </figure>
 
 
+
 <figure>
 
-<img src="images/photo-5.jpg" alt="Photography">
+<img src="images/photo-5.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 FOOD
@@ -1466,9 +2034,11 @@ FOOD
 </figure>
 
 
+
 <figure>
 
-<img src="images/photo-6.jpg" alt="Photography">
+<img src="images/photo-6.jpg"
+     alt="FIFI photography">
 
 <div class="photo-caption">
 LIFE
@@ -1476,197 +2046,280 @@ LIFE
 
 </figure>
 
+
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
      MY WORLD
 ========================================================= -->
 
-<section class="my-world" id="my-world">
+<section id="my-world"
+         class="my-world">
+
 
 <div class="section-label"
      data-en="05 — MY WORLD ✦"
      data-th="05 — โลกของฉัน ✦">
+
 05 — MY WORLD ✦
+
 </div>
+
 
 <h2 class="section-title"
     data-en="A COLLECTION OF WHAT I LOVE."
     data-th="เรื่องราวจากสิ่งที่ฉันรัก">
+
 A COLLECTION OF WHAT I LOVE.
+
 </h2>
 
-<div class="world-line"></div>
+
+<div class="world-line">
+</div>
+
 
 <div class="world-items">
 
+
 <div class="world-item">
 
-<span>01</span>
+<span>
+01
+</span>
 
-<h3 data-en="TRAVEL STORIES"
-    data-th="เรื่องราวการเดินทาง">
+<h3
+data-en="TRAVEL STORIES"
+data-th="เรื่องราวการเดินทาง">
+
 TRAVEL STORIES
+
 </h3>
 
-<p data-en="Places I've been and moments along the way."
-   data-th="สถานที่ที่ฉันไปและช่วงเวลาที่พบเจอระหว่างทาง">
+<p
+data-en="Places I've been and moments along the way."
+data-th="สถานที่ที่ฉันไปและช่วงเวลาที่พบเจอระหว่างทาง">
+
 Places I've been and moments along the way.
+
 </p>
 
 </div>
 
 
+
 <div class="world-item">
 
-<span>02</span>
+<span>
+02
+</span>
 
-<h3 data-en="FOOD STORIES"
-    data-th="เรื่องราวจากอาหาร">
+<h3
+data-en="FOOD STORIES"
+data-th="เรื่องราวจากอาหาร">
+
 FOOD STORIES
+
 </h3>
 
-<p data-en="Things I cook, eat and discover."
-   data-th="สิ่งที่ฉันทำ กิน และค้นพบ">
+<p
+data-en="Things I cook, eat and discover."
+data-th="สิ่งที่ฉันทำ กิน และค้นพบ">
+
 Things I cook, eat and discover.
+
 </p>
 
 </div>
 
 
+
 <div class="world-item">
 
-<span>03</span>
+<span>
+03
+</span>
 
-<h3 data-en="PHOTOGRAPHY"
-    data-th="ภาพถ่าย">
+<h3
+data-en="PHOTOGRAPHY"
+data-th="ภาพถ่าย">
+
 PHOTOGRAPHY
+
 </h3>
 
-<p data-en="The world through my camera."
-   data-th="โลกในมุมมองผ่านกล้องของฉัน">
+<p
+data-en="The world through my camera."
+data-th="โลกในมุมมองผ่านกล้องของฉัน">
+
 The world through my camera.
+
 </p>
 
 </div>
+
 
 
 <div class="world-item">
 
-<span>04</span>
+<span>
+04
+</span>
 
-<h3 data-en="LITTLE MOMENTS"
-    data-th="ช่วงเวลาเล็ก ๆ">
+<h3
+data-en="LITTLE MOMENTS"
+data-th="ช่วงเวลาเล็ก ๆ">
+
 LITTLE MOMENTS
+
 </h3>
 
-<p data-en="Things I love, enjoy and want to remember."
-   data-th="สิ่งที่ฉันรัก มีความสุขกับมัน และอยากจดจำ">
+<p
+data-en="Things I love, enjoy and want to remember."
+data-th="สิ่งที่ฉันรัก มีความสุขกับมัน และอยากจดจำ">
+
 Things I love, enjoy and want to remember.
+
 </p>
 
 </div>
+
 
 </div>
 
 </section>
 
 
+
 <!-- =========================================================
      ABOUT FIFI
 ========================================================= -->
 
-<section id="about" class="about">
+<section id="about"
+         class="about">
+
 
 <div class="section-label"
      data-en="06 — ABOUT FIFI ✦"
      data-th="06 — เกี่ยวกับ FIFI ✦">
+
 06 — ABOUT FIFI ✦
+
 </div>
 
 
 <div class="about-layout">
 
+
 <div class="about-side">
 
-<h2 data-en="MORE THAN A TRAVEL STORY."
-    data-th="มากกว่าเรื่องราวของการเดินทาง">
+
+<h2
+data-en="MORE THAN A TRAVEL STORY."
+data-th="มากกว่าเรื่องราวของการเดินทาง">
+
 MORE THAN A TRAVEL STORY.
+
 </h2>
 
+
 <div class="signature">
-    FIFI
+FIFI
 </div>
 
+
 </div>
+
 
 
 <div class="about-text">
 
-<p data-en="FIFISTORY. is a collection of the places I've been, the food I love, the restaurants I discover, the meals I create, and the moments I capture along the way."
-   data-th="FIFISTORY. เกิดขึ้นจากสิ่งที่ฉันรัก — สถานที่ที่ฉันได้ไป อาหารที่ฉันชอบ ร้านอาหารที่ฉันค้นพบ อาหารที่ฉันลงมือทำ และภาพถ่ายของช่วงเวลาต่าง ๆ ที่ฉันอยากเก็บเอาไว้">
+
+<p
+data-en="FIFISTORY. is a collection of the places I've been, the food I love, the restaurants I discover, the meals I create, and the moments I capture along the way."
+data-th="FIFISTORY. เกิดขึ้นจากสิ่งที่ฉันรัก — สถานที่ที่ฉันได้ไป อาหารที่ฉันชอบ ร้านอาหารที่ฉันค้นพบ อาหารที่ฉันลงมือทำ และภาพถ่ายของช่วงเวลาต่าง ๆ ที่ฉันอยากเก็บเอาไว้">
 
 FIFISTORY. is a collection of the places I've been, the food I love, the restaurants I discover, the meals I create, and the moments I capture along the way.
 
 </p>
 
 
-<p data-en="I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours."
-   data-th="ฉันสร้างพื้นที่นี้ขึ้นมา เพราะฉันเชื่อว่าการเดินทางไม่ใช่แค่การเลือกว่าจะไปที่ไหน แต่คือการรู้ว่าควรพักที่ไหน ควรไปที่ไหน กินอะไร ใช้เวลาอย่างไร และจะทำให้ทริปหนึ่งกลายเป็นความทรงจำที่ดีได้อย่างไร">
+
+<p
+data-en="I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours."
+data-th="ฉันสร้างพื้นที่นี้ขึ้นมา เพราะฉันเชื่อว่าการเดินทางไม่ใช่แค่การเลือกว่าจะไปที่ไหน แต่คือการรู้ว่าควรพักที่ไหน ควรไปที่ไหน กินอะไร ใช้เวลาอย่างไร และจะทำให้ทริปหนึ่งกลายเป็นความทรงจำที่ดีได้อย่างไร">
 
 I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours.
 
 </p>
 
 
-<p data-en="I love discovering those details for myself — and I want to share what I learn with you."
-   data-th="ฉันชอบค้นหาสิ่งเหล่านี้ด้วยตัวเอง และอยากนำสิ่งที่ฉันได้พบเจอมาแบ่งปันให้คุณ">
+
+<p
+data-en="I love discovering those details for myself — and I want to share what I learn with you."
+data-th="ฉันชอบค้นหาสิ่งเหล่านี้ด้วยตัวเอง และอยากนำสิ่งที่ฉันได้พบเจอมาแบ่งปันให้คุณ">
 
 I love discovering those details for myself — and I want to share what I learn with you.
 
 </p>
 
 
-<p data-en="Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love."
-   data-th="ทุกสถานที่ที่ฉันไป ร้านอาหารที่ฉันลอง ทุกภาพที่ฉันถ่าย และทุกประสบการณ์ที่ฉันได้พบ ล้วนกลายเป็นส่วนหนึ่งของเรื่องราวที่ค่อย ๆ เติบโตขึ้น เรื่องราวที่มาจากสถานที่จริง ประสบการณ์จริง และสิ่งที่ฉันรักจริง ๆ">
+
+<p
+data-en="Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love."
+data-th="ทุกสถานที่ที่ฉันไป ร้านอาหารที่ฉันลอง ทุกภาพที่ฉันถ่าย และทุกประสบการณ์ที่ฉันได้พบ ล้วนกลายเป็นส่วนหนึ่งของเรื่องราวที่ค่อย ๆ เติบโตขึ้น เรื่องราวที่มาจากสถานที่จริง ประสบการณ์จริง และสิ่งที่ฉันรักจริง ๆ">
 
 Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love.
 
 </p>
 
 
+
 <div class="future-box">
 
-<h3 data-en="A JOURNEY I'M BUILDING."
-    data-th="การเดินทางที่ฉันกำลังสร้าง">
+
+<h3
+data-en="A JOURNEY I'M BUILDING."
+data-th="การเดินทางที่ฉันกำลังสร้าง">
+
 A JOURNEY I'M BUILDING.
+
 </h3>
 
-<p data-en="And someday, I hope FIFISTORY. can become more than a place to read my stories. I want to help people who dream of travelling but simply don't have the time to plan it all — from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering."
-   data-th="และในอนาคต ฉันอยากให้ FIFISTORY. เป็นมากกว่าพื้นที่สำหรับเล่าเรื่องของฉัน ฉันอยากช่วยคนที่อยากออกเดินทาง แต่ไม่มีเวลาวางแผนทุกอย่างด้วยตัวเอง ตั้งแต่การเลือกที่พัก วางเส้นทางและตารางการเดินทาง ค้นหาเที่ยวบิน ร้านอาหาร สถานที่ที่ควรไป ไปจนถึงประสบการณ์เล็ก ๆ ที่จะทำให้ทริปนั้นพิเศษขึ้น">
+
+<p
+data-en="And someday, I hope FIFISTORY. can become more than a place to read my stories. I want to help people who dream of travelling but simply don't have the time to plan it all — from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering."
+data-th="และในอนาคต ฉันอยากให้ FIFISTORY. เป็นมากกว่าพื้นที่สำหรับเล่าเรื่องของฉัน ฉันอยากช่วยคนที่อยากออกเดินทาง แต่ไม่มีเวลาวางแผนทุกอย่างด้วยตัวเอง ตั้งแต่การเลือกที่พัก วางเส้นทางและตารางการเดินทาง ค้นหาเที่ยวบิน ร้านอาหาร สถานที่ที่ควรไป ไปจนถึงประสบการณ์เล็ก ๆ ที่จะทำให้ทริปนั้นพิเศษขึ้น">
 
 And someday, I hope FIFISTORY. can become more than a place to read my stories. I want to help people who dream of travelling but simply don't have the time to plan it all — from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering.
 
 </p>
 
+
 </div>
+
 
 
 <div class="tagline">
 
 <span>YOU BRING THE DREAM.</span>
+
 <br>
+
 I'LL HELP PLAN THE JOURNEY.
 
 </div>
 
 
-<p style="margin-top:35px;"
-   data-en="This is FIFISTORY. — my world, my experiences, and eventually, a way to help you create yours."
-   data-th="นี่คือ FIFISTORY. — โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยสร้างเรื่องราวการเดินทางของคุณด้วยเช่นกัน">
+
+<p
+style="margin-top:35px;"
+data-en="This is FIFISTORY. — my world, my experiences, and eventually, a way to help you create yours."
+data-th="นี่คือ FIFISTORY. — โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยสร้างเรื่องราวการเดินทางของคุณด้วยเช่นกัน">
 
 This is FIFISTORY. — my world, my experiences, and eventually, a way to help you create yours.
 
@@ -1679,7 +2332,9 @@ This is FIFISTORY. — my world, my experiences, and eventually, a way to help y
 
 </section>
 
+
 </main>
+
 
 
 <!-- =========================================================
@@ -1688,23 +2343,37 @@ This is FIFISTORY. — my world, my experiences, and eventually, a way to help y
 
 <footer>
 
+
 <div class="footer-inner">
 
+
 <div class="footer-logo">
-    FIFI <span>STORY.</span>
+
+FIFI <span>STORY.</span>
+
 </div>
+
 
 <div class="footer-links">
 
-<a href="#travel">TRAVEL</a>
+<a href="#travel">
+TRAVEL
+</a>
 
-<a href="#food">FOOD</a>
+<a href="#food">
+FOOD
+</a>
 
-<a href="#photography">PHOTOGRAPHY</a>
+<a href="#photography">
+PHOTOGRAPHY
+</a>
 
-<a href="#about">ABOUT FIFI</a>
+<a href="#about">
+ABOUT FIFI
+</a>
 
 </div>
+
 
 </div>
 
@@ -1715,83 +2384,129 @@ This is FIFISTORY. — my world, my experiences, and eventually, a way to help y
 
 </div>
 
+
 </footer>
 
 
+
 <!-- =========================================================
-     LANGUAGE SWITCHER
+     LANGUAGE
 ========================================================= -->
 
 <script>
 
-let currentLanguage = "en";
 
 function setLanguage(language) {
 
-    currentLanguage = language;
 
-    document.documentElement.lang = language;
+document.documentElement.lang = language;
 
-    const elements = document.querySelectorAll("[data-en]");
 
-    elements.forEach(function(element) {
+const elements =
+document.querySelectorAll("[data-en]");
 
-        const text = element.getAttribute(
-            language === "th"
-            ? "data-th"
-            : "data-en"
-        );
 
-        if (text) {
-            element.textContent = text;
-        }
+elements.forEach(function(element) {
 
-    });
 
-    localStorage.setItem("fifiLanguage", language);
+const text =
+language === "th"
+? element.getAttribute("data-th")
+: element.getAttribute("data-en");
+
+
+if (text) {
+
+element.textContent = text;
+
 }
 
-
-const savedLanguage = localStorage.getItem("fifiLanguage");
-
-if (savedLanguage) {
-    setLanguage(savedLanguage);
-}
-
-
-window.addEventListener("scroll", function() {
-
-    const sections = document.querySelectorAll("main section[id]");
-
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    let current = "";
-
-    sections.forEach(function(section) {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(function(link) {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") === "#" + current
-        ) {
-            link.classList.add("active");
-        }
-
-    });
 
 });
 
+
+localStorage.setItem(
+"fifiLanguage",
+language
+);
+
+
+}
+
+
+
+const savedLanguage =
+localStorage.getItem("fifiLanguage");
+
+
+if (savedLanguage) {
+
+setLanguage(savedLanguage);
+
+}
+
+
+
+window.addEventListener(
+"scroll",
+function() {
+
+
+const sections =
+document.querySelectorAll(
+"main section[id]"
+);
+
+
+const links =
+document.querySelectorAll(
+".nav-links a"
+);
+
+
+let current = "";
+
+
+sections.forEach(function(section) {
+
+
+const top =
+section.offsetTop - 160;
+
+
+if (window.scrollY >= top) {
+
+current =
+section.getAttribute("id");
+
+}
+
+});
+
+
+links.forEach(function(link) {
+
+
+link.classList.remove("active");
+
+
+if (
+link.getAttribute("href")
+=== "#" + current
+) {
+
+link.classList.add("active");
+
+}
+
+});
+
+
+});
+
+
 </script>
+
 
 </body>
 </html>
