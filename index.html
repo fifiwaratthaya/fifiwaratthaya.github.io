@@ -2480,6 +2480,209 @@ footer {
     color: #365E6D !important;
 }
 
+
+/* =========================================================
+   FINAL HEADER LAYOUT + COLORFUL NAV
+   ENG / THAI = top-right row
+   HOME / TRAVEL / FOOD / PHOTOGRAPHY / ABOUT = centered row
+========================================================= */
+
+/* Two-row desktop header:
+   Row 1 = logo left + ENG/THAI far right
+   Row 2 = main navigation centered */
+.navbar {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    column-gap: 20px !important;
+    row-gap: 12px !important;
+    height: auto !important;
+    min-height: 105px !important;
+    padding: 16px 28px 14px !important;
+}
+
+.navbar .logo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+}
+
+.navbar .nav-right {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    margin: 0 !important;
+}
+
+.navbar .top-category-links {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 9px !important;
+    flex-wrap: wrap !important;
+}
+
+/* ENG / THAI — clearly separated in the top-right */
+.nav-right .lang-btn {
+    border-radius: 999px !important;
+    padding: 9px 15px !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: .8px !important;
+    background: #FFFDF8 !important;
+    box-shadow: 0 3px 0 rgba(18,62,89,.08) !important;
+}
+
+/* Main navigation — distinctive but coordinated */
+.top-category-links a {
+    position: relative !important;
+    overflow: hidden !important;
+    border-width: 2px !important;
+    border-radius: 999px !important;
+    padding: 10px 15px !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: .9px !important;
+    box-shadow: 0 4px 0 rgba(18,62,89,.08) !important;
+    transition: transform .22s ease, box-shadow .22s ease, filter .22s ease !important;
+}
+
+.top-category-links a::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -60% !important;
+    left: -25% !important;
+    width: 55% !important;
+    height: 180% !important;
+    background: rgba(255,255,255,.38) !important;
+    transform: rotate(22deg) !important;
+    pointer-events: none !important;
+}
+
+.top-category-links a:hover {
+    transform: translateY(-4px) rotate(-1deg) !important;
+    box-shadow: 0 8px 0 rgba(18,62,89,.10) !important;
+    filter: saturate(1.08) !important;
+}
+
+/* HOME — standout pastel yellow */
+.top-category-links a:nth-child(1) {
+    background: linear-gradient(135deg, #FFE77A, #FFD85A) !important;
+    border-color: #E5BD35 !important;
+    color: #5B4A12 !important;
+}
+
+/* TRAVEL — pastel green */
+.top-category-links a:nth-child(2) {
+    background: linear-gradient(135deg, #CBE8B9, #A9D79D) !important;
+    border-color: #7DBB78 !important;
+    color: #315C35 !important;
+}
+
+/* FOOD — pastel pink */
+.top-category-links a:nth-child(3) {
+    background: linear-gradient(135deg, #F7C8D8, #EEAFC4) !important;
+    border-color: #D98BA8 !important;
+    color: #713A50 !important;
+}
+
+/* PHOTOGRAPHY — pastel orange */
+.top-category-links a:nth-child(4) {
+    background: linear-gradient(135deg, #FFD0A5, #F4B77D) !important;
+    border-color: #DB9455 !important;
+    color: #70421F !important;
+}
+
+/* ABOUT FIFI — pastel sky blue */
+.top-category-links a:nth-child(5) {
+    background: linear-gradient(135deg, #BFE7F3, #91D1E5) !important;
+    border-color: #65B5D0 !important;
+    color: #24566B !important;
+}
+
+/* Mobile: keep languages on the top-right and navigation below */
+@media (max-width: 700px) {
+    .navbar {
+        grid-template-columns: 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        padding: 13px 16px 12px !important;
+        row-gap: 10px !important;
+    }
+
+    .navbar .logo {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    .navbar .nav-right {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+    }
+
+    .navbar .top-category-links {
+        grid-column: 1 / -1 !important;
+        grid-row: 2 !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        padding: 2px 2px 6px !important;
+    }
+
+    .top-category-links a {
+        flex: 0 0 auto !important;
+        padding: 9px 12px !important;
+    }
+}
+
+
+/* ===== NAV COLOR SWAP ONLY ===== */
+
+/* TRAVEL — pastel pink */
+.top-category-links a:nth-child(2) {
+    background: linear-gradient(135deg, #F7C8D8, #EEAFC4) !important;
+    border-color: #D98BA8 !important;
+    color: #713A50 !important;
+}
+
+/* FOOD — pastel green */
+.top-category-links a:nth-child(3) {
+    background: linear-gradient(135deg, #CBE8B9, #A9D79D) !important;
+    border-color: #7DBB78 !important;
+    color: #315C35 !important;
+}
+
+
+/* ===== GOOD FOOD, GOOD MOOD — LARGE UPPERCASE ONLY ===== */
+.good-food-mood,
+.food-hero-title,
+#food .good-food-mood,
+#food .food-hero-title {
+    text-transform: uppercase !important;
+    font-size: clamp(3.2rem, 7vw, 7rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -1px !important;
+    font-weight: 800 !important;
+}
+
+
+/* ===== FOOD HERO TITLE — FORCE UPPERCASE ===== */
+#food .food-overlay h3,
+.food-overlay h3 {
+    text-transform: uppercase !important;
+    font-size: clamp(3.2rem, 7vw, 7rem) !important;
+    line-height: .95 !important;
+    font-weight: 800 !important;
+    letter-spacing: .02em !important;
+    color: #FFFFFF !important;
+}
+
 </style>
 </head>
 
@@ -2842,10 +3045,10 @@ Things I cook, things I eat, restaurants I discover, and the little food moments
 <div class="food-overlay">
 
 <h3
-data-en="Good food, good mood."
+data-en="GOOD FOOD GOOD MOOD."
 data-th="อาหารอร่อย อารมณ์ก็ดี">
 
-Good food, good mood.
+GOOD FOOD GOOD MOOD.
 
 </h3>
 
