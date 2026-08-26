@@ -128,13 +128,13 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    width: 150px;
-    height: 58px;
+    width: 165px;
+    height: 64px;
 }
 
 .logo img {
-    width: 150px;
-    height: 58px;
+    width: 165px;
+    height: 64px;
     object-fit: contain;
     object-position: left center;
 }
@@ -1308,13 +1308,13 @@ footer {
     }
 
     .logo {
-        width: 120px;
-        height: 52px;
+        width: 130px;
+        height: 56px;
     }
 
     .logo img {
-        width: 120px;
-        height: 52px;
+        width: 130px;
+        height: 56px;
     }
 
     .hero {
@@ -2692,50 +2692,23 @@ footer {
     line-height: 0.98 !important;
 }
 
-/* =========================================================
-   LOGO SIZE ONLY
-   Make the existing FIFI logo larger and more prominent.
-   No other layout/content/color changes.
-========================================================= */
-
-.navbar .logo img,
-header .logo img,
-.site-logo img,
-.logo img {
-    width: 230px !important;
-    max-width: 230px !important;
-    height: auto !important;
-    display: block !important;
+/* ===== CLEAN FEED WHILE SCROLLING ===== */
+/* Keep the existing header/design exactly the same at the top.
+   Hide it only while scrolling DOWN so the feed has more visual space. */
+header {
+    transition: transform .35s ease, opacity .25s ease;
+    will-change: transform;
 }
 
-/* Give the logo a little more visual presence without changing its design */
-.navbar .logo,
-header .logo,
-.site-logo,
-.logo {
-    display: flex !important;
-    align-items: center !important;
+header.scroll-hidden {
+    transform: translateY(-105%);
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* Desktop */
-@media (min-width: 701px) {
-    .navbar .logo img,
-    header .logo img,
-    .site-logo img,
-    .logo img {
-        width: 250px !important;
-        max-width: 250px !important;
-    }
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-    .navbar .logo img,
-    header .logo img,
-    .site-logo img,
-    .logo img {
-        width: 170px !important;
-        max-width: 170px !important;
+@media (prefers-reduced-motion: reduce) {
+    header {
+        transition: none;
     }
 }
 
@@ -3763,6 +3736,43 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
 });
 </script>
 
+
+
+<script>
+/* ===== CLEAN FEED SCROLL BEHAVIOR ===== */
+(function () {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentY = window.scrollY;
+
+        // Always show the header at the very top.
+        if (currentY <= 20) {
+            header.classList.remove('scroll-hidden');
+        } else if (currentY > lastScrollY + 4) {
+            // Scrolling down: remove Home/navigation from the viewing area.
+            header.classList.add('scroll-hidden');
+        } else if (currentY < lastScrollY - 4) {
+            // Scrolling up: bring it back.
+            header.classList.remove('scroll-hidden');
+        }
+
+        lastScrollY = currentY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
