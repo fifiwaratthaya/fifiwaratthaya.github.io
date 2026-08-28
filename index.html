@@ -3737,39 +3737,130 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
 
 
 
+
+
+
+
+
+
 <script>
-/* ===== CLEAN FEED SCROLL BEHAVIOR ===== */
 (function () {
-    const header = document.querySelector('header');
-    if (!header) return;
+    const NAV_TH = {
+        "HOME": "หน้าแรก",
+        "TRAVEL": "การเดินทาง",
+        "FOOD": "อาหาร",
+        "PHOTOGRAPHY": "ภาพถ่าย",
+        "ABOUT FIFI": "เกี่ยวกับ FIFI"
+    };
 
-    let lastScrollY = window.scrollY;
-    let ticking = false;
+    function setLang(lang) {
+        const thai = lang === "th";
+        document.documentElement.lang = thai ? "th" : "en";
 
-    function updateHeader() {
-        const currentY = window.scrollY;
+        // Switch every element that already has both language values.
+        document.querySelectorAll("[data-en][data-th]").forEach(function (el) {
+            el.textContent = thai
+                ? el.getAttribute("data-th")
+                : el.getAttribute("data-en");
+        });
 
-        // Always show the header at the very top.
-        if (currentY <= 20) {
-            header.classList.remove('scroll-hidden');
-        } else if (currentY > lastScrollY + 4) {
-            // Scrolling down: remove Home/navigation from the viewing area.
-            header.classList.add('scroll-hidden');
-        } else if (currentY < lastScrollY - 4) {
-            // Scrolling up: bring it back.
-            header.classList.remove('scroll-hidden');
-        }
+        // Navigation: Thai mode must contain Thai words only.
+        document.querySelectorAll("nav a, nav button, .nav-link, .menu-item").forEach(function (el) {
+            const en = (el.getAttribute("data-en") || el.textContent || "")
+                .replace(/\s+/g, " ").trim().toUpperCase();
 
-        lastScrollY = currentY;
-        ticking = false;
+            let key = Object.keys(NAV_TH).find(function (k) {
+                return en === k || en.includes(k);
+            });
+
+            if (!key) return;
+
+            if (thai) {
+                // Keep an existing icon if there is one, but replace the label.
+                const icon = el.querySelector("span.icon, i, svg, img");
+                if (icon) {
+                    const clone = icon.cloneNode(true);
+                    el.replaceChildren(clone, document.createTextNode(" " + NAV_TH[key]));
+                } else {
+                    el.textContent = NAV_TH[key];
+                }
+            } else if (el.getAttribute("data-en")) {
+                el.textContent = el.getAttribute("data-en");
+            }
+        });
+
+        // Region tabs and destination names.
+        const extra = {
+            "BANGKOK": "กรุงเทพฯ",
+            "CENTRAL": "ภาคกลาง",
+            "EAST": "ภาคตะวันออก",
+            "NORTH": "ภาคเหนือ",
+            "SOUTH": "ภาคใต้",
+            "AYUTTHAYA": "อยุธยา",
+            "PATTAYA": "พัทยา",
+            "KOH CHANG": "เกาะช้าง",
+            "KOH KOOD": "เกาะกูด",
+            "CHIANG MAI": "เชียงใหม่",
+            "NAN": "น่าน",
+            "PHANG NGA": "พังงา",
+            "PHUKET": "ภูเก็ต",
+            "KRABI": "กระบี่",
+            "KOH TAO": "เกาะเต่า",
+            "KOH SAMUI": "เกาะสมุย",
+            "KOH LANTA": "เกาะลันตา",
+            "KOH LIPE": "เกาะหลีเป๊ะ"
+        };
+
+        document.querySelectorAll("button, a, h1, h2, h3, h4, p, span, div").forEach(function (el) {
+            if (el.children.length) return;
+            const t = (el.textContent || "").trim();
+            const upper = t.toUpperCase();
+            if (!thai || !extra[upper]) return;
+            el.textContent = extra[upper];
+        });
+
+        // Coming-soon badge.
+        document.querySelectorAll(".coming-badge").forEach(function (el) {
+            el.textContent = thai ? "กำลังจะมา · พฤศจิกายน" : "COMING SOON · NOVEMBER";
+        });
+
+        // Language buttons themselves remain ENG / THAI as controls.
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            const raw = (btn.getAttribute("data-lang") || btn.textContent || "").trim().toLowerCase();
+            btn.classList.toggle("active", thai ? raw === "th" || raw === "thai" : raw === "en" || raw === "eng");
+        });
+
+        try { localStorage.setItem("fifi-story-language", lang); } catch (e) {}
     }
 
-    window.addEventListener('scroll', function () {
-        if (!ticking) {
-            window.requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    }, { passive: true });
+    function wireButtons() {
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            const txt = (btn.textContent || "").trim().toUpperCase();
+            const lang = (txt === "THAI" || txt === "ไทย" || btn.getAttribute("data-lang") === "th")
+                ? "th" : "en";
+
+            btn.setAttribute("data-lang", lang);
+            btn.removeAttribute("onclick");
+
+            // Prevent any older inline handler from running.
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                setLang(lang);
+            }, true);
+        });
+    }
+
+    window.setLanguage = setLang;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        wireButtons();
+
+        let saved = "en";
+        try { saved = localStorage.getItem("fifi-story-language") || "en"; } catch (e) {}
+
+        setLang(saved === "th" ? "th" : "en");
+    });
 })();
 </script>
 
