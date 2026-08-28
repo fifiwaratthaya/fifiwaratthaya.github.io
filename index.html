@@ -2707,6 +2707,40 @@ header.scroll-hidden {
 }
 
 </style>
+
+<style id="fifi-slogan-final-colors">
+/* FINAL requested slogan colors */
+[data-en="YOU BRING THE DREAM."] {
+  color: #123F8F !important;
+}
+[data-en="I’LL HELP PLAN THE JOURNEY."],
+[data-en="I'LL HELP PLAN THE JOURNEY."] {
+  color: #F2B705 !important;
+}
+/* Hide the Explore button if an older wrapper still exists */
+.explore-story,
+.explore-my-story,
+a[href="#travel"].explore,
+button.explore {
+  display: none !important;
+}
+</style>
+
+
+<style id="fifi-final-slogan-lock">
+.tagline .dream-line {
+  color: #123F8F !important;
+}
+.tagline .journey-line {
+  color: #F2B705 !important;
+}
+/* The requested button must not appear. */
+.explore-story,
+.explore-my-story {
+  display: none !important;
+}
+</style>
+
 </head>
 <body>
 <!-- =========================================================
@@ -2749,9 +2783,7 @@ Places I've been. Food I love. Moments I've captured.
 A collection of the things that bring me joy.
 
 </p>
-<a class="hero-button" data-en="EXPLORE MY STORY →" data-th="ออกไปค้นพบเรื่องราวของฉัน →" href="#travel">
-EXPLORE MY STORY →
-</a>
+
 </div>
 <div class="hero-image">
 <img alt="FIFI STORY travel" data-en-alt="FIFI STORY travel" data-th-alt="FIFI STORY การเดินทาง" src="images/hero.jpg"/>
@@ -3148,9 +3180,9 @@ And someday, I hope FIFISTORY. can become more than a place to read my stories. 
 </p>
 </div>
 <div class="tagline">
-<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา">YOU BRING THE DREAM.</span>
+<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา" style="color:#123F8F !important;">YOU BRING THE DREAM.</span>
 <br/>
-<span data-en="I'LL HELP PLAN THE JOURNEY." data-th="ฉันจะช่วยวางแผนการเดินทางให้คุณ">I'LL HELP PLAN THE JOURNEY.</span>
+<span data-en="I'LL HELP PLAN THE JOURNEY." data-th="ฉันจะช่วยวางแผนการเดินทางให้คุณ" style="color:#F2B705 !important;">I'LL HELP PLAN THE JOURNEY.</span>
 </div>
 <p class="about-ending" data-en="This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours." data-th="นี่คือ FIFISTORY. โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยสร้างเรื่องราวการเดินทางของคุณด้วยเช่นกัน">
 
@@ -3358,8 +3390,14 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
             var th2 = "ฉันจะช่วยวางแผนการเดินทางให้คุณ";
 
             tagline.innerHTML = isThai
-                ? '<span>' + th1 + '</span><br><span>' + th2 + '</span>'
-                : '<span>' + en1 + '</span><br><span>' + en2 + '</span>';
+                ? '<span class="dream-line">' + th1 + '</span><br><span class="journey-line">' + th2 + '</span>'
+                : '<span class="dream-line">' + en1 + '</span><br><span class="journey-line">' + en2 + '</span>';
+
+            // Keep the exact requested colors after every language switch.
+            var dreamLine = tagline.querySelector(".dream-line");
+            var journeyLine = tagline.querySelector(".journey-line");
+            if (dreamLine) dreamLine.style.setProperty("color", "#123F8F", "important");
+            if (journeyLine) journeyLine.style.setProperty("color", "#F2B705", "important");
         }
 
         // Update image alt text when both language versions exist.
