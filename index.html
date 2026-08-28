@@ -2708,98 +2708,24 @@ header.scroll-hidden {
 
 </style>
 
-<style id="fifi-slogan-final-colors">
-/* FINAL requested slogan colors */
-[data-en="YOU BRING THE DREAM."] {
-  color: #123F8F !important;
-}
-[data-en="I’LL HELP PLAN THE JOURNEY."],
-[data-en="I'LL HELP PLAN THE JOURNEY."] {
-  color: #F2B705 !important;
-}
-/* Hide the Explore button if an older wrapper still exists */
-.explore-story,
-.explore-my-story,
-a[href="#travel"].explore,
-button.explore {
-  display: none !important;
-}
+<style>
+/* KOH SAMUI ALBUM — added only for the Koh Samui destination */
+.samui-album{display:none;margin-top:38px;padding:30px;border:1px solid rgba(18,62,89,.16);border-radius:26px;background:rgba(255,255,255,.72)}
+.samui-album.is-open{display:block}
+.samui-album-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}
+.samui-album-kicker{font-size:.75rem;font-weight:800;letter-spacing:.18em;color:#249BC2;margin-bottom:6px}
+.samui-album-title{margin:0;color:#123E59;font-family:'Lora',serif;font-size:2rem}
+.samui-album-close{border:1px solid #123E59;background:#FFF9ED;color:#123E59;border-radius:999px;padding:8px 15px;font:inherit;font-weight:700;cursor:pointer}
+.samui-album-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.samui-album-item{margin:0;overflow:hidden;border-radius:18px;background:#fff}
+.samui-album-item.cover{grid-column:span 2;grid-row:span 2}
+.samui-album-item img{width:100%;height:210px;object-fit:cover;display:block}
+.samui-album-item.cover img{height:434px}
+.samui-album-item figcaption{padding:10px 12px 12px;color:#123E59;font-size:.8rem;font-weight:700}
+.samui-card{cursor:pointer}
+@media(max-width:900px){.samui-album-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.samui-album-item.cover{grid-column:span 2;grid-row:auto}.samui-album-item.cover img{height:320px}}
+@media(max-width:560px){.samui-album-grid{grid-template-columns:1fr}.samui-album-item.cover{grid-column:span 1}.samui-album-item img,.samui-album-item.cover img{height:240px}}
 </style>
-
-
-<style id="fifi-final-slogan-lock">
-.tagline .dream-line {
-  color: #123F8F !important;
-}
-.tagline .journey-line {
-  color: #F2B705 !important;
-}
-/* The requested button must not appear. */
-.explore-story,
-.explore-my-story {
-  display: none !important;
-}
-</style>
-
-
-<style id="fifi-hero-text-balance">
-.hero-description {
-  display: inline-block;
-  position: relative;
-  padding: 24px 30px;
-  margin-top: 18px;
-  border: 1.5px solid rgba(18, 63, 143, 0.28);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.42);
-  line-height: 1.75;
-  letter-spacing: 0.04em;
-  box-shadow: 6px 8px 0 rgba(242, 183, 5, 0.16);
-}
-.hero-description::before {
-  content: "✦";
-  position: absolute;
-  top: -13px;
-  left: 22px;
-  padding: 0 8px;
-  background: #fffaf0;
-  color: #F2B705;
-  font-size: 18px;
-  line-height: 1;
-}
-.hero-description::after {
-  content: "✦";
-  position: absolute;
-  right: 20px;
-  bottom: -10px;
-  color: #123F8F;
-  font-size: 13px;
-}
-</style>
-
-
-<style id="fifi-logo-true-balance">
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.hero-copy h1 {
-  margin: 0 !important;
-  line-height: 0.82 !important;
-  position: relative;
-  z-index: 3;
-}
-.hero-copy .hero-script {
-  margin: -4px 0 0 34px !important;
-  line-height: 0.82 !important;
-  position: relative;
-  z-index: 3;
-}
-.hero-copy .hero-description {
-  margin-top: 30px !important;
-}
-</style>
-
 </head>
 <body>
 <!-- =========================================================
@@ -2818,8 +2744,12 @@ button.explore {
 <a data-en="✨ ABOUT FIFI" data-th="✨ เกี่ยวกับ FIFI" href="#about">✨ ABOUT FIFI</a>
 </div>
 <div class="nav-right">
-<button class="lang-btn" data-language="en">ENG</button>
-<button class="lang-btn" data-language="th">THAI</button>
+<button class="lang-btn" onclick="setLanguage('en')">
+ENG
+</button>
+<button class="lang-btn" onclick="setLanguage('th')">
+THAI
+</button>
 </div>
 </nav>
 </header>
@@ -2836,17 +2766,20 @@ A PERSONAL JOURNAL BY FIFI WARATTHAYA
 <div class="hero-script">
 Story
 </div>
-<p class="hero-description"
-data-en="DON’T WAIT FOR SOMEDAY.|GO SOMEWHERE.|TRY SOMETHING.|TASTE SOMETHING NEW.|TAKE THE PICTURE.|MAKE THE MEMORY."
-data-th="อย่ารอคำว่า “สักวันหนึ่ง”|อยากไป ก็ไป|อยากลอง ก็ลอง|อยากชิม ก็ลองชิม|อยากถ่าย ก็ถ่ายไว้|แล้วเก็บความทรงจำนั้นไว้">
-DON’T WAIT FOR SOMEDAY.<br>GO SOMEWHERE.<br>TRY SOMETHING.<br>TASTE SOMETHING NEW.<br>TAKE THE PICTURE.<br>MAKE THE MEMORY.
-</p>
+<p class="hero-description" data-en="Places I've been. Food I love. Moments I've captured. A collection of the things that bring me joy." data-th="สถานที่ที่ฉันเคยไป อาหารที่ฉันรัก และช่วงเวลาที่ฉันบันทึกไว้ เรื่องราวเล็ก ๆ จากสิ่งที่ทำให้ฉันมีความสุข">
 
+Places I've been. Food I love. Moments I've captured.
+A collection of the things that bring me joy.
+
+</p>
+<a class="hero-button" data-en="EXPLORE MY STORY →" data-th="ออกไปค้นพบเรื่องราวของฉัน →" href="#travel">
+EXPLORE MY STORY →
+</a>
 </div>
 <div class="hero-image">
-<img alt="FIFI STORY travel" data-en-alt="FIFI STORY travel" data-th-alt="FIFI STORY การเดินทาง" src="images/hero.jpg"/>
-<div class="hero-note" data-en="Do more of what makes you feel alive." data-th="ทำในสิ่งที่ทำให้คุณรู้สึกมีชีวิต">
-Do more of what makes you feel alive.
+<img alt="FIFI STORY travel" src="images/hero.jpg"/>
+<div class="hero-note" data-en="Collect moments, not things." data-th="เก็บช่วงเวลา ไม่ใช่สิ่งของ">
+Collect moments, not things.
 </div>
 </div>
 </section>
@@ -2971,8 +2904,8 @@ Places I've visited, memories I've collected, and destinations that have become 
 <p data-en="Island life, sea and tropical days." data-th="ชีวิตบนเกาะ ทะเล และวันพักผ่อนใต้แสงแดด">Island life, sea and tropical days.</p>
 </div>
 </article>
-<article class="destination-card" data-region="south">
-<img alt="Koh Samui" src="images/south.jpg"/>
+<article class="destination-card samui-card" data-region="south" role="button" tabindex="0" aria-controls="samui-album" aria-expanded="false">
+<img alt="Koh Samui" src="images/samui-01.jpg"/>
 <div class="destination-info">
 <h3 data-en="KOH SAMUI" data-th="เกาะสมุย">KOH SAMUI</h3>
 <p data-en="A tropical island escape." data-th="การพักผ่อนบนเกาะเขตร้อน">A tropical island escape.</p>
@@ -2995,6 +2928,27 @@ Places I've visited, memories I've collected, and destinations that have become 
 </div>
 </article>
 </div>
+
+<!-- KOH SAMUI ALBUM: the 8 photos supplied by FIFI. Only this travel destination is expanded. -->
+<section id="samui-album" class="samui-album" aria-label="Koh Samui photo album">
+  <div class="samui-album-head">
+    <div>
+      <div class="samui-album-kicker" data-en="KOH SAMUI" data-th="เกาะสมุย">KOH SAMUI</div>
+      <h3 class="samui-album-title" data-en="A LITTLE PIECE OF SAMUI." data-th="เรื่องราวเล็ก ๆ จากเกาะสมุย">A LITTLE PIECE OF SAMUI.</h3>
+    </div>
+    <button type="button" class="samui-album-close" data-en="CLOSE" data-th="ปิด">CLOSE</button>
+  </div>
+  <div class="samui-album-grid">
+    <figure class="samui-album-item cover"><img src="images/samui-01.jpg" alt="I LOVE SAMUI" data-en-alt="I LOVE SAMUI" data-th-alt="ฉันรักสมุย"><figcaption data-en="I LOVE SAMUI" data-th="ฉันรักสมุย">I LOVE SAMUI</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-02.jpg" alt="Koh Samui beach entrance" data-en-alt="Koh Samui beach entrance" data-th-alt="ทางลงหาดที่เกาะสมุย"><figcaption data-en="A WAY TO THE SEA." data-th="ทางลงสู่ทะเล">A WAY TO THE SEA.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-03.jpg" alt="Koh Samui palm trees" data-en-alt="Koh Samui palm trees" data-th-alt="ต้นมะพร้าวริมทะเลสมุย"><figcaption data-en="PALMS, SEA &amp; SKY." data-th="มะพร้าว ทะเล และท้องฟ้า">PALMS, SEA &amp; SKY.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-04.jpg" alt="Koh Samui beach and boats" data-en-alt="Koh Samui beach and boats" data-th-alt="ชายหาดและเรือที่เกาะสมุย"><figcaption data-en="ISLAND DAYS." data-th="วันธรรมดาบนเกาะ">ISLAND DAYS.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-05.jpg" alt="Koh Samui waterfall" data-en-alt="Koh Samui waterfall" data-th-alt="น้ำตกที่เกาะสมุย"><figcaption data-en="A QUIETER SIDE OF SAMUI." data-th="อีกมุมที่เงียบสงบของสมุย">A QUIETER SIDE OF SAMUI.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-06.jpg" alt="Koh Samui beach" data-en-alt="Koh Samui beach" data-th-alt="ชายหาดที่เกาะสมุย"><figcaption data-en="JUST BLUE." data-th="มีแค่สีฟ้า">JUST BLUE.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-07.jpg" alt="Koh Samui Buddha statue" data-en-alt="Koh Samui Buddha statue" data-th-alt="พระพุทธรูปที่เกาะสมุย"><figcaption data-en="PLACES I STOPPED." data-th="สถานที่ที่ฉันแวะไป">PLACES I STOPPED.</figcaption></figure>
+    <figure class="samui-album-item"><img src="images/samui-08.jpg" alt="Koh Samui temple statue" data-en-alt="Koh Samui temple statue" data-th-alt="รูปปั้นวัดที่เกาะสมุย"><figcaption data-en="LOOKING CLOSER." data-th="มองให้ใกล้ขึ้นอีกนิด">LOOKING CLOSER.</figcaption></figure>
+  </div>
+</section>
 </section>
 <!-- =========================================================
      FOOD
@@ -3029,7 +2983,7 @@ Let's eat around the world.
 </div>
 <div class="food-side">
 <article class="food-card">
-<img alt="Food I cook" data-en-alt="Food I cook" data-th-alt="อาหารที่ฉันทำ" src="images/food-1.jpg"/>
+<img alt="Food I cook" src="images/food-1.jpg"/>
 <div class="food-card-content">
 <h3 data-en="WHAT I COOK" data-th="อาหารที่ฉันทำ">
 
@@ -3044,7 +2998,7 @@ Simple meals made with love.
 </div>
 </article>
 <article class="food-card">
-<img alt="Restaurant" data-en-alt="Restaurant" data-th-alt="ร้านอาหาร" src="images/restaurant.jpg"/>
+<img alt="Restaurant" src="images/restaurant.jpg"/>
 <div class="food-card-content">
 <h3 data-en="WHERE I EAT" data-th="ร้านที่ฉันไป">
 
@@ -3078,37 +3032,37 @@ Photographs of places, people, food and little moments I want to remember.
 </p>
 <div class="photo-grid">
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-1.jpg"/>
+<img alt="FIFI photography" src="images/photo-1.jpg"/>
 <div class="photo-caption" data-en="TRAVEL" data-th="การเดินทาง">
 TRAVEL
 </div>
 </figure>
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-2.jpg"/>
+<img alt="FIFI photography" src="images/photo-2.jpg"/>
 <div class="photo-caption" data-en="MOMENTS" data-th="ช่วงเวลา">
 MOMENTS
 </div>
 </figure>
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-3.jpg"/>
+<img alt="FIFI photography" src="images/photo-3.jpg"/>
 <div class="photo-caption" data-en="PLACES" data-th="สถานที่">
 PLACES
 </div>
 </figure>
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-4.jpg"/>
+<img alt="FIFI photography" src="images/photo-4.jpg"/>
 <div class="photo-caption" data-en="SEA" data-th="ทะเล">
 SEA
 </div>
 </figure>
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-5.jpg"/>
+<img alt="FIFI photography" src="images/photo-5.jpg"/>
 <div class="photo-caption" data-en="FOOD" data-th="อาหาร">
 FOOD
 </div>
 </figure>
 <figure>
-<img alt="FIFI photography" data-en-alt="FIFI photography" data-th-alt="FIFI ภาพถ่าย" src="images/photo-6.jpg"/>
+<img alt="FIFI photography" src="images/photo-6.jpg"/>
 <div class="photo-caption" data-en="LIFE" data-th="ชีวิต">
 LIFE
 </div>
@@ -3206,10 +3160,10 @@ FIFI
 <p data-en="I love discovering those details for myself and I want to share what I learn with you." data-th="ฉันชอบค้นหาสิ่งเหล่านี้ด้วยตัวเอง และอยากนำสิ่งที่ฉันได้พบเจอมาแบ่งปันให้คุณ">I love discovering those details for myself and I want to share what I learn with you.</p>
 <p data-en="Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love." data-th="ทุกสถานที่ที่ฉันไป ร้านอาหารที่ฉันลอง ทุกภาพที่ฉันถ่าย และทุกประสบการณ์ที่ฉันได้พบ ล้วนกลายเป็นส่วนหนึ่งของเรื่องราวที่ค่อย ๆ เติบโตขึ้น เรื่องราวที่มาจากสถานที่จริง ประสบการณ์จริง และสิ่งที่ฉันรักจริง ๆ">Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love.</p>
 <p data-en="And someday, I hope FIFISTORY. can become more than a place to read my stories." data-th="และในอนาคต ฉันหวังว่า FIFISTORY. จะเป็นมากกว่าพื้นที่สำหรับอ่านเรื่องราวของฉัน">And someday, I hope FIFISTORY. can become more than a place to read my stories.</p>
-<p data-en="I want to help people who dream of travelling but simply don’t have the time to plan it all from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering." data-th="ฉันอยากช่วยคนที่ใฝ่ฝันอยากเดินทาง แต่ไม่มีเวลาวางแผนทุกอย่างด้วยตัวเอง ตั้งแต่การเลือกที่พักที่เหมาะสมและจัดทำแผนการเดินทาง ไปจนถึงการค้นหาเที่ยวบิน ร้านอาหาร ประสบการณ์ และรายละเอียดเล็ก ๆ ที่ทำให้ทริปหนึ่งคุ้มค่าและน่าจดจำ">I want to help people who dream of travelling but simply don’t have the time to plan it all from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering.</p>
+<p>I want to help people who dream of travelling but simply don’t have the time to plan it all from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering.</p>
 <p data-en="You bring the destination you dream about. I’ll help you turn it into a journey." data-th="คุณนำจุดหมายในฝันมา ฉันจะช่วยเปลี่ยนมันให้กลายเป็นการเดินทาง">You bring the destination you dream about.
 I’ll help you turn it into a journey.</p>
-<p data-en="This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours." data-th="นี่คือ FIFISTORY. โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยให้คุณสร้างเรื่องราวของคุณเอง">This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours.</p>
+<p>This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours.</p>
 <p data-en="I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours." data-th="ฉันสร้างพื้นที่นี้ขึ้นมา เพราะฉันเชื่อว่าการเดินทางไม่ใช่แค่การเลือกว่าจะไปที่ไหน แต่คือการรู้ว่าควรพักที่ไหน ควรไปที่ไหน กินอะไร ใช้เวลาอย่างไร และจะทำให้ทริปหนึ่งกลายเป็นความทรงจำที่ดีได้อย่างไร">
 
 I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours.
@@ -3238,9 +3192,11 @@ And someday, I hope FIFISTORY. can become more than a place to read my stories. 
 </p>
 </div>
 <div class="tagline">
-<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา" style="color:#123F8F !important;">YOU BRING THE DREAM.</span>
+<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา">YOU BRING THE DREAM.</span>
 <br/>
-<span data-en="I'LL HELP PLAN THE JOURNEY." data-th="ฉันจะช่วยวางแผนการเดินทางให้คุณ" style="color:#F2B705 !important;">I'LL HELP PLAN THE JOURNEY.</span>
+
+I'LL HELP PLAN THE JOURNEY.
+
 </div>
 <p class="about-ending" data-en="This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours." data-th="นี่คือ FIFISTORY. โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยสร้างเรื่องราวการเดินทางของคุณด้วยเช่นกัน">
 
@@ -3410,75 +3366,164 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
     }, { passive: true });
 })();
 </script>
-
-
 <script>
 /* =========================================================
-   FIFI STORY — SINGLE SOURCE OF TRUTH LANGUAGE SYSTEM
-   ENG = English only
-   THAI = Thai only
-   No mixed-language rendering.
+   FIFI STORY — FINAL FULL THAI / ENGLISH LANGUAGE SYSTEM
+   This controls ALL visible website copy without changing
+   the site's design, layout, colors, logo, or images.
 ========================================================= */
 (function () {
-    function setLanguage(lang) {
-        var isThai = lang === "th";
+    const translations = {
+        "HOME": "หน้าแรก",
+        "TRAVEL": "การเดินทาง",
+        "FOOD": "อาหาร",
+        "PHOTOGRAPHY": "ภาพถ่าย",
+        "ABOUT FIFI": "เกี่ยวกับ FIFI",
 
-        document.documentElement.lang = isThai ? "th" : "en";
+        "BANGKOK": "กรุงเทพฯ",
+        "CENTRAL": "ภาคกลาง",
+        "EAST": "ภาคตะวันออก",
+        "NORTH": "ภาคเหนือ",
+        "SOUTH": "ภาคใต้",
 
-        // Swap every element that has an English/Thai pair.
-        document.querySelectorAll("[data-en][data-th]").forEach(function (el) {
-            if (el.classList.contains("hero-description")) {
-                var lines = (isThai ? el.getAttribute("data-th") : el.getAttribute("data-en")).split("|");
-                el.innerHTML = lines.map(function (line) {
-                    return line.trim();
-                }).join("<br>");
-            } else {
-                el.textContent = isThai
-                    ? el.getAttribute("data-th")
-                    : el.getAttribute("data-en");
+        "AYUTTHAYA": "อยุธยา",
+        "PATTAYA": "พัทยา",
+        "KOH CHANG": "เกาะช้าง",
+        "KOH KOOD": "เกาะกูด",
+        "CHIANG MAI": "เชียงใหม่",
+        "NAN": "น่าน",
+        "PHANG NGA": "พังงา",
+        "PHUKET": "ภูเก็ต",
+        "KRABI": "กระบี่",
+        "KOH TAO": "เกาะเต่า",
+        "KOH SAMUI": "เกาะสมุย",
+        "KOH LANTA": "เกาะลันตา",
+        "KOH LIPE": "เกาะหลีเป๊ะ",
+
+        "COMING SOON · NOVEMBER": "COMING SOON · พฤศจิกายน",
+
+        "TRAVEL": "การเดินทาง",
+        "MOMENTS": "ช่วงเวลา",
+        "PLACES": "สถานที่",
+        "SEA": "ทะเล",
+        "LIFE": "ชีวิต",
+
+        "A PERSONAL JOURNAL BY FIFI WARATTHAYA": "บันทึกเรื่องราวโดย FIFI WARATTHAYA",
+        "EXPLORE MY STORY →": "ออกไปค้นพบเรื่องราวของฉัน →",
+        "Collect moments, not things.": "เก็บช่วงเวลา ไม่ใช่แค่สิ่งของ",
+
+        "01 — TRAVEL": "01 — การเดินทาง",
+        "PLACES I'VE BEEN.": "สถานที่ที่ฉันเคยไป",
+        "Places I've visited, memories I've collected, and destinations that have become part of my story.": "สถานที่ที่ฉันเคยไป ความทรงจำที่ฉันเก็บไว้ และจุดหมายที่กลายมาเป็นส่วนหนึ่งของเรื่องราวของฉัน",
+
+        "02 — FOOD": "02 — อาหาร",
+        "FOOD I LOVE.": "อาหารที่ฉันรัก",
+        "Things I cook, things I eat, restaurants I discover, and the little food moments that make me happy.": "อาหารที่ฉันทำ อาหารที่ฉันกิน ร้านอาหารที่ฉันค้นพบ และช่วงเวลาเล็ก ๆ ที่เกี่ยวกับอาหารซึ่งทำให้ฉันมีความสุข",
+        "GOOD FOOD GOOD MOOD.": "อาหารอร่อย อารมณ์ก็ดี",
+        "Let's eat around the world.": "มาทำความรู้จักโลกผ่านอาหารไปด้วยกัน",
+        "WHAT I COOK": "อาหารที่ฉันทำ",
+        "Simple meals made with love.": "อาหารง่าย ๆ ที่ทำด้วยความรัก",
+        "WHERE I EAT": "ร้านที่ฉันไป",
+        "Restaurants and places worth discovering.": "ร้านอาหารและสถานที่ที่ฉันอยากบอกต่อ",
+
+        "03 — PHOTOGRAPHY": "03 — ภาพถ่าย",
+        "THROUGH MY CAMERA.": "โลกผ่านกล้องของฉัน",
+        "Photographs of places, people, food and little moments I want to remember.": "ภาพถ่ายของสถานที่ ผู้คน อาหาร และช่วงเวลาเล็ก ๆ ที่ฉันอยากเก็บไว้",
+
+        "05 — MY WORLD": "05 — โลกของฉัน",
+        "A COLLECTION OF WHAT I LOVE.": "สิ่งต่าง ๆ ที่ฉันรัก",
+        "TRAVEL STORIES": "เรื่องราวการเดินทาง",
+        "FOOD": "อาหาร",
+        "PHOTOGRAPHY": "ภาพถ่าย",
+        "LITTLE MOMENTS": "ช่วงเวลาเล็ก ๆ",
+        "The world through my camera.": "โลกในมุมมองผ่านกล้องของฉัน",
+        "Things I love, enjoy and want to remember.": "สิ่งที่ฉันรัก มีความสุขกับมัน และอยากจดจำ",
+
+        "ABOUT FIFI ✦": "เกี่ยวกับ FIFI ✦",
+        "MORE THAN A TRAVEL STORY.": "มากกว่าเรื่องราวของการเดินทาง",
+
+        "I created this space because I believe that travelling is about more than simply choosing a destination. It's about knowing where to stay, what is worth seeing, where to eat, how to spend your time, and finding the little details that make a trip feel truly yours.": "ฉันสร้างพื้นที่นี้ขึ้นมา เพราะฉันเชื่อว่าการเดินทางไม่ใช่แค่การเลือกว่าจะไปที่ไหน แต่คือการรู้ว่าควรพักที่ไหน ควรไปที่ไหน กินอะไร ใช้เวลาอย่างไร และจะทำให้ทริปหนึ่งกลายเป็นความทรงจำที่ดีได้อย่างไร",
+        "I love discovering those details for myself and I want to share what I learn with you.": "ฉันชอบค้นหาสิ่งเหล่านี้ด้วยตัวเอง และอยากนำสิ่งที่ฉันได้พบเจอมาแบ่งปันให้คุณ",
+        "Every place I visit, every restaurant I try, every photograph I take, and every experience I collect becomes part of a growing story. A story built from real places, real experiences, and things I genuinely love.": "ทุกสถานที่ที่ฉันไป ร้านอาหารที่ฉันลอง ทุกภาพที่ฉันถ่าย และทุกประสบการณ์ที่ฉันได้พบ ล้วนกลายเป็นส่วนหนึ่งของเรื่องราวที่ค่อย ๆ เติบโตขึ้น เรื่องราวที่มาจากสถานที่จริง ประสบการณ์จริง และสิ่งที่ฉันรักจริง ๆ",
+        "And someday, I hope FIFISTORY. can become more than a place to read my stories. I want to help people who dream of travelling but simply don't have the time to plan it all from choosing the right places to stay and creating an itinerary, to finding flights, restaurants, experiences, and the little details that make a trip worth remembering.": "และในอนาคต ฉันอยากให้ FIFISTORY. เป็นมากกว่าพื้นที่สำหรับเล่าเรื่องของฉัน ฉันอยากช่วยคนที่อยากออกเดินทาง แต่ไม่มีเวลาวางแผนทุกอย่างด้วยตัวเอง ตั้งแต่การเลือกที่พัก วางเส้นทางและตารางการเดินทาง ค้นหาเที่ยวบิน ร้านอาหาร สถานที่ที่ควรไป ไปจนถึงประสบการณ์เล็ก ๆ ที่จะทำให้ทริปนั้นพิเศษขึ้น",
+        "A JOURNEY I'M BUILDING.": "การเดินทางที่ฉันกำลังสร้าง",
+        "This is FIFISTORY. my world, my experiences, and eventually, a way to help you create yours.": "นี่คือ FIFISTORY. โลกของฉัน ประสบการณ์ของฉัน และในวันหนึ่ง ฉันหวังว่าจะได้ช่วยสร้างเรื่องราวการเดินทางของคุณด้วยเช่นกัน",
+        "YOU BRING THE DREAM.": "คุณนำจุดหมายในฝันมา",
+        "I'LL HELP PLAN THE JOURNEY.": "ฉันจะช่วยวางแผนการเดินทางให้คุณ",
+
+        "FIFISTORY. is a collection of the places I’ve been, the food I love, the restaurants I discover, the meals I create, and the moments I capture along the way.": "FIFISTORY. คือเรื่องราวที่รวบรวมสถานที่ที่ฉันเคยไป อาหารที่ฉันรัก ร้านอาหารที่ฉันค้นพบ มื้ออาหารที่ฉันทำ และช่วงเวลาที่ฉันบันทึกไว้ระหว่างการเดินทาง",
+        "You bring the destination you dream about.\nI’ll help you turn it into a journey.": "คุณนำจุดหมายที่คุณใฝ่ฝันมา\nฉันจะช่วยเปลี่ยนมันให้กลายเป็นการเดินทาง",
+
+        "© 2026 FIFISTORY. — Made by FIFI.": "© 2026 FIFISTORY. — สร้างโดย FIFI"
+    };
+
+    // Add translations to visible elements that were previously missing them.
+    function prepareTranslations() {
+        document.querySelectorAll("h1,h2,h3,h4,p,span,a,div,button").forEach(function (el) {
+            if (el.children.length > 0) return;
+
+            const original = (el.textContent || "").replace(/\s+/g, " ").trim();
+            if (!original) return;
+
+            if (translations[original] && !el.hasAttribute("data-en")) {
+                el.setAttribute("data-en", original);
+                el.setAttribute("data-th", translations[original]);
             }
         });
 
-        // Coming-soon labels.
-        document.querySelectorAll(".coming-badge").forEach(function (el) {
-            el.textContent = isThai
-                ? "กำลังจะมา · พฤศจิกายน"
-                : "COMING SOON · NOVEMBER";
+        // Special handling for destination names and region tabs.
+        document.querySelectorAll(".travel-tab, .destination-info h3").forEach(function (el) {
+            const original = el.textContent.trim();
+            if (translations[original]) {
+                el.setAttribute("data-en", original);
+                el.setAttribute("data-th", translations[original]);
+            }
         });
 
-        // Fix the ABOUT FIFI tagline as a complete block.
-        var tagline = document.querySelector(".tagline");
+        // Coming-soon badge.
+        document.querySelectorAll(".coming-badge").forEach(function (el) {
+            el.setAttribute("data-en", "COMING SOON · NOVEMBER");
+            el.setAttribute("data-th", "กำลังจะมา · พฤศจิกายน");
+        });
+
+        // About tagline has a separate span + plain text node.
+        const tagline = document.querySelector(".tagline");
         if (tagline) {
-            var en1 = "YOU BRING THE DREAM.";
-            var th1 = "คุณนำจุดหมายในฝันมา";
-            var en2 = "I'LL HELP PLAN THE JOURNEY.";
-            var th2 = "ฉันจะช่วยวางแผนการเดินทางให้คุณ";
+            const span = tagline.querySelector("span");
+            if (span) {
+                span.setAttribute("data-en", "YOU BRING THE DREAM.");
+                span.setAttribute("data-th", "คุณนำจุดหมายในฝันมา");
+            }
+            const br = tagline.querySelector("br");
+            if (br && br.nextSibling) {
+                br.nextSibling.textContent = "\nฉันจะช่วยวางแผนการเดินทางให้คุณ";
+            }
+        }
+    }
 
-            tagline.innerHTML = isThai
-                ? '<span class="dream-line">' + th1 + '</span><br><span class="journey-line">' + th2 + '</span>'
-                : '<span class="dream-line">' + en1 + '</span><br><span class="journey-line">' + en2 + '</span>';
+    function setLanguage(lang) {
+        prepareTranslations();
+        const thai = lang === "th";
+        document.documentElement.lang = thai ? "th" : "en";
 
-            // Keep the exact requested colors after every language switch.
-            var dreamLine = tagline.querySelector(".dream-line");
-            var journeyLine = tagline.querySelector(".journey-line");
-            if (dreamLine) dreamLine.style.setProperty("color", "#123F8F", "important");
-            if (journeyLine) journeyLine.style.setProperty("color", "#F2B705", "important");
+        document.querySelectorAll("[data-en][data-th]").forEach(function (el) {
+            const value = thai ? el.getAttribute("data-th") : el.getAttribute("data-en");
+            if (value !== null) el.textContent = value;
+        });
+
+        // Restore the tagline as a two-line block.
+        const tagline = document.querySelector(".tagline");
+        if (tagline) {
+            tagline.innerHTML = thai
+                ? '<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา">คุณนำจุดหมายในฝันมา</span><br>ฉันจะช่วยวางแผนการเดินทางให้คุณ'
+                : '<span data-en="YOU BRING THE DREAM." data-th="คุณนำจุดหมายในฝันมา">YOU BRING THE DREAM.</span><br>I\'LL HELP PLAN THE JOURNEY.';
         }
 
-        // Update image alt text when both language versions exist.
-        document.querySelectorAll("[data-en-alt][data-th-alt]").forEach(function (el) {
-            el.setAttribute(
-                "alt",
-                isThai ? el.getAttribute("data-th-alt")
-                       : el.getAttribute("data-en-alt")
-            );
-        });
-
-        // Language controls remain ENG / THAI.
         document.querySelectorAll(".lang-btn").forEach(function (btn) {
-            btn.classList.toggle(
-                "active",
-                btn.getAttribute("data-language") === lang
+            const label = btn.textContent.trim().toUpperCase();
+            btn.classList.toggle("active",
+                (thai && (label === "THAI" || label === "ไทย")) ||
+                (!thai && label === "ENG")
             );
         });
 
@@ -3487,34 +3532,140 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
         } catch (e) {}
     }
 
-    function initLanguage() {
-        document.querySelectorAll(".lang-btn").forEach(function (btn) {
-            // Remove any leftover inline handlers.
-            btn.removeAttribute("onclick");
+    // Override the original function so old code cannot switch only part of the page.
+    window.setLanguage = setLanguage;
 
-            btn.addEventListener("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                setLanguage(btn.getAttribute("data-language") === "th" ? "th" : "en");
+    document.addEventListener("DOMContentLoaded", function () {
+        // Remove inline handlers and use the final controller.
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            const text = btn.textContent.trim().toUpperCase();
+            const lang = (text === "THAI" || text === "ไทย") ? "th" : "en";
+
+            btn.removeAttribute("onclick");
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                setLanguage(lang);
             }, true);
         });
 
-        var saved = "en";
+        let saved = "en";
         try {
             saved = localStorage.getItem("fifiLanguage") || "en";
         } catch (e) {}
 
         setLanguage(saved === "th" ? "th" : "en");
-        window.setLanguage = setLanguage;
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initLanguage);
-    } else {
-        initLanguage();
-    }
+    });
 })();
 </script>
 
+
+
+
+
+<script>
+/* =========================================================
+   FIFI STORY — ONE FINAL LANGUAGE CONTROLLER
+   THAI means the visible website content is Thai.
+   This runs in capture phase so older language handlers
+   cannot immediately change the text back to English.
+========================================================= */
+(function () {
+    const NAV_TH = {
+        "HOME": "หน้าแรก",
+        "TRAVEL": "การเดินทาง",
+        "FOOD": "อาหาร",
+        "PHOTOGRAPHY": "ภาพถ่าย",
+        "ABOUT FIFI": "เกี่ยวกับ FIFI"
+    };
+
+    function applyLanguage(lang) {
+        const thai = lang === "th";
+        document.documentElement.lang = thai ? "th" : "en";
+
+        // The source of truth is data-en / data-th on the actual visible element.
+        document.querySelectorAll("[data-en][data-th]").forEach(function (el) {
+            el.textContent = thai
+                ? el.getAttribute("data-th")
+                : el.getAttribute("data-en");
+        });
+
+        // Navigation labels: Thai mode = Thai text only.
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            const original = (btn.getAttribute("data-lang") || btn.textContent || "")
+                .trim().toLowerCase();
+
+            // Keep the language controls themselves as ENG / THAI.
+            btn.classList.toggle("active",
+                thai ? (original === "th" || original === "thai" || original === "ไทย")
+                     : (original === "en" || original === "eng" || original === "english")
+            );
+        });
+
+        // Coming-soon labels.
+        document.querySelectorAll(".coming-badge").forEach(function (el) {
+            el.textContent = thai ? "กำลังจะมา · พฤศจิกายน" : "COMING SOON · NOVEMBER";
+        });
+
+        try {
+            localStorage.setItem("fifiLanguageFinal", lang);
+        } catch (e) {}
+    }
+
+    function detectButtonLanguage(btn) {
+        const data = (btn.getAttribute("data-lang") || "").trim().toLowerCase();
+        const text = (btn.textContent || "").trim().toLowerCase();
+
+        if (data === "th" || data === "thai" || data === "ไทย" ||
+            text === "thai" || text === "ไทย") return "th";
+
+        return "en";
+    }
+
+    document.addEventListener("click", function (event) {
+        const btn = event.target.closest && event.target.closest(".lang-btn");
+        if (!btn) return;
+
+        // Stop ALL older inline/attached language handlers.
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        const lang = detectButtonLanguage(btn);
+        applyLanguage(lang);
+    }, true);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Disable old inline handlers on both language buttons.
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            btn.setAttribute("data-lang", detectButtonLanguage(btn));
+            btn.removeAttribute("onclick");
+        });
+
+        // Restore the visitor's last selected language.
+        let saved = "en";
+        try {
+            saved = localStorage.getItem("fifiLanguageFinal") || "en";
+        } catch (e) {}
+
+        applyLanguage(saved === "th" ? "th" : "en");
+    });
+})();
+</script>
+
+
+<script>
+/* KOH SAMUI ALBUM — open only from the Samui card */
+(function(){
+  const card=document.querySelector('.samui-card');
+  const album=document.getElementById('samui-album');
+  const close=album?album.querySelector('.samui-album-close'):null;
+  if(!card||!album||!close)return;
+  function openAlbum(){album.classList.add('is-open');card.setAttribute('aria-expanded','true');setTimeout(()=>album.scrollIntoView({behavior:'smooth',block:'start'}),50);}
+  function closeAlbum(){album.classList.remove('is-open');card.setAttribute('aria-expanded','false');}
+  card.addEventListener('click',openAlbum);
+  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAlbum();}});
+  close.addEventListener('click',closeAlbum);
+})();
+</script>
 </body>
 </html>
