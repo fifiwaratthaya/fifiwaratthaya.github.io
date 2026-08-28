@@ -2741,6 +2741,65 @@ button.explore {
 }
 </style>
 
+
+<style id="fifi-hero-text-balance">
+.hero-description {
+  display: inline-block;
+  position: relative;
+  padding: 24px 30px;
+  margin-top: 18px;
+  border: 1.5px solid rgba(18, 63, 143, 0.28);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.42);
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  box-shadow: 6px 8px 0 rgba(242, 183, 5, 0.16);
+}
+.hero-description::before {
+  content: "✦";
+  position: absolute;
+  top: -13px;
+  left: 22px;
+  padding: 0 8px;
+  background: #fffaf0;
+  color: #F2B705;
+  font-size: 18px;
+  line-height: 1;
+}
+.hero-description::after {
+  content: "✦";
+  position: absolute;
+  right: 20px;
+  bottom: -10px;
+  color: #123F8F;
+  font-size: 13px;
+}
+</style>
+
+
+<style id="fifi-logo-true-balance">
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-copy h1 {
+  margin: 0 !important;
+  line-height: 0.82 !important;
+  position: relative;
+  z-index: 3;
+}
+.hero-copy .hero-script {
+  margin: -4px 0 0 34px !important;
+  line-height: 0.82 !important;
+  position: relative;
+  z-index: 3;
+}
+.hero-copy .hero-description {
+  margin-top: 30px !important;
+}
+</style>
+
 </head>
 <body>
 <!-- =========================================================
@@ -2777,18 +2836,17 @@ A PERSONAL JOURNAL BY FIFI WARATTHAYA
 <div class="hero-script">
 Story
 </div>
-<p class="hero-description" data-en="Places I've been. Food I love. Moments I've captured. A collection of the things that bring me joy." data-th="สถานที่ที่ฉันเคยไป อาหารที่ฉันรัก และช่วงเวลาที่ฉันบันทึกไว้ เรื่องราวเล็ก ๆ จากสิ่งที่ทำให้ฉันมีความสุข">
-
-Places I've been. Food I love. Moments I've captured.
-A collection of the things that bring me joy.
-
+<p class="hero-description"
+data-en="DON’T WAIT FOR SOMEDAY.|GO SOMEWHERE.|TRY SOMETHING.|TASTE SOMETHING NEW.|TAKE THE PICTURE.|MAKE THE MEMORY."
+data-th="อย่ารอคำว่า “สักวันหนึ่ง”|อยากไป ก็ไป|อยากลอง ก็ลอง|อยากชิม ก็ลองชิม|อยากถ่าย ก็ถ่ายไว้|แล้วเก็บความทรงจำนั้นไว้">
+DON’T WAIT FOR SOMEDAY.<br>GO SOMEWHERE.<br>TRY SOMETHING.<br>TASTE SOMETHING NEW.<br>TAKE THE PICTURE.<br>MAKE THE MEMORY.
 </p>
 
 </div>
 <div class="hero-image">
 <img alt="FIFI STORY travel" data-en-alt="FIFI STORY travel" data-th-alt="FIFI STORY การเดินทาง" src="images/hero.jpg"/>
-<div class="hero-note" data-en="Collect moments, not things." data-th="เก็บช่วงเวลา ไม่ใช่สิ่งของ">
-Collect moments, not things.
+<div class="hero-note" data-en="Do more of what makes you feel alive." data-th="ทำในสิ่งที่ทำให้คุณรู้สึกมีชีวิต">
+Do more of what makes you feel alive.
 </div>
 </div>
 </section>
@@ -3369,9 +3427,16 @@ document.querySelectorAll(".destination-card").forEach(function(card) {
 
         // Swap every element that has an English/Thai pair.
         document.querySelectorAll("[data-en][data-th]").forEach(function (el) {
-            el.textContent = isThai
-                ? el.getAttribute("data-th")
-                : el.getAttribute("data-en");
+            if (el.classList.contains("hero-description")) {
+                var lines = (isThai ? el.getAttribute("data-th") : el.getAttribute("data-en")).split("|");
+                el.innerHTML = lines.map(function (line) {
+                    return line.trim();
+                }).join("<br>");
+            } else {
+                el.textContent = isThai
+                    ? el.getAttribute("data-th")
+                    : el.getAttribute("data-en");
+            }
         });
 
         // Coming-soon labels.
